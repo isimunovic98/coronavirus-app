@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C5E2600CB860034A798 /* AppDelegate.swift */; };
-		602F4C612600CB860034A798 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C602600CB860034A798 /* SceneDelegate.swift */; };
-		602F4C632600CB860034A798 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C622600CB860034A798 /* ViewController.swift */; };
-		602F4C662600CB860034A798 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C642600CB860034A798 /* Main.storyboard */; };
 		602F4C682600CB870034A798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C672600CB870034A798 /* Assets.xcassets */; };
 		602F4C6B2600CB870034A798 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C692600CB870034A798 /* LaunchScreen.storyboard */; };
 		602F4C762600CB870034A798 /* CoronaVirusAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C752600CB870034A798 /* CoronaVirusAppTests.swift */; };
@@ -37,9 +34,6 @@
 /* Begin PBXFileReference section */
 		602F4C5B2600CB860034A798 /* CoronaVirusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaVirusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602F4C5E2600CB860034A798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		602F4C602600CB860034A798 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		602F4C622600CB860034A798 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		602F4C652600CB860034A798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		602F4C672600CB870034A798 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		602F4C6A2600CB870034A798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		602F4C6C2600CB870034A798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,13 +93,7 @@
 		602F4C5D2600CB860034A798 /* CoronaVirusApp */ = {
 			isa = PBXGroup;
 			children = (
-				602F4C5E2600CB860034A798 /* AppDelegate.swift */,
-				602F4C602600CB860034A798 /* SceneDelegate.swift */,
-				602F4C622600CB860034A798 /* ViewController.swift */,
-				602F4C642600CB860034A798 /* Main.storyboard */,
-				602F4C672600CB870034A798 /* Assets.xcassets */,
-				602F4C692600CB870034A798 /* LaunchScreen.storyboard */,
-				602F4C6C2600CB870034A798 /* Info.plist */,
+				602F4C9A2600CBD30034A798 /* Support */,
 			);
 			path = CoronaVirusApp;
 			sourceTree = "<group>";
@@ -126,6 +114,17 @@
 				602F4C822600CB870034A798 /* Info.plist */,
 			);
 			path = CoronaVirusAppUITests;
+			sourceTree = "<group>";
+		};
+		602F4C9A2600CBD30034A798 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				602F4C5E2600CB860034A798 /* AppDelegate.swift */,
+				602F4C672600CB870034A798 /* Assets.xcassets */,
+				602F4C692600CB870034A798 /* LaunchScreen.storyboard */,
+				602F4C6C2600CB870034A798 /* Info.plist */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +232,6 @@
 			files = (
 				602F4C6B2600CB870034A798 /* LaunchScreen.storyboard in Resources */,
 				602F4C682600CB870034A798 /* Assets.xcassets in Resources */,
-				602F4C662600CB860034A798 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				602F4C632600CB860034A798 /* ViewController.swift in Sources */,
 				602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */,
-				602F4C612600CB860034A798 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +292,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		602F4C642600CB860034A798 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				602F4C652600CB860034A798 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		602F4C692600CB870034A798 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -437,7 +425,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CoronaVirusApp/Info.plist;
+				INFOPLIST_FILE = CoronaVirusApp/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,7 +443,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CoronaVirusApp/Info.plist;
+				INFOPLIST_FILE = CoronaVirusApp/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
