@@ -1,11 +1,11 @@
-target 'coronavirus-app' do
+target 'CoronaVirusApp' do
      use_frameworks!
     pod 'Alamofire'
     pod 'SnapKit'
     pod 'Kingfisher'
 end
 
-target 'coronavirus-appTests' do
+target 'CoronaVirusAppTests' do
     use_frameworks!
     pod 'Cuckoo'
     pod 'Quick'
