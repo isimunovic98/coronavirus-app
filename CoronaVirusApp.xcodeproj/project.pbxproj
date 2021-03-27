@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,8 @@
 		602F4C682600CB870034A798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C672600CB870034A798 /* Assets.xcassets */; };
 		602F4C6B2600CB870034A798 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C692600CB870034A798 /* LaunchScreen.storyboard */; };
 		602F4C762600CB870034A798 /* CoronaVirusAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C752600CB870034A798 /* CoronaVirusAppTests.swift */; };
-		602F4C812600CB870034A798 /* CoronaVirusAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C802600CB870034A798 /* CoronaVirusAppUITests.swift */; };
+		B762BAFA626927774FB1EE54 /* Pods_CoronaVirusAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E68AE4172489161E429834B8 /* Pods_CoronaVirusAppTests.framework */; };
+		F726305C1EAC6FC0130DD7C3 /* Pods_CoronaVirusApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E94E7FCB026138087CB563 /* Pods_CoronaVirusApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,16 +23,10 @@
 			remoteGlobalIDString = 602F4C5A2600CB860034A798;
 			remoteInfo = CoronaVirusApp;
 		};
-		602F4C7D2600CB870034A798 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 602F4C532600CB860034A798 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 602F4C5A2600CB860034A798;
-			remoteInfo = CoronaVirusApp;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		57F89CF7DF78AC38F950C846 /* Pods-CoronaVirusApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusApp.debug.xcconfig"; path = "Target Support Files/Pods-CoronaVirusApp/Pods-CoronaVirusApp.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C5B2600CB860034A798 /* CoronaVirusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaVirusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602F4C5E2600CB860034A798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		602F4C672600CB870034A798 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,9 +35,11 @@
 		602F4C712600CB870034A798 /* CoronaVirusAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoronaVirusAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		602F4C752600CB870034A798 /* CoronaVirusAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoronaVirusAppTests.swift; sourceTree = "<group>"; };
 		602F4C772600CB870034A798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		602F4C7C2600CB870034A798 /* CoronaVirusAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoronaVirusAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		602F4C802600CB870034A798 /* CoronaVirusAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoronaVirusAppUITests.swift; sourceTree = "<group>"; };
-		602F4C822600CB870034A798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67E94E7FCB026138087CB563 /* Pods_CoronaVirusApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoronaVirusApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6906D5EDE500FD676CF8F5AA /* Pods-CoronaVirusAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusAppTests.debug.xcconfig"; path = "Target Support Files/Pods-CoronaVirusAppTests/Pods-CoronaVirusAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7C25D35AE51B13565C77EAC8 /* Pods-CoronaVirusAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusAppTests.release.xcconfig"; path = "Target Support Files/Pods-CoronaVirusAppTests/Pods-CoronaVirusAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		C051C46FEC0F29086B48C3B6 /* Pods-CoronaVirusApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusApp.release.xcconfig"; path = "Target Support Files/Pods-CoronaVirusApp/Pods-CoronaVirusApp.release.xcconfig"; sourceTree = "<group>"; };
+		E68AE4172489161E429834B8 /* Pods_CoronaVirusAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoronaVirusAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F726305C1EAC6FC0130DD7C3 /* Pods_CoronaVirusApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,26 +55,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		602F4C792600CB870034A798 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				B762BAFA626927774FB1EE54 /* Pods_CoronaVirusAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		177F832A5D32E8BEF54B406A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67E94E7FCB026138087CB563 /* Pods_CoronaVirusApp.framework */,
+				E68AE4172489161E429834B8 /* Pods_CoronaVirusAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		333D94AFF454D15CC16DEF5A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57F89CF7DF78AC38F950C846 /* Pods-CoronaVirusApp.debug.xcconfig */,
+				C051C46FEC0F29086B48C3B6 /* Pods-CoronaVirusApp.release.xcconfig */,
+				6906D5EDE500FD676CF8F5AA /* Pods-CoronaVirusAppTests.debug.xcconfig */,
+				7C25D35AE51B13565C77EAC8 /* Pods-CoronaVirusAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		602F4C522600CB860034A798 = {
 			isa = PBXGroup;
 			children = (
 				602F4C5D2600CB860034A798 /* CoronaVirusApp */,
 				602F4C742600CB870034A798 /* CoronaVirusAppTests */,
-				602F4C7F2600CB870034A798 /* CoronaVirusAppUITests */,
 				602F4C5C2600CB860034A798 /* Products */,
+				333D94AFF454D15CC16DEF5A /* Pods */,
+				177F832A5D32E8BEF54B406A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,7 +98,6 @@
 			children = (
 				602F4C5B2600CB860034A798 /* CoronaVirusApp.app */,
 				602F4C712600CB870034A798 /* CoronaVirusAppTests.xctest */,
-				602F4C7C2600CB870034A798 /* CoronaVirusAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,15 +119,6 @@
 			path = CoronaVirusAppTests;
 			sourceTree = "<group>";
 		};
-		602F4C7F2600CB870034A798 /* CoronaVirusAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				602F4C802600CB870034A798 /* CoronaVirusAppUITests.swift */,
-				602F4C822600CB870034A798 /* Info.plist */,
-			);
-			path = CoronaVirusAppUITests;
-			sourceTree = "<group>";
-		};
 		602F4C9A2600CBD30034A798 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,9 +137,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 602F4C852600CB870034A798 /* Build configuration list for PBXNativeTarget "CoronaVirusApp" */;
 			buildPhases = (
+				F45EB3AAE70841AA8B77C22B /* [CP] Check Pods Manifest.lock */,
 				602F4C572600CB860034A798 /* Sources */,
 				602F4C582600CB860034A798 /* Frameworks */,
 				602F4C592600CB860034A798 /* Resources */,
+				D25F71D401592FA03A5559C2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,9 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 602F4C882600CB870034A798 /* Build configuration list for PBXNativeTarget "CoronaVirusAppTests" */;
 			buildPhases = (
+				2B5E3FF38E0221CDCB5E07D9 /* [CP] Check Pods Manifest.lock */,
 				602F4C6D2600CB870034A798 /* Sources */,
 				602F4C6E2600CB870034A798 /* Frameworks */,
 				602F4C6F2600CB870034A798 /* Resources */,
+				0A8B196AC97C32BEA88ABF42 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -164,24 +171,6 @@
 			productName = CoronaVirusAppTests;
 			productReference = 602F4C712600CB870034A798 /* CoronaVirusAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		602F4C7B2600CB870034A798 /* CoronaVirusAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 602F4C8B2600CB870034A798 /* Build configuration list for PBXNativeTarget "CoronaVirusAppUITests" */;
-			buildPhases = (
-				602F4C782600CB870034A798 /* Sources */,
-				602F4C792600CB870034A798 /* Frameworks */,
-				602F4C7A2600CB870034A798 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				602F4C7E2600CB870034A798 /* PBXTargetDependency */,
-			);
-			name = CoronaVirusAppUITests;
-			productName = CoronaVirusAppUITests;
-			productReference = 602F4C7C2600CB870034A798 /* CoronaVirusAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -196,10 +185,6 @@
 						CreatedOnToolsVersion = 12.4;
 					};
 					602F4C702600CB870034A798 = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = 602F4C5A2600CB860034A798;
-					};
-					602F4C7B2600CB870034A798 = {
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = 602F4C5A2600CB860034A798;
 					};
@@ -220,7 +205,6 @@
 			targets = (
 				602F4C5A2600CB860034A798 /* CoronaVirusApp */,
 				602F4C702600CB870034A798 /* CoronaVirusAppTests */,
-				602F4C7B2600CB870034A798 /* CoronaVirusAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -242,14 +226,88 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		602F4C7A2600CB870034A798 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A8B196AC97C32BEA88ABF42 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoronaVirusAppTests/Pods-CoronaVirusAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoronaVirusAppTests/Pods-CoronaVirusAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoronaVirusAppTests/Pods-CoronaVirusAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+		2B5E3FF38E0221CDCB5E07D9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoronaVirusAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D25F71D401592FA03A5559C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoronaVirusApp/Pods-CoronaVirusApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoronaVirusApp/Pods-CoronaVirusApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoronaVirusApp/Pods-CoronaVirusApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F45EB3AAE70841AA8B77C22B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoronaVirusApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		602F4C572600CB860034A798 /* Sources */ = {
@@ -268,14 +326,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		602F4C782600CB870034A798 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				602F4C812600CB870034A798 /* CoronaVirusAppUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -283,11 +333,6 @@
 			isa = PBXTargetDependency;
 			target = 602F4C5A2600CB860034A798 /* CoronaVirusApp */;
 			targetProxy = 602F4C722600CB870034A798 /* PBXContainerItemProxy */;
-		};
-		602F4C7E2600CB870034A798 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 602F4C5A2600CB860034A798 /* CoronaVirusApp */;
-			targetProxy = 602F4C7D2600CB870034A798 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -421,6 +466,7 @@
 		};
 		602F4C862600CB870034A798 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57F89CF7DF78AC38F950C846 /* Pods-CoronaVirusApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -439,6 +485,7 @@
 		};
 		602F4C872600CB870034A798 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C051C46FEC0F29086B48C3B6 /* Pods-CoronaVirusApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -457,6 +504,7 @@
 		};
 		602F4C892600CB870034A798 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6906D5EDE500FD676CF8F5AA /* Pods-CoronaVirusAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -478,6 +526,7 @@
 		};
 		602F4C8A2600CB870034A798 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C25D35AE51B13565C77EAC8 /* Pods-CoronaVirusAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -494,44 +543,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoronaVirusApp.app/CoronaVirusApp";
-			};
-			name = Release;
-		};
-		602F4C8C2600CB870034A798 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CoronaVirusAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.CoronaVirusAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CoronaVirusApp;
-			};
-			name = Debug;
-		};
-		602F4C8D2600CB870034A798 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CoronaVirusAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.CoronaVirusAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CoronaVirusApp;
 			};
 			name = Release;
 		};
@@ -561,15 +572,6 @@
 			buildConfigurations = (
 				602F4C892600CB870034A798 /* Debug */,
 				602F4C8A2600CB870034A798 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		602F4C8B2600CB870034A798 /* Build configuration list for PBXNativeTarget "CoronaVirusAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				602F4C8C2600CB870034A798 /* Debug */,
-				602F4C8D2600CB870034A798 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
