@@ -22,6 +22,9 @@
 		0297B7C02615CFED00BB40A9 /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7BF2615CFED00BB40A9 /* RestManager.swift */; };
 		0297B7C52615D00900BB40A9 /* SerializationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7C42615D00900BB40A9 /* SerializationManager.swift */; };
 		0297B7CC2615D03F00BB40A9 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7CB2615D03F00BB40A9 /* UserDefaultsService.swift */; };
+		0297B7F42615ECF700BB40A9 /* CountrySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7F32615ECF700BB40A9 /* CountrySelectionViewController.swift */; };
+		0297B8022615EFD900BB40A9 /* CountrySelectionMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B8012615EFD900BB40A9 /* CountrySelectionMainView.swift */; };
+		0297B8082615FFA900BB40A9 /* CountrySelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B8072615FFA900BB40A9 /* CountrySelectionTableViewCell.swift */; };
 		602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C5E2600CB860034A798 /* AppDelegate.swift */; };
 		602F4C682600CB870034A798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C672600CB870034A798 /* Assets.xcassets */; };
 		602F4C6B2600CB870034A798 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C692600CB870034A798 /* LaunchScreen.storyboard */; };
@@ -56,6 +59,9 @@
 		0297B7BF2615CFED00BB40A9 /* RestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
 		0297B7C42615D00900BB40A9 /* SerializationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationManager.swift; sourceTree = "<group>"; };
 		0297B7CB2615D03F00BB40A9 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		0297B7F32615ECF700BB40A9 /* CountrySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionViewController.swift; sourceTree = "<group>"; };
+		0297B8012615EFD900BB40A9 /* CountrySelectionMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionMainView.swift; sourceTree = "<group>"; };
+		0297B8072615FFA900BB40A9 /* CountrySelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionTableViewCell.swift; sourceTree = "<group>"; };
 		57F89CF7DF78AC38F950C846 /* Pods-CoronaVirusApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusApp.debug.xcconfig"; path = "Target Support Files/Pods-CoronaVirusApp/Pods-CoronaVirusApp.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C5B2600CB860034A798 /* CoronaVirusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaVirusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602F4C5E2600CB860034A798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +152,72 @@
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
+		0297B7EE2615EC9900BB40A9 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				0297B7F22615ECBE00BB40A9 /* Coordinator */,
+				0297B7F12615ECB900BB40A9 /* ViewModel */,
+				0297B7F02615ECB500BB40A9 /* Model */,
+				0297B7EF2615ECAF00BB40A9 /* View */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		0297B7EF2615ECAF00BB40A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0297B7FE2615EF5A00BB40A9 /* Subviews */,
+				0297B7FD2615EF5100BB40A9 /* ViewController */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0297B7F02615ECB500BB40A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0297B7F12615ECB900BB40A9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0297B7F22615ECBE00BB40A9 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		0297B7FD2615EF5100BB40A9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0297B7F32615ECF700BB40A9 /* CountrySelectionViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0297B7FE2615EF5A00BB40A9 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				0297B7FF2615EF6500BB40A9 /* CustomCell */,
+				0297B8012615EFD900BB40A9 /* CountrySelectionMainView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		0297B7FF2615EF6500BB40A9 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				0297B8072615FFA900BB40A9 /* CountrySelectionTableViewCell.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
 		177F832A5D32E8BEF54B406A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +261,7 @@
 		602F4C5D2600CB860034A798 /* CoronaVirusApp */ = {
 			isa = PBXGroup;
 			children = (
+				0297B7EE2615EC9900BB40A9 /* Module */,
 				0297B7852615CDFF00BB40A9 /* Common */,
 				602F4C9A2600CBD30034A798 /* Support */,
 			);
@@ -403,6 +476,7 @@
 				0297B79F2615CEBF00BB40A9 /* UIImageView+Extensions.swift in Sources */,
 				0297B7AD2615CEF300BB40A9 /* UIView+Extensions.swift in Sources */,
 				0297B7C02615CFED00BB40A9 /* RestManager.swift in Sources */,
+				0297B8082615FFA900BB40A9 /* CountrySelectionTableViewCell.swift in Sources */,
 				602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */,
 				0297B7A52615CECE00BB40A9 /* UITableView+Extensions.swift in Sources */,
 				0297B7962615CE7800BB40A9 /* Repository.swift in Sources */,
@@ -412,9 +486,11 @@
 				0297B7C52615D00900BB40A9 /* SerializationManager.swift in Sources */,
 				0297B78E2615CE4D00BB40A9 /* CoordinatorDelegate.swift in Sources */,
 				0297B7CC2615D03F00BB40A9 /* UserDefaultsService.swift in Sources */,
+				0297B8022615EFD900BB40A9 /* CountrySelectionMainView.swift in Sources */,
 				0297B7B62615CFAE00BB40A9 /* NetworkError.swift in Sources */,
 				0297B7922615CE6300BB40A9 /* ParentCoordinatorDelegate.swift in Sources */,
 				0297B7A92615CEDA00BB40A9 /* UITableViewCell+Extensions.swift in Sources */,
+				0297B7F42615ECF700BB40A9 /* CountrySelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
