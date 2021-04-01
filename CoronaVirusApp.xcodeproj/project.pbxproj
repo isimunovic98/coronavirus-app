@@ -26,6 +26,7 @@
 		0297B8022615EFD900BB40A9 /* CountrySelectionMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B8012615EFD900BB40A9 /* CountrySelectionMainView.swift */; };
 		0297B8082615FFA900BB40A9 /* CountrySelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B8072615FFA900BB40A9 /* CountrySelectionTableViewCell.swift */; };
 		0297B83F26161DD000BB40A9 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B83E26161DD000BB40A9 /* Country.swift */; };
+		0297B84926161E3900BB40A9 /* CountrySelectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B84826161E3900BB40A9 /* CountrySelectionRepository.swift */; };
 		602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C5E2600CB860034A798 /* AppDelegate.swift */; };
 		602F4C682600CB870034A798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C672600CB870034A798 /* Assets.xcassets */; };
 		602F4C6B2600CB870034A798 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C692600CB870034A798 /* LaunchScreen.storyboard */; };
@@ -64,6 +65,7 @@
 		0297B8012615EFD900BB40A9 /* CountrySelectionMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionMainView.swift; sourceTree = "<group>"; };
 		0297B8072615FFA900BB40A9 /* CountrySelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionTableViewCell.swift; sourceTree = "<group>"; };
 		0297B83E26161DD000BB40A9 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		0297B84826161E3900BB40A9 /* CountrySelectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionRepository.swift; sourceTree = "<group>"; };
 		57F89CF7DF78AC38F950C846 /* Pods-CoronaVirusApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusApp.debug.xcconfig"; path = "Target Support Files/Pods-CoronaVirusApp/Pods-CoronaVirusApp.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C5B2600CB860034A798 /* CoronaVirusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaVirusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602F4C5E2600CB860034A798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		0297B7F02615ECB500BB40A9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0297B84626161E2000BB40A9 /* Repository */,
 				0297B83D26161DB500BB40A9 /* Models */,
 			);
 			path = Model;
@@ -227,6 +230,14 @@
 				0297B83E26161DD000BB40A9 /* Country.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0297B84626161E2000BB40A9 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				0297B84826161E3900BB40A9 /* CountrySelectionRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		177F832A5D32E8BEF54B406A /* Frameworks */ = {
@@ -501,6 +512,7 @@
 				0297B7B62615CFAE00BB40A9 /* NetworkError.swift in Sources */,
 				0297B7922615CE6300BB40A9 /* ParentCoordinatorDelegate.swift in Sources */,
 				0297B83F26161DD000BB40A9 /* Country.swift in Sources */,
+				0297B84926161E3900BB40A9 /* CountrySelectionRepository.swift in Sources */,
 				0297B7A92615CEDA00BB40A9 /* UITableViewCell+Extensions.swift in Sources */,
 				0297B7F42615ECF700BB40A9 /* CountrySelectionViewController.swift in Sources */,
 			);
