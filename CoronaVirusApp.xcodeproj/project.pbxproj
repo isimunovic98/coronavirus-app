@@ -146,13 +146,6 @@
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
-		0297B80F2616103500BB40A9 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		177F832A5D32E8BEF54B406A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,7 +189,6 @@
 		602F4C5D2600CB860034A798 /* CoronaVirusApp */ = {
 			isa = PBXGroup;
 			children = (
-				0297B80F2616103500BB40A9 /* New Group */,
 				0297B7852615CDFF00BB40A9 /* Common */,
 				602F4C9A2600CBD30034A798 /* Support */,
 			);
