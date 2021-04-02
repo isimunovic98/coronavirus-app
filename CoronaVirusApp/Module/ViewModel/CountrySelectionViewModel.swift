@@ -18,13 +18,16 @@ class CountrySelectionViewModel {
     var disposeBag: Set<AnyCancellable> = []
     
     let loadData = CurrentValueSubject<Bool, Never>(true)
+    let dataReadyPublisher = PassthroughSubject<Void, Never>()
     
     init(repository: CountrySelectionRepository) {
         self.repository = repository
         initializeScreenData(with: loadData)
     }
     
-    
+    deinit {
+        print("CountrySelection VM deinit")
+    }
 }
 
 extension CountrySelectionViewModel {
@@ -41,7 +44,7 @@ extension CountrySelectionViewModel {
                 case .success(let data):
                     self.screenData = data
                     print(data)
-//                    self.dataReadyPublisher.send()
+                    self.dataReadyPublisher.send()
 //                    self.shouldShowBlurView.send(false)
                 case .failure(let error):
                     print(error.localizedDescription)
