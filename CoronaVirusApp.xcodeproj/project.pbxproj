@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0264B20226175FDF001AA002 /* CountrySelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264B20126175FDF001AA002 /* CountrySelectionViewModel.swift */; };
 		0297B7882615CE2B00BB40A9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7872615CE2B00BB40A9 /* Coordinator.swift */; };
 		0297B78E2615CE4D00BB40A9 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */; };
 		0297B7922615CE6300BB40A9 /* ParentCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7912615CE6300BB40A9 /* ParentCoordinatorDelegate.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0264B20126175FDF001AA002 /* CountrySelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionViewModel.swift; sourceTree = "<group>"; };
 		0297B7872615CE2B00BB40A9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
 		0297B7912615CE6300BB40A9 /* ParentCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCoordinatorDelegate.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		0297B7F12615ECB900BB40A9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0264B20126175FDF001AA002 /* CountrySelectionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				0297B7C02615CFED00BB40A9 /* RestManager.swift in Sources */,
 				0297B8082615FFA900BB40A9 /* CountrySelectionTableViewCell.swift in Sources */,
 				602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */,
+				0264B20226175FDF001AA002 /* CountrySelectionViewModel.swift in Sources */,
 				0297B7A52615CECE00BB40A9 /* UITableView+Extensions.swift in Sources */,
 				0297B7962615CE7800BB40A9 /* Repository.swift in Sources */,
 				0297B7B12615CF0200BB40A9 /* UIViewController+Extensions.swift in Sources */,
