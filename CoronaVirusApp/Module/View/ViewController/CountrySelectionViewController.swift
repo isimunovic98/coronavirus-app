@@ -76,7 +76,7 @@ private extension CountrySelectionViewController {
     
     func setupLayout() {
         searchBar.snp.makeConstraints { (make) in
-            make.top.leading.trailing.equalToSuperview().inset(UIEdgeInsets(top: 16, left: 32, bottom: 0, right: 32))
+            make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(UIEdgeInsets(top: 16, left: 32, bottom: 0, right: 32))
         }
         
         horizontalDividor.snp.makeConstraints { (make) in
