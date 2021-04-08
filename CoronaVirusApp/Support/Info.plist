@@ -41,5 +41,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>scheme</key>
+	<string>$(SCHEME)</string>
+	<key>covidHost</key>
+	<string>$(COVID_HOST)</string>
+	<key>newsHost</key>
+	<string>$(NEWS_HOST)</string>
 </dict>
 </plist>

@@ -9,35 +9,42 @@ import Foundation
 
 public enum RestEndpoints {
     
-    static var scheme: String {
-        return "https://"
-    }
-    static var host: String {
-        return "api.covid19api.com"
-    }
+    static let scheme = Bundle.main.object(forInfoDictionaryKey: "scheme") as! String
     
-    static var ENDPOINT: String {
-        return scheme + host
+    static let covidHost = Bundle.main.object(forInfoDictionaryKey: "covidHost") as! String
+    
+    static let newsHost = Bundle.main.object(forInfoDictionaryKey: "newsHost") as! String
+
+    static var ENDPOINT_COVID: String {
+        return scheme + covidHost
+    }
+
+    static var ENDPOINT_NEWS: String {
+        return scheme + newsHost
     }
     
     case countriesList
     
-    case dayOneAllStatus
+    case dayOneAllStatus(country: String)
     
-    case byCountryTotalStatus
+    case byCountryTotalStatus(country: String)
     
     case summary
+    
+    case latestNews
     
     public func endpoint() -> String {
         switch self {
         case .countriesList:
-            return RestEndpoints.ENDPOINT + "/countries"
-        case .dayOneAllStatus:
-            return RestEndpoints.ENDPOINT + "/dayone/country/"
-        case .byCountryTotalStatus:
-            return RestEndpoints.ENDPOINT + "total/country/"
+            return RestEndpoints.ENDPOINT_COVID + "/countries"
+        case .dayOneAllStatus(let country):
+            return RestEndpoints.ENDPOINT_COVID + "/dayone/country/" + country
+        case .byCountryTotalStatus(let country):
+            return RestEndpoints.ENDPOINT_COVID + "total/country/" + country
         case .summary:
-            return RestEndpoints.ENDPOINT + "/summary"
+            return RestEndpoints.ENDPOINT_COVID + "/summary"
+        case .latestNews:
+            return RestEndpoints.ENDPOINT_NEWS
         }
     }
 }
