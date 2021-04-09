@@ -2,11 +2,7 @@
 //  Repository.swift
 //  CoronaVirusApp
 //
-//  Created by Ivan Simunovic on 01.04.2021..
+//  Created by Ivan Simunovic on 08.04.2021..
 //
 
 import Foundation
-
-protocol Repository {
-    ///TO-DO
-}
