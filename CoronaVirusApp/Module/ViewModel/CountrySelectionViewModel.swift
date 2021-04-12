@@ -9,7 +9,6 @@ import Foundation
 import Combine
 
 class CountrySelectionViewModel {
-    weak var coordinatorDelegate: CoordinatorDelegate?
     
     let repository: CountrySelectionRepository
     
@@ -36,6 +35,7 @@ extension CountrySelectionViewModel {
             .flatMap({ [unowned self] shouldShowLoader -> AnyPublisher<Result<[Country], NetworkError>, Never> in
                 let endpoint = RestEndpoints.countriesList
                 return self.repository.getCountriesList(using: endpoint)
+                #warning("show loader screen")
             })
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: RunLoop.main)
@@ -45,10 +45,10 @@ extension CountrySelectionViewModel {
                     self.screenData = data
                     print(data)
                     self.dataReadyPublisher.send()
-//                    self.shouldShowBlurView.send(false)
+                    #warning("remove loader screen")
                 case .failure(let error):
                     print(error.localizedDescription)
-//                    self.errorPublisher.send(error.localizedDescription)
+                    #warning("send error and show screen acordingly")
                 }
             })
             .store(in: &disposeBag)
