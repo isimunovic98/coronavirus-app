@@ -1,26 +1,27 @@
 //
-//  TableViewCell.swift
+//  HeaderView.swift
 //  CoronaVirusApp
 //
-//  Created by Ivan Simunovic on 01.04.2021..
+//  Created by Ivan Simunovic on 12.04.2021..
 //
 
 import UIKit
 
-class CountrySelectionTableViewCell: UITableViewCell {
+class HeaderView: UITableViewHeaderFooterView {
     //MARK: Properties
-    let flagLabel: UILabel = {
+    let worldIconLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "🌎"
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
-    let countryNameLabel: UILabel = {
+    let worldwideLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Montserrat", size: 16)
         label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.text = "Worldwide"
         return label
     }()
     
@@ -32,9 +33,16 @@ class CountrySelectionTableViewCell: UITableViewCell {
         return stackView
     }()
     
+    let horizontalDividor: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .systemGray3
+        return view
+    }()
+    
     //MARK: Init
-    override required init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         setupView()
     }
     
@@ -44,34 +52,36 @@ class CountrySelectionTableViewCell: UITableViewCell {
 }
 
 //MARK: - UI
-private extension CountrySelectionTableViewCell {
+extension HeaderView {
     func setupView() {
+        setupAppearance()
         addViews()
         setupLayout()
     }
     
+    func setupAppearance() {
+        contentView.backgroundColor = .white
+    }
+    
     func addViews() {
         //let views = [flagImageView, countryNameLabel]
-        stackView.addArrangedSubview(flagLabel)
-        stackView.addArrangedSubview(countryNameLabel)
-        contentView.addSubview(stackView)
+        stackView.addArrangedSubview(worldIconLabel)
+        stackView.addArrangedSubview(worldwideLabel)
+        contentView.addSubviews([stackView, horizontalDividor])
     }
     
     func setupLayout() {
-        flagLabel.snp.makeConstraints { (make) in
+        worldIconLabel.snp.makeConstraints { (make) in
             make.height.equalTo(20)
             make.width.equalTo(16)
         }
-        
         stackView.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview().inset(10)
         }
-    }
-}
-
-extension CountrySelectionTableViewCell {
-    func configure(with text: String) {
-        flagLabel.text = NSLocalizedString("🇭🇷", comment: "")
-        countryNameLabel.text = text
+        
+        horizontalDividor.snp.makeConstraints { (make) in
+            make.leading.bottom.trailing.equalTo(contentView)
+            make.height.equalTo(1)
+        }
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0273CA5D26244C3800A7CC00 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273CA5C26244C3800A7CC00 /* HeaderView.swift */; };
+		0273CA6126244DB300A7CC00 /* UITableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273CA6026244DB300A7CC00 /* UITableViewHeaderFooterView.swift */; };
 		0297B7882615CE2B00BB40A9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7872615CE2B00BB40A9 /* Coordinator.swift */; };
 		0297B78E2615CE4D00BB40A9 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */; };
 		0297B7922615CE6300BB40A9 /* ParentCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7912615CE6300BB40A9 /* ParentCoordinatorDelegate.swift */; };
@@ -23,7 +25,6 @@
 		0297B7C52615D00900BB40A9 /* SerializationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7C42615D00900BB40A9 /* SerializationManager.swift */; };
 		0297B7CC2615D03F00BB40A9 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7CB2615D03F00BB40A9 /* UserDefaultsService.swift */; };
 		0297B7F42615ECF700BB40A9 /* CountrySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7F32615ECF700BB40A9 /* CountrySelectionViewController.swift */; };
-		0297B8022615EFD900BB40A9 /* CountrySelectionMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B8012615EFD900BB40A9 /* CountrySelectionMainView.swift */; };
 		0297B8082615FFA900BB40A9 /* CountrySelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B8072615FFA900BB40A9 /* CountrySelectionTableViewCell.swift */; };
 		0297B83F26161DD000BB40A9 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B83E26161DD000BB40A9 /* Country.swift */; };
 		0297B84926161E3900BB40A9 /* CountrySelectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B84826161E3900BB40A9 /* CountrySelectionRepository.swift */; };
@@ -46,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0273CA5C26244C3800A7CC00 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		0273CA6026244DB300A7CC00 /* UITableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		0297B7872615CE2B00BB40A9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
 		0297B7912615CE6300BB40A9 /* ParentCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCoordinatorDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +65,6 @@
 		0297B7C42615D00900BB40A9 /* SerializationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationManager.swift; sourceTree = "<group>"; };
 		0297B7CB2615D03F00BB40A9 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		0297B7F32615ECF700BB40A9 /* CountrySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionViewController.swift; sourceTree = "<group>"; };
-		0297B8012615EFD900BB40A9 /* CountrySelectionMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionMainView.swift; sourceTree = "<group>"; };
 		0297B8072615FFA900BB40A9 /* CountrySelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionTableViewCell.swift; sourceTree = "<group>"; };
 		0297B83E26161DD000BB40A9 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		0297B84826161E3900BB40A9 /* CountrySelectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionRepository.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				0297B7A82615CEDA00BB40A9 /* UITableViewCell+Extensions.swift */,
 				0297B7AC2615CEF300BB40A9 /* UIView+Extensions.swift */,
 				0297B7B02615CF0200BB40A9 /* UIViewController+Extensions.swift */,
+				0273CA6026244DB300A7CC00 /* UITableViewHeaderFooterView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -211,7 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				0297B7FF2615EF6500BB40A9 /* CustomCell */,
-				0297B8012615EFD900BB40A9 /* CountrySelectionMainView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				0297B8072615FFA900BB40A9 /* CountrySelectionTableViewCell.swift */,
+				0273CA5C26244C3800A7CC00 /* HeaderView.swift */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				0297B7C02615CFED00BB40A9 /* RestManager.swift in Sources */,
 				0297B8082615FFA900BB40A9 /* CountrySelectionTableViewCell.swift in Sources */,
 				602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */,
+				0273CA5D26244C3800A7CC00 /* HeaderView.swift in Sources */,
 				0297B7A52615CECE00BB40A9 /* UITableView+Extensions.swift in Sources */,
 				0297B7962615CE7800BB40A9 /* Repository.swift in Sources */,
 				0297B7B12615CF0200BB40A9 /* UIViewController+Extensions.swift in Sources */,
@@ -508,8 +512,8 @@
 				0297B7C52615D00900BB40A9 /* SerializationManager.swift in Sources */,
 				0297B78E2615CE4D00BB40A9 /* CoordinatorDelegate.swift in Sources */,
 				0297B7CC2615D03F00BB40A9 /* UserDefaultsService.swift in Sources */,
-				0297B8022615EFD900BB40A9 /* CountrySelectionMainView.swift in Sources */,
 				0297B7B62615CFAE00BB40A9 /* NetworkError.swift in Sources */,
+				0273CA6126244DB300A7CC00 /* UITableViewHeaderFooterView.swift in Sources */,
 				0297B7922615CE6300BB40A9 /* ParentCoordinatorDelegate.swift in Sources */,
 				0297B83F26161DD000BB40A9 /* Country.swift in Sources */,
 				0297B84926161E3900BB40A9 /* CountrySelectionRepository.swift in Sources */,

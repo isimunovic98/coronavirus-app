@@ -6,13 +6,26 @@
 //
 
 import UIKit
+import SnapKit
 
 class CountrySelectionViewController: UIViewController {
     //MARK: Properties
-    let countrySelectionView: CountrySelectionMainView = {
-        let view = CountrySelectionMainView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+    let searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.isTranslucent = true
+        searchBar.barTintColor = UIColor.clear
+        searchBar.backgroundColor = UIColor.clear
+        searchBar.backgroundImage = UIImage()
+        searchBar.placeholder = "Search..."
+        return searchBar
+    }()
+    
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        return tableView
     }()
     
     //MARK: Init
@@ -42,6 +55,7 @@ private extension CountrySelectionViewController {
         setupAppearance()
         addViews()
         setupLayout()
+        configureTableView()
     }
     
     func setupAppearance() {
@@ -49,12 +63,52 @@ private extension CountrySelectionViewController {
     }
     
     func addViews() {
-        view.addSubview(countrySelectionView)
+        let views = [searchBar, tableView]
+        view.addSubviews(views)
     }
     
     func setupLayout() {
-        countrySelectionView.snp.makeConstraints { (make) in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
+        searchBar.snp.makeConstraints { (make) in
+            make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(UIEdgeInsets(top: 16, left: 32, bottom: 0, right: 32))
         }
+        
+        tableView.snp.makeConstraints { (make) in
+            make.top.equalTo(searchBar.snp.bottom)
+            make.leading.bottom.trailing.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 32))
+        }
+    }
+}
+
+//MARK: - TableView Config
+extension CountrySelectionViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let name = "Croatia"
+        
+        let cell: CountrySelectionTableViewCell = tableView.dequeue(for: indexPath)
+        
+        cell.configure(with: name)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: HeaderView.reuseIdentifier) as? HeaderView
+
+        return view
+    }
+    
+    
+    func configureTableView() {
+        setTableViewDelegates()
+        tableView.register(HeaderView.self, forHeaderFooterViewReuseIdentifier: HeaderView.reuseIdentifier)
+        tableView.register(CountrySelectionTableViewCell.self, forCellReuseIdentifier: CountrySelectionTableViewCell.reuseIdentifier)
+    }
+    func setTableViewDelegates() {
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 }
