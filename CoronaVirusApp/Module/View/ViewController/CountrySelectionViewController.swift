@@ -108,8 +108,15 @@ extension CountrySelectionViewController: UITableViewDelegate, UITableViewDataSo
         return cell
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: HeaderView.reuseIdentifier) as? HeaderView
+        
+        return view
+    }
+    
     func configureTableView() {
         setTableViewDelegates()
+        tableView.register(HeaderView.self, forCellReuseIdentifier: HeaderView.reuseIdentifier)
         tableView.register(CountrySelectionTableViewCell.self, forCellReuseIdentifier: CountrySelectionTableViewCell.reuseIdentifier)
     }
     func setTableViewDelegates() {
