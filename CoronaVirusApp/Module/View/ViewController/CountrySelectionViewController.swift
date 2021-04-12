@@ -21,13 +21,6 @@ class CountrySelectionViewController: UIViewController {
         return searchBar
     }()
     
-    let horizontalDividor: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .black
-        return view
-    }()
-    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -70,7 +63,7 @@ private extension CountrySelectionViewController {
     }
     
     func addViews() {
-        let views = [searchBar, horizontalDividor, tableView]
+        let views = [searchBar, tableView]
         view.addSubviews(views)
     }
     
@@ -79,14 +72,8 @@ private extension CountrySelectionViewController {
             make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(UIEdgeInsets(top: 16, left: 32, bottom: 0, right: 32))
         }
         
-        horizontalDividor.snp.makeConstraints { (make) in
-            make.top.equalTo(searchBar.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview().inset(32)
-            make.height.equalTo(1)
-        }
-        
         tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(horizontalDividor.snp.bottom).offset(16)
+            make.top.equalTo(searchBar.snp.bottom)
             make.leading.bottom.trailing.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 32))
         }
     }
@@ -110,13 +97,14 @@ extension CountrySelectionViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: HeaderView.reuseIdentifier) as? HeaderView
-        
+
         return view
     }
     
+    
     func configureTableView() {
         setTableViewDelegates()
-        tableView.register(HeaderView.self, forCellReuseIdentifier: HeaderView.reuseIdentifier)
+        tableView.register(HeaderView.self, forHeaderFooterViewReuseIdentifier: HeaderView.reuseIdentifier)
         tableView.register(CountrySelectionTableViewCell.self, forCellReuseIdentifier: CountrySelectionTableViewCell.reuseIdentifier)
     }
     func setTableViewDelegates() {

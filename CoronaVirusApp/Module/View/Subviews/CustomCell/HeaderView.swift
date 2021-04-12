@@ -13,6 +13,7 @@ class HeaderView: UITableViewHeaderFooterView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "🌎"
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -32,6 +33,13 @@ class HeaderView: UITableViewHeaderFooterView {
         return stackView
     }()
     
+    let horizontalDividor: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .systemGray3
+        return view
+    }()
+    
     //MARK: Init
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -46,20 +54,34 @@ class HeaderView: UITableViewHeaderFooterView {
 //MARK: - UI
 extension HeaderView {
     func setupView() {
+        setupAppearance()
         addViews()
         setupLayout()
+    }
+    
+    func setupAppearance() {
+        contentView.backgroundColor = .white
     }
     
     func addViews() {
         //let views = [flagImageView, countryNameLabel]
         stackView.addArrangedSubview(worldIconLabel)
         stackView.addArrangedSubview(worldwideLabel)
-        contentView.addSubview(stackView)
+        contentView.addSubviews([stackView, horizontalDividor])
     }
     
     func setupLayout() {
+        worldIconLabel.snp.makeConstraints { (make) in
+            make.height.equalTo(20)
+            make.width.equalTo(16)
+        }
         stackView.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview().inset(10)
+        }
+        
+        horizontalDividor.snp.makeConstraints { (make) in
+            make.leading.bottom.trailing.equalTo(contentView)
+            make.height.equalTo(1)
         }
     }
 }

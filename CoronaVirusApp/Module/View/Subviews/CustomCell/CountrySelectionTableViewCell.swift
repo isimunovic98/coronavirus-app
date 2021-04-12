@@ -10,14 +10,16 @@ import UIKit
 class CountrySelectionTableViewCell: UITableViewCell {
     //MARK: Properties
     let flagLabel: UILabel = {
-        let imageView = UILabel()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontSizeToFitWidth = true
+        return label
     }()
     
     let countryNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Montserrat", size: 16)
         label.font = UIFont.boldSystemFont(ofSize: 16)
         return label
     }()
@@ -56,6 +58,11 @@ private extension CountrySelectionTableViewCell {
     }
     
     func setupLayout() {
+        flagLabel.snp.makeConstraints { (make) in
+            make.height.equalTo(20)
+            make.width.equalTo(16)
+        }
+        
         stackView.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview().inset(10)
         }
