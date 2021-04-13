@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CoordinatorDelegate: class {
-    func viewControllerDidFinish(_ coordinator: Coordinator)
+    func viewControllerDidFinish()
 }

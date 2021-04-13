@@ -80,7 +80,7 @@ extension HeaderView {
         }
         
         horizontalDividor.snp.makeConstraints { (make) in
-            make.leading.bottom.trailing.equalTo(contentView)
+            make.leading.bottom.trailing.equalToSuperview()
             make.height.equalTo(1)
         }
     }

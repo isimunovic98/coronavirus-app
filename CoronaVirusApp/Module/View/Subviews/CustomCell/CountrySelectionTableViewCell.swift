@@ -70,8 +70,20 @@ private extension CountrySelectionTableViewCell {
 }
 
 extension CountrySelectionTableViewCell {
-    func configure(with text: String) {
-        flagLabel.text = NSLocalizedString("🇭🇷", comment: "")
-        countryNameLabel.text = text
+    func configure(with country: Country) {
+        let countryISO = country.iso
+        let countryName = country.country
+        
+        flagLabel.text = flag(country: countryISO)
+        countryNameLabel.text = countryName
+    }
+    
+    func flag(country:String) -> String {
+        let base = 127397
+        var usv = String.UnicodeScalarView()
+        for i in country.utf16 {
+            usv.append(UnicodeScalar(base + Int(i))!)
+        }
+        return String(usv)
     }
 }
