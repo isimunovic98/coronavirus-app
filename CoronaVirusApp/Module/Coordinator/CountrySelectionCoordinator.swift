@@ -8,7 +8,8 @@
 import UIKit
 
 class CountrySelectionCoordinator: Coordinator {
-    #warning("tab controller is parent")
+    var parent: ParentCoordinatorDelegate
+    
     var childCoordinators: [Coordinator] = []
     
     var navigationController: UINavigationController
@@ -31,7 +32,7 @@ extension CountrySelectionCoordinator {
 
 extension CountrySelectionCoordinator: CoordinatorDelegate {
     func viewControllerDidFinish() {
-        #warning("parent.childDidFinish(coordinator: self)")
+        parent.childDidFinish(self)
     }
     
 }
