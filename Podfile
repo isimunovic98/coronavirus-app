@@ -3,6 +3,7 @@ target 'CoronaVirusApp' do
     pod 'Alamofire'
     pod 'SnapKit'
     pod 'Kingfisher'
+    pod 'Cuckoo'
 end
 
 target 'CoronaVirusAppTests' do
