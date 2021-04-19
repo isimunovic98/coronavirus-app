@@ -22,7 +22,7 @@ class CountrySelectionCoordinator: Coordinator {
 extension CountrySelectionCoordinator {
     
     func start() {
-        let repository = CountrySelectionRepositoryImpl()
+        let repository = Covid19RepositoryImpl()
         let viewModel = CountrySelectionViewModel(repository: repository)
         viewModel.coordinatorDelegate = self
         let viewController = CountrySelectionViewController(viewModel: viewModel)

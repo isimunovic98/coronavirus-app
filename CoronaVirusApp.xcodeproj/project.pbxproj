@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0226D463262E3A4F001169F0 /* Covid19Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D462262E3A4F001169F0 /* Covid19Repository.swift */; };
+		0226D471262E3B4F001169F0 /* CountriesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 0226D470262E3B4F001169F0 /* CountriesResponse.json */; };
+		0226D477262E3C6F001169F0 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D476262E3C6E001169F0 /* GeneratedMocks.swift */; };
+		0226D47D262E3D50001169F0 /* CountrySelectionViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D47C262E3D50001169F0 /* CountrySelectionViewModelTest.swift */; };
 		0264B20226175FDF001AA002 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		0273CA5D26244C3800A7CC00 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273CA5C26244C3800A7CC00 /* HeaderView.swift */; };
 		0273CA6126244DB300A7CC00 /* UITableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273CA6026244DB300A7CC00 /* UITableViewHeaderFooterView.swift */; };
@@ -28,7 +32,6 @@
 		0297B7F42615ECF700BB40A9 /* CountrySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7F32615ECF700BB40A9 /* CountrySelectionViewController.swift */; };
 		0297B8082615FFA900BB40A9 /* CountrySelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B8072615FFA900BB40A9 /* CountrySelectionTableViewCell.swift */; };
 		0297B83F26161DD000BB40A9 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B83E26161DD000BB40A9 /* Country.swift */; };
-		0297B84926161E3900BB40A9 /* CountrySelectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B84826161E3900BB40A9 /* CountrySelectionRepository.swift */; };
 		02B3D673262468E90063972C /* CountrySelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3D672262468E90063972C /* CountrySelectionViewModel.swift */; };
 		02B3D677262471710063972C /* CountrySelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3D676262471710063972C /* CountrySelectionCoordinator.swift */; };
 		602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C5E2600CB860034A798 /* AppDelegate.swift */; };
@@ -50,6 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0226D462262E3A4F001169F0 /* Covid19Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid19Repository.swift; sourceTree = "<group>"; };
+		0226D470262E3B4F001169F0 /* CountriesResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountriesResponse.json; sourceTree = "<group>"; };
+		0226D476262E3C6E001169F0 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
+		0226D47C262E3D50001169F0 /* CountrySelectionViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionViewModelTest.swift; sourceTree = "<group>"; };
 		0273CA5C26244C3800A7CC00 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		0273CA6026244DB300A7CC00 /* UITableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		0297B7872615CE2B00BB40A9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -70,7 +77,6 @@
 		0297B7F32615ECF700BB40A9 /* CountrySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionViewController.swift; sourceTree = "<group>"; };
 		0297B8072615FFA900BB40A9 /* CountrySelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionTableViewCell.swift; sourceTree = "<group>"; };
 		0297B83E26161DD000BB40A9 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
-		0297B84826161E3900BB40A9 /* CountrySelectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionRepository.swift; sourceTree = "<group>"; };
 		02B3D672262468E90063972C /* CountrySelectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountrySelectionViewModel.swift; sourceTree = "<group>"; };
 		02B3D676262471710063972C /* CountrySelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionCoordinator.swift; sourceTree = "<group>"; };
 		57F89CF7DF78AC38F950C846 /* Pods-CoronaVirusApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusApp.debug.xcconfig"; path = "Target Support Files/Pods-CoronaVirusApp/Pods-CoronaVirusApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +115,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0226D45D262E39AE001169F0 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				0226D470262E3B4F001169F0 /* CountriesResponse.json */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		0226D461262E3A32001169F0 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				0226D462262E3A4F001169F0 /* Covid19Repository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		0297B7852615CDFF00BB40A9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +170,7 @@
 		0297B7B42615CFA100BB40A9 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				0226D461262E3A32001169F0 /* Repositories */,
 				0297B7B52615CFAE00BB40A9 /* NetworkError.swift */,
 				0297B7BB2615CFD300BB40A9 /* RestEndpoints.swift */,
 				0297B7BF2615CFED00BB40A9 /* RestManager.swift */,
@@ -187,7 +210,6 @@
 		0297B7F02615ECB500BB40A9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0297B84626161E2000BB40A9 /* Repository */,
 				0297B83D26161DB500BB40A9 /* Models */,
 			);
 			path = Model;
@@ -240,14 +262,6 @@
 				0297B83E26161DD000BB40A9 /* Country.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		0297B84626161E2000BB40A9 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				0297B84826161E3900BB40A9 /* CountrySelectionRepository.swift */,
-			);
-			path = Repository;
 			sourceTree = "<group>";
 		};
 		177F832A5D32E8BEF54B406A /* Frameworks */ = {
@@ -303,8 +317,11 @@
 		602F4C742600CB870034A798 /* CoronaVirusAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				0226D476262E3C6E001169F0 /* GeneratedMocks.swift */,
+				0226D45D262E39AE001169F0 /* Response */,
 				602F4C752600CB870034A798 /* CoronaVirusAppTests.swift */,
 				602F4C772600CB870034A798 /* Info.plist */,
+				0226D47C262E3D50001169F0 /* CountrySelectionViewModelTest.swift */,
 			);
 			path = CoronaVirusAppTests;
 			sourceTree = "<group>";
@@ -328,6 +345,7 @@
 			buildConfigurationList = 602F4C852600CB870034A798 /* Build configuration list for PBXNativeTarget "CoronaVirusApp" */;
 			buildPhases = (
 				F45EB3AAE70841AA8B77C22B /* [CP] Check Pods Manifest.lock */,
+				0226D45E262E39C5001169F0 /* ShellScript */,
 				602F4C572600CB860034A798 /* Sources */,
 				602F4C582600CB860034A798 /* Frameworks */,
 				602F4C592600CB860034A798 /* Resources */,
@@ -413,12 +431,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0226D471262E3B4F001169F0 /* CountriesResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0226D45E262E39C5001169F0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/CoronaVirusApp/Common/Networking/Repositories/Covid19Repository.swift",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/CoronaVirusAppTests/GeneratedMocks.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Shared/Networking/Repositories/Covid19Repository.swift\"\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
+		};
 		0A8B196AC97C32BEA88ABF42 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -526,9 +564,9 @@
 				0297B7922615CE6300BB40A9 /* ParentCoordinatorDelegate.swift in Sources */,
 				02B3D677262471710063972C /* CountrySelectionCoordinator.swift in Sources */,
 				0297B83F26161DD000BB40A9 /* Country.swift in Sources */,
-				0297B84926161E3900BB40A9 /* CountrySelectionRepository.swift in Sources */,
 				0297B7A92615CEDA00BB40A9 /* UITableViewCell+Extensions.swift in Sources */,
 				0297B7F42615ECF700BB40A9 /* CountrySelectionViewController.swift in Sources */,
+				0226D463262E3A4F001169F0 /* Covid19Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,7 +574,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0226D47D262E3D50001169F0 /* CountrySelectionViewModelTest.swift in Sources */,
 				602F4C762600CB870034A798 /* CoronaVirusAppTests.swift in Sources */,
+				0226D477262E3C6F001169F0 /* GeneratedMocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ import Combine
 class CountrySelectionViewModel {
     var coordinatorDelegate: CoordinatorDelegate?
     
-    let repository: CountrySelectionRepository
+    let repository: Covid19Repository
     
     var screenData: [Country] = []
     
@@ -19,7 +19,7 @@ class CountrySelectionViewModel {
     let dataReadyPublisher = PassthroughSubject<Void, Never>()
     let searchPublisher = PassthroughSubject<String, Never>()
     
-    init(repository: CountrySelectionRepository) {
+    init(repository: Covid19Repository) {
         self.repository = repository
     }
     
