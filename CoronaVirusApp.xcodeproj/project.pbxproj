@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0226D447262DF745001169F0 /* UseCaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D446262DF745001169F0 /* UseCaseData.swift */; };
 		0264B1FC26175F5E001AA002 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264B1FB26175F5E001AA002 /* UIStackView+Extensions.swift */; };
 		0297B7882615CE2B00BB40A9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7872615CE2B00BB40A9 /* Coordinator.swift */; };
 		0297B78E2615CE4D00BB40A9 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0226D446262DF745001169F0 /* UseCaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseData.swift; sourceTree = "<group>"; };
 		0264B1FB26175F5E001AA002 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		0297B7872615CE2B00BB40A9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0226D445262DF72C001169F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0226D446262DF745001169F0 /* UseCaseData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0297B7852615CDFF00BB40A9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +148,7 @@
 		0297B7CA2615D02F00BB40A9 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
+				0226D445262DF72C001169F0 /* Model */,
 				0297B7CB2615D03F00BB40A9 /* UserDefaultsService.swift */,
 			);
 			path = UserDefaults;
@@ -411,6 +422,7 @@
 				0297B7B62615CFAE00BB40A9 /* NetworkError.swift in Sources */,
 				0297B7922615CE6300BB40A9 /* ParentCoordinatorDelegate.swift in Sources */,
 				0297B7A92615CEDA00BB40A9 /* UITableViewCell+Extensions.swift in Sources */,
+				0226D447262DF745001169F0 /* UseCaseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

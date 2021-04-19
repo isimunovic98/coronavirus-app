@@ -7,20 +7,28 @@
 
 import Foundation
 
-enum DefaultsKey: String {
-    case lastSelection
+struct UserDefaultsService {
+    
+    static func updateUseCase(_ usecase: UseCaseSelection) {
+        let userDefaults = UserDefaults.standard
+        switch usecase {
+        case .country(let name):
+            userDefaults.setValue("country", forKey: "usecase")
+            userDefaults.setValue(name, forKey: "countryName")
+        case .worldwide:
+            userDefaults.setValue("worldwide", forKey: "usecase")
+        }
+    }
+    
+    static func getUseCase() -> UseCaseSelection? {
+        let userDefaults = UserDefaults.standard
+        guard let usecase = userDefaults.value(forKey: "usecase") as? String else { return nil }
+        switch usecase {
+        case "worldwide": return .worldwide
+        default:
+            if let name = userDefaults.value(forKey: "countryName") as? String { return .country(name) }
+            else { return nil }
+        }
+    }
 }
 
-struct UserDefaultsService {
-    private static let userDefaults = UserDefaults.standard
-    
-    static func saveLastSelection(_ selection: String) {
-        userDefaults.set(selection, forKey: DefaultsKey.lastSelection.rawValue)
-    }
-    
-    static func getLastSelection() -> String {
-        let lastSelection = userDefaults.string(forKey: DefaultsKey.lastSelection.rawValue)
-        return lastSelection ?? "croatia"
-    }
-    
-}
