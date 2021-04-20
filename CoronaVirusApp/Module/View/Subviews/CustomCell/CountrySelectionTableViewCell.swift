@@ -46,12 +46,16 @@ class CountrySelectionTableViewCell: UITableViewCell {
 //MARK: - UI
 private extension CountrySelectionTableViewCell {
     func setupView() {
+        setupAppearance()
         addViews()
         setupLayout()
     }
     
+    func setupAppearance() {
+        contentView.backgroundColor = .systemGray6
+    }
+    
     func addViews() {
-        //let views = [flagImageView, countryNameLabel]
         stackView.addArrangedSubview(flagLabel)
         stackView.addArrangedSubview(countryNameLabel)
         contentView.addSubview(stackView)

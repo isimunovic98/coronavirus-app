@@ -29,6 +29,7 @@ class CountrySelectionViewController: UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .systemGray6
         return tableView
     }()
     
@@ -85,7 +86,7 @@ private extension CountrySelectionViewController {
     }
     
     func setupAppearance() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray6
     }
     
     func addViews() {

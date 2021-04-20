@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: CoronaVirusApp/Common/Networking/Repositories/Covid19Repository.swift at 2021-04-19 23:03:09 +0000
+// MARK: - Mocks generated from file: CoronaVirusApp/Common/Networking/Repositories/Covid19Repository.swift at 2021-04-20 11:40:55 +0000
 
 //
 //  Covid19Repository.swift

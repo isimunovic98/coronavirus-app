@@ -60,7 +60,7 @@ extension HeaderView {
     }
     
     func setupAppearance() {
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = .systemGray6
     }
     
     func addViews() {
