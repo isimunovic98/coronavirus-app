@@ -30,23 +30,14 @@ public class RestManager {
                         if let decodedObject: T = SerializationManager.parseData(jsonData: value) {
                             promise(.success(.success(decodedObject)))
                         } else {
-                            promise(.success(.failure(NetworkError.parseFailed)))
+                            promise(.success(.failure(.parseFailed)))
                         }
                     case .failure(let error):
-                        guard let urlError = error.underlyingError as? URLError else {
-                            return promise(.success(.failure(NetworkError.generalError)))
+                        guard let _ = error.underlyingError as? URLError else {
+                            return promise(.success(.failure(.generalError)))
                         }
                         
-                        switch urlError.code {
-                        case .timedOut:
-                            promise(.success(.failure(.connectionTimedOut)))
-                        case .notConnectedToInternet:
-                            promise(.success(.failure(.notConnectedToInternet)))
-                        case .networkConnectionLost:
-                            promise(.success(.failure(.networkConnectionLost)))
-                        default:
-                            promise(.success(.failure(.generalError)))
-                        }
+                        return  promise(.success(.failure(.notConnectedToInternet)))
                     }
                 }
             request.resume()
