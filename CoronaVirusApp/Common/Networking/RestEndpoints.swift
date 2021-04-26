@@ -40,7 +40,7 @@ public enum RestEndpoints {
         case .dayOneAllStatus(let country):
             return RestEndpoints.ENDPOINT_COVID + "/dayone/country/" + country
         case .byCountryTotalStatus(let country):
-            return RestEndpoints.ENDPOINT_COVID + "total/country/" + country
+            return RestEndpoints.ENDPOINT_COVID + "/total/country/" + country
         case .summary:
             return RestEndpoints.ENDPOINT_COVID + "/summary"
         case .latestNews:
