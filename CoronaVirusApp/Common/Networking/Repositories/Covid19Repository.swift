@@ -9,12 +9,12 @@ import Foundation
 import Combine
 
 protocol Covid19Repository {
-    func getCountriesList(using endpoint: RestEndpoints) -> AnyPublisher<Result<[Country], NetworkError>, Never>
+    func getCountriesList() -> AnyPublisher<Result<[Country], NetworkError>, Never>
 }
 
 class Covid19RepositoryImpl: Covid19Repository {
-    func getCountriesList(using endpoint: RestEndpoints) -> AnyPublisher<Result<[Country], NetworkError>, Never> {
-        return RestManager.requestObservable(url: endpoint.endpoint())
+    func getCountriesList() -> AnyPublisher<Result<[Country], NetworkError>, Never> {
+        return RestManager.requestObservable(url: RestEndpoints.countriesList.endpoint())
     }
 }
 

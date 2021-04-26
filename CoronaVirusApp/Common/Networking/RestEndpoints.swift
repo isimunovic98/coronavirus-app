@@ -8,7 +8,7 @@
 import Foundation
 import Cuckoo
 
-public enum RestEndpoints: Matchable {
+public enum RestEndpoints {
     
     static var scheme: String {
         return "https://"

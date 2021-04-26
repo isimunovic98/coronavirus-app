@@ -32,9 +32,7 @@ extension CountrySelectionCoordinator {
 
 extension CountrySelectionCoordinator: CoordinatorDelegate {
     func viewControllerDidFinish() {
-        if let parent = parent {
-            parent.childDidFinish(self)
-        }
+        parent?.childDidFinish(self)
     }
     
 }
