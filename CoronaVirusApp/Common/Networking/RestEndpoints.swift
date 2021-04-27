@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Cuckoo
 
 public enum RestEndpoints {
     
