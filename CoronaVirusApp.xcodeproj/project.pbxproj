@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0212B76226389C9900F87F9D /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0212B76126389C9900F87F9D /* UIStackView+Extensions.swift */; };
+		0212B76626389CB700F87F9D /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0212B76526389CB700F87F9D /* UITableView+Extensions.swift */; };
+		0212B76A26389CD200F87F9D /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0212B76926389CD200F87F9D /* UITableViewCell+Extensions.swift */; };
+		0212B76E26389CFF00F87F9D /* SerializationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0212B76D26389CFF00F87F9D /* SerializationManager.swift */; };
+		0212B77226389D2500F87F9D /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0212B77126389D2500F87F9D /* ReusableView.swift */; };
+		0212B77726389D4700F87F9D /* ParentCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0212B77626389D4700F87F9D /* ParentCoordinatorDelegate.swift */; };
+		0212B77B26389D6600F87F9D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0212B77A26389D6600F87F9D /* Coordinator.swift */; };
 		0226D447262DF745001169F0 /* UseCaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D446262DF745001169F0 /* UseCaseData.swift */; };
 		0226D44C262DF7DC001169F0 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D44B262DF7DC001169F0 /* DateUtils.swift */; };
 		0229A578262C6E14003C1053 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0229A577262C6E14003C1053 /* AppCoordinator.swift */; };
-		0264B1FC26175F5E001AA002 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264B1FB26175F5E001AA002 /* UIStackView+Extensions.swift */; };
 		02691254262C6FF9008932E2 /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02691253262C6FF9008932E2 /* DummyViewController.swift */; };
 		02691261262CBB7E008932E2 /* DummyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02691260262CBB7E008932E2 /* DummyCoordinator.swift */; };
 		02691272262CBFCF008932E2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02691271262CBFCF008932E2 /* TabBarViewController.swift */; };
@@ -42,10 +48,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0212B76126389C9900F87F9D /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
+		0212B76526389CB700F87F9D /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		0212B76926389CD200F87F9D /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		0212B76D26389CFF00F87F9D /* SerializationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationManager.swift; sourceTree = "<group>"; };
+		0212B77126389D2500F87F9D /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		0212B77626389D4700F87F9D /* ParentCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCoordinatorDelegate.swift; sourceTree = "<group>"; };
+		0212B77A26389D6600F87F9D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0226D446262DF745001169F0 /* UseCaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseData.swift; sourceTree = "<group>"; };
 		0226D44B262DF7DC001169F0 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		0229A577262C6E14003C1053 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		0264B1FB26175F5E001AA002 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		02691253262C6FF9008932E2 /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		02691260262CBB7E008932E2 /* DummyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyCoordinator.swift; sourceTree = "<group>"; };
 		02691271262CBFCF008932E2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +155,9 @@
 			isa = PBXGroup;
 			children = (
 				0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */,
+				0212B77126389D2500F87F9D /* ReusableView.swift */,
+				0212B77626389D4700F87F9D /* ParentCoordinatorDelegate.swift */,
+				0212B77A26389D6600F87F9D /* Coordinator.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -152,7 +167,9 @@
 			children = (
 				0297B79E2615CEBF00BB40A9 /* UIImageView+Extensions.swift */,
 				0297B7AC2615CEF300BB40A9 /* UIView+Extensions.swift */,
-				0264B1FB26175F5E001AA002 /* UIStackView+Extensions.swift */,
+				0212B76126389C9900F87F9D /* UIStackView+Extensions.swift */,
+				0212B76526389CB700F87F9D /* UITableView+Extensions.swift */,
+				0212B76926389CD200F87F9D /* UITableViewCell+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -163,6 +180,7 @@
 				0297B7B52615CFAE00BB40A9 /* NetworkError.swift */,
 				0297B7BB2615CFD300BB40A9 /* RestEndpoints.swift */,
 				0297B7BF2615CFED00BB40A9 /* RestManager.swift */,
+				0212B76D26389CFF00F87F9D /* SerializationManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -469,15 +487,21 @@
 				0297B79F2615CEBF00BB40A9 /* UIImageView+Extensions.swift in Sources */,
 				02691272262CBFCF008932E2 /* TabBarViewController.swift in Sources */,
 				0297B7AD2615CEF300BB40A9 /* UIView+Extensions.swift in Sources */,
+				0212B77726389D4700F87F9D /* ParentCoordinatorDelegate.swift in Sources */,
 				02691254262C6FF9008932E2 /* DummyViewController.swift in Sources */,
 				0273CA5026234EE500A7CC00 /* TabBarCoordinator.swift in Sources */,
 				0297B7C02615CFED00BB40A9 /* RestManager.swift in Sources */,
 				602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */,
+				0212B76226389C9900F87F9D /* UIStackView+Extensions.swift in Sources */,
 				0273CA4C26234D9300A7CC00 /* TabBarPage.swift in Sources */,
-				0264B1FC26175F5E001AA002 /* UIStackView+Extensions.swift in Sources */,
+				0212B76A26389CD200F87F9D /* UITableViewCell+Extensions.swift in Sources */,
+				0212B76E26389CFF00F87F9D /* SerializationManager.swift in Sources */,
+				0212B76626389CB700F87F9D /* UITableView+Extensions.swift in Sources */,
+				0212B77226389D2500F87F9D /* ReusableView.swift in Sources */,
 				0297B7BC2615CFD300BB40A9 /* RestEndpoints.swift in Sources */,
 				02691261262CBB7E008932E2 /* DummyCoordinator.swift in Sources */,
 				0297B78E2615CE4D00BB40A9 /* CoordinatorDelegate.swift in Sources */,
+				0212B77B26389D6600F87F9D /* Coordinator.swift in Sources */,
 				0297B7CC2615D03F00BB40A9 /* UserDefaultsService.swift in Sources */,
 				0229A578262C6E14003C1053 /* AppCoordinator.swift in Sources */,
 				0297B7B62615CFAE00BB40A9 /* NetworkError.swift in Sources */,
