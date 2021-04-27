@@ -68,9 +68,8 @@ class CountrySelectionViewModelTest: QuickSpec {
                     guard let response: [Country] = getResource() else {
                         return
                     }
-                    let endpoint = RestEndpoints.countriesList
                     let publisher = CurrentValueSubject<Result<[Country], NetworkError>, Never>(.success(response)).eraseToAnyPublisher()
-                    when(mock.getCountriesList(using: endpoint)).thenReturn(publisher)
+                    when(mock.getCountriesList()).thenReturn(publisher)
 
                 }
             }
@@ -78,9 +77,8 @@ class CountrySelectionViewModelTest: QuickSpec {
             func failStub() {
                 stub(mockRepository) { mock in
                     let error = NetworkError.connectionTimedOut
-                    let endpoint = RestEndpoints.countriesList
                     let publisher =  CurrentValueSubject<Result<[Country], NetworkError>, Never>(.failure(error)).eraseToAnyPublisher()
-                    when(mock.getCountriesList(using: endpoint)).thenReturn(publisher)
+                    when(mock.getCountriesList()).thenReturn(publisher)
                    
                 }
             }
