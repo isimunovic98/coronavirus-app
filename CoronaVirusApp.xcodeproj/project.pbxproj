@@ -9,19 +9,19 @@
 /* Begin PBXBuildFile section */
 		0226D447262DF745001169F0 /* UseCaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D446262DF745001169F0 /* UseCaseData.swift */; };
 		0226D44C262DF7DC001169F0 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D44B262DF7DC001169F0 /* DateUtils.swift */; };
+		0229A578262C6E14003C1053 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0229A577262C6E14003C1053 /* AppCoordinator.swift */; };
 		0264B1FC26175F5E001AA002 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264B1FB26175F5E001AA002 /* UIStackView+Extensions.swift */; };
-		0297B7882615CE2B00BB40A9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7872615CE2B00BB40A9 /* Coordinator.swift */; };
+		02691254262C6FF9008932E2 /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02691253262C6FF9008932E2 /* DummyViewController.swift */; };
+		02691261262CBB7E008932E2 /* DummyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02691260262CBB7E008932E2 /* DummyCoordinator.swift */; };
+		02691272262CBFCF008932E2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02691271262CBFCF008932E2 /* TabBarViewController.swift */; };
+		0273CA4C26234D9300A7CC00 /* TabBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273CA4B26234D9300A7CC00 /* TabBarPage.swift */; };
+		0273CA5026234EE500A7CC00 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273CA4F26234EE500A7CC00 /* TabBarCoordinator.swift */; };
 		0297B78E2615CE4D00BB40A9 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */; };
-		0297B7922615CE6300BB40A9 /* ParentCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7912615CE6300BB40A9 /* ParentCoordinatorDelegate.swift */; };
-		0297B79A2615CE9100BB40A9 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7992615CE9100BB40A9 /* ReusableView.swift */; };
 		0297B79F2615CEBF00BB40A9 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B79E2615CEBF00BB40A9 /* UIImageView+Extensions.swift */; };
-		0297B7A52615CECE00BB40A9 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7A42615CECE00BB40A9 /* UITableView+Extensions.swift */; };
-		0297B7A92615CEDA00BB40A9 /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7A82615CEDA00BB40A9 /* UITableViewCell+Extensions.swift */; };
 		0297B7AD2615CEF300BB40A9 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7AC2615CEF300BB40A9 /* UIView+Extensions.swift */; };
 		0297B7B62615CFAE00BB40A9 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7B52615CFAE00BB40A9 /* NetworkError.swift */; };
 		0297B7BC2615CFD300BB40A9 /* RestEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7BB2615CFD300BB40A9 /* RestEndpoints.swift */; };
 		0297B7C02615CFED00BB40A9 /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7BF2615CFED00BB40A9 /* RestManager.swift */; };
-		0297B7C52615D00900BB40A9 /* SerializationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7C42615D00900BB40A9 /* SerializationManager.swift */; };
 		0297B7CC2615D03F00BB40A9 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7CB2615D03F00BB40A9 /* UserDefaultsService.swift */; };
 		602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C5E2600CB860034A798 /* AppDelegate.swift */; };
 		602F4C682600CB870034A798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C672600CB870034A798 /* Assets.xcassets */; };
@@ -44,19 +44,19 @@
 /* Begin PBXFileReference section */
 		0226D446262DF745001169F0 /* UseCaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseData.swift; sourceTree = "<group>"; };
 		0226D44B262DF7DC001169F0 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		0229A577262C6E14003C1053 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0264B1FB26175F5E001AA002 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
-		0297B7872615CE2B00BB40A9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		02691253262C6FF9008932E2 /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
+		02691260262CBB7E008932E2 /* DummyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyCoordinator.swift; sourceTree = "<group>"; };
+		02691271262CBFCF008932E2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		0273CA4B26234D9300A7CC00 /* TabBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPage.swift; sourceTree = "<group>"; };
+		0273CA4F26234EE500A7CC00 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
-		0297B7912615CE6300BB40A9 /* ParentCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCoordinatorDelegate.swift; sourceTree = "<group>"; };
-		0297B7992615CE9100BB40A9 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		0297B79E2615CEBF00BB40A9 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
-		0297B7A42615CECE00BB40A9 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
-		0297B7A82615CEDA00BB40A9 /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		0297B7AC2615CEF300BB40A9 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		0297B7B52615CFAE00BB40A9 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		0297B7BB2615CFD300BB40A9 /* RestEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestEndpoints.swift; sourceTree = "<group>"; };
 		0297B7BF2615CFED00BB40A9 /* RestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
-		0297B7C42615D00900BB40A9 /* SerializationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationManager.swift; sourceTree = "<group>"; };
 		0297B7CB2615D03F00BB40A9 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		57F89CF7DF78AC38F950C846 /* Pods-CoronaVirusApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusApp.debug.xcconfig"; path = "Target Support Files/Pods-CoronaVirusApp/Pods-CoronaVirusApp.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C5B2600CB860034A798 /* CoronaVirusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaVirusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +110,23 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		02691252262C6FE9008932E2 /* DummyView */ = {
+			isa = PBXGroup;
+			children = (
+				02691253262C6FF9008932E2 /* DummyViewController.swift */,
+				02691260262CBB7E008932E2 /* DummyCoordinator.swift */,
+			);
+			path = DummyView;
+			sourceTree = "<group>";
+		};
+		02691270262CBFBF008932E2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				02691271262CBFCF008932E2 /* TabBarViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0297B7852615CDFF00BB40A9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,10 +142,7 @@
 		0297B7862615CE1F00BB40A9 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				0297B7872615CE2B00BB40A9 /* Coordinator.swift */,
 				0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */,
-				0297B7912615CE6300BB40A9 /* ParentCoordinatorDelegate.swift */,
-				0297B7992615CE9100BB40A9 /* ReusableView.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -137,8 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				0297B79E2615CEBF00BB40A9 /* UIImageView+Extensions.swift */,
-				0297B7A42615CECE00BB40A9 /* UITableView+Extensions.swift */,
-				0297B7A82615CEDA00BB40A9 /* UITableViewCell+Extensions.swift */,
 				0297B7AC2615CEF300BB40A9 /* UIView+Extensions.swift */,
 				0264B1FB26175F5E001AA002 /* UIStackView+Extensions.swift */,
 			);
@@ -151,7 +163,6 @@
 				0297B7B52615CFAE00BB40A9 /* NetworkError.swift */,
 				0297B7BB2615CFD300BB40A9 /* RestEndpoints.swift */,
 				0297B7BF2615CFED00BB40A9 /* RestManager.swift */,
-				0297B7C42615D00900BB40A9 /* SerializationManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -163,6 +174,41 @@
 				0297B7CB2615D03F00BB40A9 /* UserDefaultsService.swift */,
 			);
 			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		0297B7D52615D38600BB40A9 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				02691252262C6FE9008932E2 /* DummyView */,
+				0297B7D62615D39900BB40A9 /* MainContainer */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		0297B7D62615D39900BB40A9 /* MainContainer */ = {
+			isa = PBXGroup;
+			children = (
+				02691270262CBFBF008932E2 /* View */,
+				0297B7DA2615D3CE00BB40A9 /* Coordinator */,
+				0297B7D82615D3BF00BB40A9 /* Model */,
+			);
+			path = MainContainer;
+			sourceTree = "<group>";
+		};
+		0297B7D82615D3BF00BB40A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0273CA4B26234D9300A7CC00 /* TabBarPage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0297B7DA2615D3CE00BB40A9 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				0273CA4F26234EE500A7CC00 /* TabBarCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		177F832A5D32E8BEF54B406A /* Frameworks */ = {
@@ -208,6 +254,7 @@
 		602F4C5D2600CB860034A798 /* CoronaVirusApp */ = {
 			isa = PBXGroup;
 			children = (
+				0297B7D52615D38600BB40A9 /* Modules */,
 				0297B7852615CDFF00BB40A9 /* Common */,
 				602F4C9A2600CBD30034A798 /* Support */,
 			);
@@ -230,6 +277,7 @@
 				602F4C672600CB870034A798 /* Assets.xcassets */,
 				602F4C692600CB870034A798 /* LaunchScreen.storyboard */,
 				602F4C6C2600CB870034A798 /* Info.plist */,
+				0229A577262C6E14003C1053 /* AppCoordinator.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -418,22 +466,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0297B7882615CE2B00BB40A9 /* Coordinator.swift in Sources */,
 				0297B79F2615CEBF00BB40A9 /* UIImageView+Extensions.swift in Sources */,
+				02691272262CBFCF008932E2 /* TabBarViewController.swift in Sources */,
 				0297B7AD2615CEF300BB40A9 /* UIView+Extensions.swift in Sources */,
+				02691254262C6FF9008932E2 /* DummyViewController.swift in Sources */,
+				0273CA5026234EE500A7CC00 /* TabBarCoordinator.swift in Sources */,
 				0297B7C02615CFED00BB40A9 /* RestManager.swift in Sources */,
 				602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */,
-				0297B7A52615CECE00BB40A9 /* UITableView+Extensions.swift in Sources */,
+				0273CA4C26234D9300A7CC00 /* TabBarPage.swift in Sources */,
 				0264B1FC26175F5E001AA002 /* UIStackView+Extensions.swift in Sources */,
-				0297B79A2615CE9100BB40A9 /* ReusableView.swift in Sources */,
 				0297B7BC2615CFD300BB40A9 /* RestEndpoints.swift in Sources */,
-				0297B7C52615D00900BB40A9 /* SerializationManager.swift in Sources */,
+				02691261262CBB7E008932E2 /* DummyCoordinator.swift in Sources */,
 				0297B78E2615CE4D00BB40A9 /* CoordinatorDelegate.swift in Sources */,
 				0297B7CC2615D03F00BB40A9 /* UserDefaultsService.swift in Sources */,
+				0229A578262C6E14003C1053 /* AppCoordinator.swift in Sources */,
 				0297B7B62615CFAE00BB40A9 /* NetworkError.swift in Sources */,
 				0226D44C262DF7DC001169F0 /* DateUtils.swift in Sources */,
-				0297B7922615CE6300BB40A9 /* ParentCoordinatorDelegate.swift in Sources */,
-				0297B7A92615CEDA00BB40A9 /* UITableViewCell+Extensions.swift in Sources */,
 				0226D447262DF745001169F0 /* UseCaseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
