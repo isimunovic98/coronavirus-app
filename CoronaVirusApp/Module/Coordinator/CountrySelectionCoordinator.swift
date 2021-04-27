@@ -19,6 +19,7 @@ class CountrySelectionCoordinator: Coordinator {
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         self.controller = CountrySelectionCoordinator.createController()
+        controller.viewModel.coordinatorDelegate = self
     }
 }
 
@@ -33,12 +34,10 @@ private extension CountrySelectionCoordinator {
     static func createController() -> CountrySelectionViewController {
         let repository = Covid19RepositoryImpl()
         let viewModel = CountrySelectionViewModel(repository: repository)
-        viewModel.coordinatorDelegate = self
         let viewController = CountrySelectionViewController(viewModel: viewModel)
         return viewController
     }
 }
-
 extension CountrySelectionCoordinator: CoordinatorDelegate {
     func viewControllerDidFinish() {
         parent?.childDidFinish(self)
