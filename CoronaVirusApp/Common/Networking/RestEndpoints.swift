@@ -8,6 +8,15 @@
 import Foundation
 
 public enum RestEndpoints {
+    case countriesList
+    
+    case dayOneAllStatus(country: String)
+    
+    case byCountryTotalStatus(country: String)
+    
+    case summary
+    
+    case latestNews
     
     static let scheme = Bundle.main.object(forInfoDictionaryKey: "scheme") as! String
     
@@ -22,16 +31,6 @@ public enum RestEndpoints {
     static var ENDPOINT_NEWS: String {
         return scheme + newsHost
     }
-    
-    case countriesList
-    
-    case dayOneAllStatus(country: String)
-    
-    case byCountryTotalStatus(country: String)
-    
-    case summary
-    
-    case latestNews
     
     public func endpoint() -> String {
         switch self {
