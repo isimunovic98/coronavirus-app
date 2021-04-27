@@ -33,8 +33,7 @@ extension CountrySelectionViewModel {
         return subject
             .flatMap({ [unowned self] shouldShowLoader -> AnyPublisher<Result<[Country], NetworkError>, Never> in
                 #warning("show loader screen")
-                let endpoint = RestEndpoints.countriesList
-                return self.repository.getCountriesList(using: endpoint)
+                return self.repository.getCountriesList()
             })
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: RunLoop.main)
@@ -57,8 +56,7 @@ extension CountrySelectionViewModel {
             .flatMap{ input -> AnyPublisher<Result<[Country], NetworkError>, Never> in
                 #warning("show loader screen")
                 filter = input
-                let endpoint = RestEndpoints.countriesList
-                return self.repository.getCountriesList(using: endpoint)
+                return self.repository.getCountriesList()
             }
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: RunLoop.main)
