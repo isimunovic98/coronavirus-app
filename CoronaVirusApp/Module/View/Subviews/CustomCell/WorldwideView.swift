@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeaderView: UITableViewHeaderFooterView {
+class WorldwideView: UIView {
     //MARK: Properties
     let worldIconLabel: UILabel = {
         let label = UILabel()
@@ -41,8 +41,8 @@ class HeaderView: UITableViewHeaderFooterView {
     }()
     
     //MARK: Init
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupView()
     }
     
@@ -52,7 +52,7 @@ class HeaderView: UITableViewHeaderFooterView {
 }
 
 //MARK: - UI
-extension HeaderView {
+extension WorldwideView {
     func setupView() {
         setupAppearance()
         addViews()
@@ -60,14 +60,14 @@ extension HeaderView {
     }
     
     func setupAppearance() {
-        contentView.backgroundColor = .systemGray6
+        backgroundColor = .systemGray6
     }
     
     func addViews() {
         //let views = [flagImageView, countryNameLabel]
         stackView.addArrangedSubview(worldIconLabel)
         stackView.addArrangedSubview(worldwideLabel)
-        contentView.addSubviews([stackView, horizontalDividor])
+        addSubviews([stackView, horizontalDividor])
     }
     
     func setupLayout() {

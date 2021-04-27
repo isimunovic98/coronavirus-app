@@ -25,6 +25,13 @@ class CountrySelectionViewController: UIViewController {
         return searchBar
     }()
     
+    let worldwideView: WorldwideView = {
+        let view = WorldwideView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = true
+        return view
+    }()
+    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -62,8 +69,10 @@ extension CountrySelectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
-        #warning("just for mocking, move to coordinator, customize back button")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
         self.title = "Choose your country"
         self.navigationController?.navigationBar.tintColor = .black
@@ -90,7 +99,7 @@ private extension CountrySelectionViewController {
     }
     
     func addViews() {
-        let views = [searchBar, tableView, noResultsLabel]
+        let views = [searchBar, worldwideView, tableView, noResultsLabel]
         view.addSubviews(views)
     }
     
@@ -99,8 +108,13 @@ private extension CountrySelectionViewController {
             make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(UIEdgeInsets(top: 16, left: 32, bottom: 0, right: 32))
         }
         
-        tableView.snp.makeConstraints { (make) in
+        worldwideView.snp.makeConstraints { (make) in
             make.top.equalTo(searchBar.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview().inset(32)
+        }
+        
+        tableView.snp.makeConstraints { (make) in
+            make.top.equalTo(worldwideView.snp.bottom).offset(10)
             make.leading.bottom.trailing.equalTo(view.safeAreaLayoutGuide).inset(UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 32))
         }
         
@@ -113,6 +127,8 @@ private extension CountrySelectionViewController {
 //MARK: - Bindings
 extension CountrySelectionViewController {
     func setupBindings() {
+        worldwideView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleWorldwideTap)))
+        
         viewModel.initializeScreenData(with: viewModel.loadData).store(in: &disposeBag)
         
         viewModel.attachFilterListener(subject: viewModel.searchPublisher).store(in: &disposeBag)
@@ -127,13 +143,13 @@ extension CountrySelectionViewController {
             .store(in: &disposeBag)
 
         #warning("add error handling")
-    }
     
+    }
 }
 
 //MARK: - Methods
 private extension CountrySelectionViewController {
-    @objc func handleHeaderTap() {
+    @objc func handleWorldwideTap() {
         viewModel.update("Worldwide")
         navigationController?.popViewController(animated: false)
     }
@@ -165,13 +181,6 @@ extension CountrySelectionViewController: UITableViewDelegate, UITableViewDataSo
         return cell
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: HeaderView.reuseIdentifier) as? HeaderView
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleHeaderTap))
-        view?.addGestureRecognizer(tap)
-        return view
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCountry = viewModel.screenData[indexPath.row].country
         viewModel.update(selectedCountry)
@@ -180,7 +189,6 @@ extension CountrySelectionViewController: UITableViewDelegate, UITableViewDataSo
     
     func configureTableView() {
         setTableViewDelegates()
-        tableView.register(HeaderView.self, forHeaderFooterViewReuseIdentifier: HeaderView.reuseIdentifier)
         tableView.register(CountrySelectionTableViewCell.self, forCellReuseIdentifier: CountrySelectionTableViewCell.reuseIdentifier)
     }
     func setTableViewDelegates() {
