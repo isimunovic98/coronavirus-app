@@ -29,6 +29,8 @@
 		0297B7BC2615CFD300BB40A9 /* RestEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7BB2615CFD300BB40A9 /* RestEndpoints.swift */; };
 		0297B7C02615CFED00BB40A9 /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7BF2615CFED00BB40A9 /* RestManager.swift */; };
 		0297B7CC2615D03F00BB40A9 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7CB2615D03F00BB40A9 /* UserDefaultsService.swift */; };
+		02C5F8CA2639D937009F85FC /* PageComingSoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5F8C92639D937009F85FC /* PageComingSoonViewController.swift */; };
+		02C5F8D02639DB06009F85FC /* PageComingSoonCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5F8CF2639DB06009F85FC /* PageComingSoonCoordinator.swift */; };
 		602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C5E2600CB860034A798 /* AppDelegate.swift */; };
 		602F4C682600CB870034A798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C672600CB870034A798 /* Assets.xcassets */; };
 		602F4C6B2600CB870034A798 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C692600CB870034A798 /* LaunchScreen.storyboard */; };
@@ -70,6 +72,8 @@
 		0297B7BB2615CFD300BB40A9 /* RestEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestEndpoints.swift; sourceTree = "<group>"; };
 		0297B7BF2615CFED00BB40A9 /* RestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
 		0297B7CB2615D03F00BB40A9 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		02C5F8C92639D937009F85FC /* PageComingSoonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageComingSoonViewController.swift; sourceTree = "<group>"; };
+		02C5F8CF2639DB06009F85FC /* PageComingSoonCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageComingSoonCoordinator.swift; sourceTree = "<group>"; };
 		57F89CF7DF78AC38F950C846 /* Pods-CoronaVirusApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusApp.debug.xcconfig"; path = "Target Support Files/Pods-CoronaVirusApp/Pods-CoronaVirusApp.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C5B2600CB860034A798 /* CoronaVirusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaVirusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602F4C5E2600CB860034A798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 		0297B7D52615D38600BB40A9 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				02C5F8BF2639D706009F85FC /* PageComingSoon */,
 				02691252262C6FE9008932E2 /* DummyView */,
 				0297B7D62615D39900BB40A9 /* MainContainer */,
 			);
@@ -227,6 +232,39 @@
 				0273CA4F26234EE500A7CC00 /* TabBarCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		02C5F8BF2639D706009F85FC /* PageComingSoon */ = {
+			isa = PBXGroup;
+			children = (
+				02C5F8C72639D900009F85FC /* Coordinator */,
+				02C5F8C62639D8FA009F85FC /* View */,
+			);
+			path = PageComingSoon;
+			sourceTree = "<group>";
+		};
+		02C5F8C62639D8FA009F85FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				02C5F8C82639D917009F85FC /* ViewController */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		02C5F8C72639D900009F85FC /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				02C5F8CF2639DB06009F85FC /* PageComingSoonCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		02C5F8C82639D917009F85FC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				02C5F8C92639D937009F85FC /* PageComingSoonViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		177F832A5D32E8BEF54B406A /* Frameworks */ = {
@@ -485,6 +523,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0297B79F2615CEBF00BB40A9 /* UIImageView+Extensions.swift in Sources */,
+				02C5F8CA2639D937009F85FC /* PageComingSoonViewController.swift in Sources */,
+				02C5F8D02639DB06009F85FC /* PageComingSoonCoordinator.swift in Sources */,
 				02691272262CBFCF008932E2 /* TabBarViewController.swift in Sources */,
 				0297B7AD2615CEF300BB40A9 /* UIView+Extensions.swift in Sources */,
 				0212B77726389D4700F87F9D /* ParentCoordinatorDelegate.swift in Sources */,
