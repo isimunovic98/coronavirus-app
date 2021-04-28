@@ -87,6 +87,6 @@ extension CountrySelectionViewModel {
     }
     
     func update(_ selectedCountry: String) {
-        UserDefaultsService.saveLastSelection(selectedCountry)
+        //UserDefaultsService.saveLastSelection(selectedCountry)
     }
 }
