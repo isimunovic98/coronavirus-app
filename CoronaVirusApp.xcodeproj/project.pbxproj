@@ -16,19 +16,19 @@
 		0212B77B26389D6600F87F9D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0212B77A26389D6600F87F9D /* Coordinator.swift */; };
 		0226D447262DF745001169F0 /* UseCaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D446262DF745001169F0 /* UseCaseData.swift */; };
 		0226D44C262DF7DC001169F0 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D44B262DF7DC001169F0 /* DateUtils.swift */; };
+		0226D463262E3A4F001169F0 /* Covid19Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D462262E3A4F001169F0 /* Covid19Repository.swift */; };
+		0226D471262E3B4F001169F0 /* CountriesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 0226D470262E3B4F001169F0 /* CountriesResponse.json */; };
+		0226D477262E3C6F001169F0 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D476262E3C6E001169F0 /* GeneratedMocks.swift */; };
+		0226D47D262E3D50001169F0 /* CountrySelectionViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D47C262E3D50001169F0 /* CountrySelectionViewModelTest.swift */; };
 		0229A578262C6E14003C1053 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0229A577262C6E14003C1053 /* AppCoordinator.swift */; };
+		0264B20226175FDF001AA002 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		02691254262C6FF9008932E2 /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02691253262C6FF9008932E2 /* DummyViewController.swift */; };
 		02691261262CBB7E008932E2 /* DummyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02691260262CBB7E008932E2 /* DummyCoordinator.swift */; };
 		02691272262CBFCF008932E2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02691271262CBFCF008932E2 /* TabBarViewController.swift */; };
 		0273CA4C26234D9300A7CC00 /* TabBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273CA4B26234D9300A7CC00 /* TabBarPage.swift */; };
 		0273CA5026234EE500A7CC00 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273CA4F26234EE500A7CC00 /* TabBarCoordinator.swift */; };
-		0297B78E2615CE4D00BB40A9 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */; };
-		0226D463262E3A4F001169F0 /* Covid19Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D462262E3A4F001169F0 /* Covid19Repository.swift */; };
-		0226D471262E3B4F001169F0 /* CountriesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 0226D470262E3B4F001169F0 /* CountriesResponse.json */; };
-		0226D477262E3C6F001169F0 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D476262E3C6E001169F0 /* GeneratedMocks.swift */; };
-		0226D47D262E3D50001169F0 /* CountrySelectionViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D47C262E3D50001169F0 /* CountrySelectionViewModelTest.swift */; };
-		0264B20226175FDF001AA002 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		0273CA5D26244C3800A7CC00 /* WorldwideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273CA5C26244C3800A7CC00 /* WorldwideView.swift */; };
+		0297B78E2615CE4D00BB40A9 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */; };
 		0297B79F2615CEBF00BB40A9 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B79E2615CEBF00BB40A9 /* UIImageView+Extensions.swift */; };
 		0297B7AD2615CEF300BB40A9 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7AC2615CEF300BB40A9 /* UIView+Extensions.swift */; };
 		0297B7B62615CFAE00BB40A9 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7B52615CFAE00BB40A9 /* NetworkError.swift */; };
@@ -68,18 +68,18 @@
 		0212B77A26389D6600F87F9D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0226D446262DF745001169F0 /* UseCaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseData.swift; sourceTree = "<group>"; };
 		0226D44B262DF7DC001169F0 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		0226D462262E3A4F001169F0 /* Covid19Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid19Repository.swift; sourceTree = "<group>"; };
+		0226D470262E3B4F001169F0 /* CountriesResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountriesResponse.json; sourceTree = "<group>"; };
+		0226D476262E3C6E001169F0 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
+		0226D47C262E3D50001169F0 /* CountrySelectionViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionViewModelTest.swift; sourceTree = "<group>"; };
 		0229A577262C6E14003C1053 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		02691253262C6FF9008932E2 /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		02691260262CBB7E008932E2 /* DummyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyCoordinator.swift; sourceTree = "<group>"; };
 		02691271262CBFCF008932E2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		0273CA4B26234D9300A7CC00 /* TabBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPage.swift; sourceTree = "<group>"; };
 		0273CA4F26234EE500A7CC00 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
-		0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
-		0226D462262E3A4F001169F0 /* Covid19Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid19Repository.swift; sourceTree = "<group>"; };
-		0226D470262E3B4F001169F0 /* CountriesResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountriesResponse.json; sourceTree = "<group>"; };
-		0226D476262E3C6E001169F0 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
-		0226D47C262E3D50001169F0 /* CountrySelectionViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionViewModelTest.swift; sourceTree = "<group>"; };
 		0273CA5C26244C3800A7CC00 /* WorldwideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldwideView.swift; sourceTree = "<group>"; };
+		0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
 		0297B79E2615CEBF00BB40A9 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		0297B7AC2615CEF300BB40A9 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		0297B7B52615CFAE00BB40A9 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -127,22 +127,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0226D45D262E39AE001169F0 /* Response */ = {
-			isa = PBXGroup;
-			children = (
-				0226D470262E3B4F001169F0 /* CountriesResponse.json */,
-			);
-			path = Response;
-			sourceTree = "<group>";
-		};
-		0226D461262E3A32001169F0 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				0226D462262E3A4F001169F0 /* Covid19Repository.swift */,
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
 		0226D445262DF72C001169F0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +141,22 @@
 				0226D44B262DF7DC001169F0 /* DateUtils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		0226D45D262E39AE001169F0 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				0226D470262E3B4F001169F0 /* CountriesResponse.json */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		0226D461262E3A32001169F0 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				0226D462262E3A4F001169F0 /* Covid19Repository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		02691252262C6FE9008932E2 /* DummyView */ = {
@@ -191,7 +191,7 @@
 		0297B7862615CE1F00BB40A9 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */,				0212B77126389D2500F87F9D /* ReusableView.swift */,
+				0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */,
 				0212B77626389D4700F87F9D /* ParentCoordinatorDelegate.swift */,
 				0212B77A26389D6600F87F9D /* Coordinator.swift */,
 				0212B77126389D2500F87F9D /* ReusableView.swift */,
@@ -232,37 +232,10 @@
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
-		0297B7EE2615EC9900BB40A9 /* Module */ = {
-			isa = PBXGroup;
-			children = (
-				0297B7F22615ECBE00BB40A9 /* Coordinator */,
-				0297B7F12615ECB900BB40A9 /* ViewModel */,
-				0297B7F02615ECB500BB40A9 /* Model */,
-				0297B7EF2615ECAF00BB40A9 /* View */,
-			);
-			path = Module;
-			sourceTree = "<group>";
-		};
-		0297B7EF2615ECAF00BB40A9 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				0297B7FE2615EF5A00BB40A9 /* Subviews */,
-				0297B7FD2615EF5100BB40A9 /* ViewController */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		0297B7F02615ECB500BB40A9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				0297B83D26161DB500BB40A9 /* Models */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		0297B7D52615D38600BB40A9 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0297B7EE2615EC9900BB40A9 /* CountrySelection */,
 				02691252262C6FE9008932E2 /* DummyView */,
 				0297B7D62615D39900BB40A9 /* MainContainer */,
 			);
@@ -287,6 +260,42 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		0297B7DA2615D3CE00BB40A9 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				0273CA4F26234EE500A7CC00 /* TabBarCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		0297B7EE2615EC9900BB40A9 /* CountrySelection */ = {
+			isa = PBXGroup;
+			children = (
+				0297B7F22615ECBE00BB40A9 /* Coordinator */,
+				0297B7F12615ECB900BB40A9 /* ViewModel */,
+				0297B7F02615ECB500BB40A9 /* Model */,
+				0297B7EF2615ECAF00BB40A9 /* View */,
+			);
+			path = CountrySelection;
+			sourceTree = "<group>";
+		};
+		0297B7EF2615ECAF00BB40A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0297B7FE2615EF5A00BB40A9 /* Subviews */,
+				0297B7FD2615EF5100BB40A9 /* ViewController */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0297B7F02615ECB500BB40A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0297B83D26161DB500BB40A9 /* Models */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0297B7F12615ECB900BB40A9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,14 +308,6 @@
 			isa = PBXGroup;
 			children = (
 				02B3D676262471710063972C /* CountrySelectionCoordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		0297B7DA2615D3CE00BB40A9 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				0273CA4F26234EE500A7CC00 /* TabBarCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -387,7 +388,6 @@
 		602F4C5D2600CB860034A798 /* CoronaVirusApp */ = {
 			isa = PBXGroup;
 			children = (
-				0297B7EE2615EC9900BB40A9 /* Module */,
 				0297B7D52615D38600BB40A9 /* Modules */,
 				0297B7852615CDFF00BB40A9 /* Common */,
 				602F4C9A2600CBD30034A798 /* Support */,
@@ -648,7 +648,7 @@
 				0212B77B26389D6600F87F9D /* Coordinator.swift in Sources */,
 				0297B7CC2615D03F00BB40A9 /* UserDefaultsService.swift in Sources */,
 				0229A578262C6E14003C1053 /* AppCoordinator.swift in Sources */,
-				0297B7B62615CFAE00BB40A9 /* NetworkError.swift in Sources */,				
+				0297B7B62615CFAE00BB40A9 /* NetworkError.swift in Sources */,
 				0226D44C262DF7DC001169F0 /* DateUtils.swift in Sources */,
 				0226D447262DF745001169F0 /* UseCaseData.swift in Sources */,
 				02B3D677262471710063972C /* CountrySelectionCoordinator.swift in Sources */,

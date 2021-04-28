@@ -8,7 +8,7 @@
 import Foundation
 
 struct UseCaseData {
-    var usecase: UseCaseSelection = .country("croatia")
+   // var usecase: UseCaseSelection = .country("croatia")
     var countryName: String = "croatia"
 }
 
