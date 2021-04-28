@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 extension UIImageView {
-    func setImageFromUrl(_ urlString: String) {
+    func setImage(from urlString: String) {
         guard let url = URL(string: urlString) else { return }
         let cacheImage = ImageCache.default.retrieveImageInMemoryCache(forKey: urlString)
         let resource = ImageResource(downloadURL: url, cacheKey: urlString)
