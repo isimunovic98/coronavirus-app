@@ -55,7 +55,7 @@ extension CountrySelectionViewModel {
         return subject
             .flatMap{ input -> AnyPublisher<Result<[Country], NetworkError>, Never> in
                 #warning("show loader screen")
-                filter = input
+                filter = input.lowercased()
                 return self.repository.getCountriesList()
             }
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -79,7 +79,7 @@ extension CountrySelectionViewModel {
 extension CountrySelectionViewModel {
     private func filter(_ screenData: [Country], with filter: String) -> [Country] {
         if filter != "" {
-            let filteredData = screenData.filter {$0.country.contains(filter)}
+            let filteredData = screenData.filter {$0.country.lowercased().contains(filter)}
             return filteredData
         } else {
             return screenData
