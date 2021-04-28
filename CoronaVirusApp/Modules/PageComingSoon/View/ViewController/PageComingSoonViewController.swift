@@ -22,7 +22,8 @@ class PageComingSoonViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
         label.font = UIFont(name: "Montserrat", size: 24)
-        label.text = "Page coming son"
+        label.textAlignment = .center
+        label.text = "Page coming soon"
         return label
     }()
 }

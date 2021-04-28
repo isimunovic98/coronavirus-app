@@ -31,6 +31,7 @@
 		0297B7CC2615D03F00BB40A9 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7CB2615D03F00BB40A9 /* UserDefaultsService.swift */; };
 		02C5F8CA2639D937009F85FC /* PageComingSoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5F8C92639D937009F85FC /* PageComingSoonViewController.swift */; };
 		02C5F8D02639DB06009F85FC /* PageComingSoonCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5F8CF2639DB06009F85FC /* PageComingSoonCoordinator.swift */; };
+		02C5F8D92639DC83009F85FC /* loadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 02C5F8D82639DC83009F85FC /* loadingAnimation.json */; };
 		602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C5E2600CB860034A798 /* AppDelegate.swift */; };
 		602F4C682600CB870034A798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C672600CB870034A798 /* Assets.xcassets */; };
 		602F4C6B2600CB870034A798 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C692600CB870034A798 /* LaunchScreen.storyboard */; };
@@ -74,6 +75,7 @@
 		0297B7CB2615D03F00BB40A9 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		02C5F8C92639D937009F85FC /* PageComingSoonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageComingSoonViewController.swift; sourceTree = "<group>"; };
 		02C5F8CF2639DB06009F85FC /* PageComingSoonCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageComingSoonCoordinator.swift; sourceTree = "<group>"; };
+		02C5F8D82639DC83009F85FC /* loadingAnimation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = loadingAnimation.json; sourceTree = "<group>"; };
 		57F89CF7DF78AC38F950C846 /* Pods-CoronaVirusApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusApp.debug.xcconfig"; path = "Target Support Files/Pods-CoronaVirusApp/Pods-CoronaVirusApp.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C5B2600CB860034A798 /* CoronaVirusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaVirusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602F4C5E2600CB860034A798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -267,6 +269,14 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		02C5F8D72639DC6B009F85FC /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				02C5F8D82639DC83009F85FC /* loadingAnimation.json */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		177F832A5D32E8BEF54B406A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,8 +339,9 @@
 		602F4C9A2600CBD30034A798 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				602F4C5E2600CB860034A798 /* AppDelegate.swift */,
 				602F4C672600CB870034A798 /* Assets.xcassets */,
+				02C5F8D72639DC6B009F85FC /* Assets */,
+				602F4C5E2600CB860034A798 /* AppDelegate.swift */,
 				602F4C692600CB870034A798 /* LaunchScreen.storyboard */,
 				602F4C6C2600CB870034A798 /* Info.plist */,
 				0229A577262C6E14003C1053 /* AppCoordinator.swift */,
@@ -422,6 +433,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C5F8D92639DC83009F85FC /* loadingAnimation.json in Resources */,
 				602F4C6B2600CB870034A798 /* LaunchScreen.storyboard in Resources */,
 				602F4C682600CB870034A798 /* Assets.xcassets in Resources */,
 			);
