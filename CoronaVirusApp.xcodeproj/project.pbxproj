@@ -40,9 +40,6 @@
 		0297B83F26161DD000BB40A9 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B83E26161DD000BB40A9 /* Country.swift */; };
 		02B3D673262468E90063972C /* CountrySelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3D672262468E90063972C /* CountrySelectionViewModel.swift */; };
 		02B3D677262471710063972C /* CountrySelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3D676262471710063972C /* CountrySelectionCoordinator.swift */; };
-		02C5F8CA2639D937009F85FC /* PageComingSoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5F8C92639D937009F85FC /* PageComingSoonViewController.swift */; };
-		02C5F8D02639DB06009F85FC /* PageComingSoonCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5F8CF2639DB06009F85FC /* PageComingSoonCoordinator.swift */; };
-		02C5F8D92639DC83009F85FC /* loadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 02C5F8D82639DC83009F85FC /* loadingAnimation.json */; };
 		602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C5E2600CB860034A798 /* AppDelegate.swift */; };
 		602F4C682600CB870034A798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C672600CB870034A798 /* Assets.xcassets */; };
 		602F4C6B2600CB870034A798 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C692600CB870034A798 /* LaunchScreen.storyboard */; };
@@ -94,9 +91,6 @@
 		0297B83E26161DD000BB40A9 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		02B3D672262468E90063972C /* CountrySelectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountrySelectionViewModel.swift; sourceTree = "<group>"; };
 		02B3D676262471710063972C /* CountrySelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionCoordinator.swift; sourceTree = "<group>"; };
-		02C5F8C92639D937009F85FC /* PageComingSoonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageComingSoonViewController.swift; sourceTree = "<group>"; };
-		02C5F8CF2639DB06009F85FC /* PageComingSoonCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageComingSoonCoordinator.swift; sourceTree = "<group>"; };
-		02C5F8D82639DC83009F85FC /* loadingAnimation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = loadingAnimation.json; sourceTree = "<group>"; };
 		57F89CF7DF78AC38F950C846 /* Pods-CoronaVirusApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusApp.debug.xcconfig"; path = "Target Support Files/Pods-CoronaVirusApp/Pods-CoronaVirusApp.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C5B2600CB860034A798 /* CoronaVirusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaVirusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602F4C5E2600CB860034A798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -242,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				0297B7EE2615EC9900BB40A9 /* CountrySelection */,
-				02C5F8BF2639D706009F85FC /* PageComingSoon */,
 				02691252262C6FE9008932E2 /* DummyView */,
 				0297B7D62615D39900BB40A9 /* MainContainer */,
 			);
@@ -295,23 +288,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		02C5F8BF2639D706009F85FC /* PageComingSoon */ = {
-			isa = PBXGroup;
-			children = (
-				02C5F8C72639D900009F85FC /* Coordinator */,
-				02C5F8C62639D8FA009F85FC /* View */,
-			);
-			path = PageComingSoon;
-			sourceTree = "<group>";
-		};
-		02C5F8C62639D8FA009F85FC /* View */ = {
-			isa = PBXGroup;
-			children = (
-				02C5F8C82639D917009F85FC /* ViewController */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		0297B7F02615ECB500BB40A9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,26 +312,10 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		02C5F8C72639D900009F85FC /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				02C5F8CF2639DB06009F85FC /* PageComingSoonCoordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
 		0297B7FD2615EF5100BB40A9 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				0297B7F32615ECF700BB40A9 /* CountrySelectionViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		02C5F8C82639D917009F85FC /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				02C5F8C92639D937009F85FC /* PageComingSoonViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -383,13 +343,6 @@
 				0297B83E26161DD000BB40A9 /* Country.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		02C5F8D72639DC6B009F85FC /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				02C5F8D82639DC83009F85FC /* loadingAnimation.json */,
-			);
-			path = Assets;
 			sourceTree = "<group>";
 		};
 		177F832A5D32E8BEF54B406A /* Frameworks */ = {
@@ -457,9 +410,8 @@
 		602F4C9A2600CBD30034A798 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				602F4C672600CB870034A798 /* Assets.xcassets */,
-				02C5F8D72639DC6B009F85FC /* Assets */,
 				602F4C5E2600CB860034A798 /* AppDelegate.swift */,
+				602F4C672600CB870034A798 /* Assets.xcassets */,
 				602F4C692600CB870034A798 /* LaunchScreen.storyboard */,
 				602F4C6C2600CB870034A798 /* Info.plist */,
 				0229A577262C6E14003C1053 /* AppCoordinator.swift */,
@@ -552,7 +504,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02C5F8D92639DC83009F85FC /* loadingAnimation.json in Resources */,
 				602F4C6B2600CB870034A798 /* LaunchScreen.storyboard in Resources */,
 				602F4C682600CB870034A798 /* Assets.xcassets in Resources */,
 			);
@@ -675,8 +626,6 @@
 			files = (
 				02B3D673262468E90063972C /* CountrySelectionViewModel.swift in Sources */,
 				0297B79F2615CEBF00BB40A9 /* UIImageView+Extensions.swift in Sources */,
-				02C5F8CA2639D937009F85FC /* PageComingSoonViewController.swift in Sources */,
-				02C5F8D02639DB06009F85FC /* PageComingSoonCoordinator.swift in Sources */,
 				02691272262CBFCF008932E2 /* TabBarViewController.swift in Sources */,
 				0297B7AD2615CEF300BB40A9 /* UIView+Extensions.swift in Sources */,
 				0212B77726389D4700F87F9D /* ParentCoordinatorDelegate.swift in Sources */,
