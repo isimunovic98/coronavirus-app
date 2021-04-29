@@ -8,27 +8,10 @@
 import Foundation
 
 struct UserDefaultsService {
-    
-//    static func updateUseCase(_ usecase: UseCaseSelection) {
-//        let userDefaults = UserDefaults.standard
-//        switch usecase {
-//        case .country(let name):
-//            userDefaults.setValue("country", forKey: "usecase")
-//            userDefaults.setValue(name, forKey: "countryName")
-//        case .worldwide:
-//            userDefaults.setValue("worldwide", forKey: "usecase")
-//        }
-//    }
-//    
-//    static func getUseCase() -> UseCaseSelection? {
-//        let userDefaults = UserDefaults.standard
-//        guard let usecase = userDefaults.value(forKey: "usecase") as? String else { return nil }
-//        switch usecase {
-//        case "worldwide": return .worldwide
-//        default:
-//            if let name = userDefaults.value(forKey: "countryName") as? String { return .country(name) }
-//            else { return nil }
-//        }
-//    }
+    static func update(_ item: UserDefaultsDomainItem) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.setValue(item.usecase, forKey: "usecase")
+        do { try userDefaults.setCustomObject(item.details, forKey: "usecaseDetails") }
+        catch (let error) { print(error.localizedDescription) }
+    }
 }
-

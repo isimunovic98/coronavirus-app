@@ -150,7 +150,7 @@ extension CountrySelectionViewController {
 //MARK: - Methods
 private extension CountrySelectionViewController {
     @objc func handleWorldwideTap() {
-        viewModel.update("Worldwide")
+        viewModel.update("worldwide")
         navigationController?.popViewController(animated: false)
     }
     
@@ -183,7 +183,7 @@ extension CountrySelectionViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCountry = viewModel.screenData[indexPath.row].country
-        viewModel.update(selectedCountry)
+        viewModel.update(selectedCountry.lowercased())
         navigationController?.popViewController(animated: false)
     }
     
