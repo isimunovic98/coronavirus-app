@@ -102,7 +102,7 @@ private extension TabBarCoordinator {
     static func createHealthTipsViewController(from page: TabBarPage) -> UINavigationController {
         let navigationController = UINavigationController()
         
-        let healthTipsCoordinator = DummyCoordinator(navigationController: navigationController)
+        let healthTipsCoordinator = PageComingSoonCoordinator(navigationController: navigationController)
 
         navigationController.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
 
