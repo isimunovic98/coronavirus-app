@@ -73,9 +73,7 @@ extension CountrySelectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
-        self.title = "Choose your country"
-        self.navigationController?.navigationBar.tintColor = .black
+        setupNavigationBar()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -121,6 +119,16 @@ private extension CountrySelectionViewController {
         noResultsLabel.snp.makeConstraints { (make) in
             make.top.leading.trailing.equalTo(tableView)
         }
+    }
+    
+    func setupNavigationBar() {
+        title = "Choose your country"
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.tintColor = .black
+        let backImage = UIImage(systemName: "chevron.backward")
+        navigationController?.navigationBar.backIndicatorImage = backImage
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
+        navigationController?.navigationBar.backItem?.title = ""
     }
 }
 
