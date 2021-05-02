@@ -77,7 +77,10 @@ extension CountrySelectionViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        viewModel.coordinatorDelegate?.viewControllerDidFinish()
+        super.viewWillDisappear(animated)
+        if isMovingFromParent {
+            viewModel.coordinatorDelegate?.viewControllerDidFinish()
+        }
     }
 }
 
