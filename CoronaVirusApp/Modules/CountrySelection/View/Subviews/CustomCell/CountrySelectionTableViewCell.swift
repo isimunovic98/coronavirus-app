@@ -21,6 +21,8 @@ class CountrySelectionTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Montserrat", size: 16)
         label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
@@ -66,9 +68,9 @@ private extension CountrySelectionTableViewCell {
             make.height.equalTo(20)
             make.width.equalTo(16)
         }
-        
+
         stackView.snp.makeConstraints { (make) in
-            make.top.bottom.equalToSuperview().inset(10)
+            make.edges.equalToSuperview().inset(10)
         }
     }
 }

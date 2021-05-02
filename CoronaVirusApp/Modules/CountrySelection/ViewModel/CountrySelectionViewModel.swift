@@ -9,11 +9,12 @@ import Foundation
 import Combine
 
 class CountrySelectionViewModel {
+    private let repository: Covid19Repository
+    
     var coordinatorDelegate: CoordinatorDelegate?
     
-    let repository: Covid19Repository
-    
-    var screenData: [Country] = []
+    var screenData = [Country]()
+    private var countriesList = [Country]()
     
     let loadData = CurrentValueSubject<Bool, Never>(true)
     let dataReadyPublisher = PassthroughSubject<Void, Never>()
@@ -40,7 +41,7 @@ extension CountrySelectionViewModel {
             .sink(receiveValue: { [unowned self] result in
                 switch result {
                 case .success(let data):
-                    self.screenData = data.sorted { $0.country < $1.country }
+                    self.createScreenData(from: data)
                     self.dataReadyPublisher.send()
                     #warning("remove loader screen")
                 case .failure(let error):
@@ -51,38 +52,30 @@ extension CountrySelectionViewModel {
     }
     
     func attachFilterListener(subject: PassthroughSubject<String, Never>) -> AnyCancellable {
-        var filter: String = ""
         return subject
-            .flatMap{ input -> AnyPublisher<Result<[Country], NetworkError>, Never> in
-                #warning("show loader screen")
-                filter = input.lowercased()
-                return self.repository.getCountriesList()
-            }
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: RunLoop.main)
             .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
-            .sink(receiveValue: { [unowned self] result in
-                switch result {
-                case .success(let data):
-                    let sortedData = data.sorted { $0.country < $1.country }
-                    self.screenData = self.filter(sortedData, with: filter)
-                    self.dataReadyPublisher.send()
-                    #warning("remove loader screen")
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    #warning("send error and show screen acordingly")
-                }
-            })
-    }
+            .sink { [unowned self] filer in
+                self.screenData = self.filter(self.countriesList, with: filer)
+                self.dataReadyPublisher.send()
+        }
+   }
 }
 
 extension CountrySelectionViewModel {
-    private func filter(_ screenData: [Country], with filter: String) -> [Country] {
-        if filter != "" {
-            let filteredData = screenData.filter {$0.country.lowercased().contains(filter)}
-            return filteredData
+    private func createScreenData(from data: [Country]) {
+        let sortedCountriesList = data.sorted { $0.country < $1.country }
+        self.screenData = sortedCountriesList
+        self.countriesList = sortedCountriesList
+    }
+    
+    private func filter(_ list: [Country], with filter: String) -> [Country] {
+        if filter.isEmpty {
+            return list
         } else {
-            return screenData
+            let filteredCountriesList = list.filter {$0.country.lowercased().contains(filter.lowercased())}
+            return filteredCountriesList
         }
     }
     

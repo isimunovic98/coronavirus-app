@@ -37,6 +37,8 @@ class CountrySelectionViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
         tableView.backgroundColor = .systemGray6
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = UITableView.automaticDimension
         return tableView
     }()
     
@@ -154,7 +156,6 @@ extension CountrySelectionViewController {
             .store(in: &disposeBag)
 
         #warning("add error handling")
-    
     }
 }
 
