@@ -13,7 +13,7 @@ class CountrySelectionViewModel {
     
     var coordinatorDelegate: CoordinatorDelegate?
     
-    var screenData = [Country]()
+    var screenData = [RowItem<Any?, Any>]()
     private var countriesList = [Country]()
     
     let loadData = CurrentValueSubject<Bool, Never>(true)
@@ -41,7 +41,8 @@ extension CountrySelectionViewModel {
             .sink(receiveValue: { [unowned self] result in
                 switch result {
                 case .success(let data):
-                    self.createScreenData(from: data)
+                    self.countriesList = setupInitialData(with: data)
+                    self.screenData = self.createScreenData(from: self.countriesList)
                     self.dataReadyPublisher.send()
                     #warning("remove loader screen")
                 case .failure(let error):
@@ -57,17 +58,31 @@ extension CountrySelectionViewModel {
             .receive(on: RunLoop.main)
             .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
             .sink { [unowned self] filer in
-                self.screenData = self.filter(self.countriesList, with: filer)
+                let filtered = self.filter(self.countriesList, with: filer)
+                self.screenData = self.createScreenData(from: filtered)
                 self.dataReadyPublisher.send()
         }
    }
 }
 
 extension CountrySelectionViewModel {
-    private func createScreenData(from data: [Country]) {
+    private func createScreenData(from data: [Country]) -> [RowItem<Any?, Any>] {
+        var temporaryScreenData = [RowItem<Any?, Any>]()
+        temporaryScreenData.append(RowItem(content: "Worldwide", type: .worldwide))
+        if data.isEmpty {
+            temporaryScreenData.append(RowItem(content: "No results found", type: .emptyState))
+            return temporaryScreenData
+        } else {
+            for country in data {
+                temporaryScreenData.append(RowItem(content: country, type: .country))
+            }
+            return temporaryScreenData
+        }
+    }
+    
+    func setupInitialData(with data: [Country]) -> [Country] {
         let sortedCountriesList = data.sorted { $0.country < $1.country }
-        self.screenData = sortedCountriesList
-        self.countriesList = sortedCountriesList
+        return sortedCountriesList
     }
     
     private func filter(_ list: [Country], with filter: String) -> [Country] {

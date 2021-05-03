@@ -7,7 +7,8 @@
 
 import UIKit
 
-class WorldwideView: UIView {
+class WorldwideTableViewCell: UITableViewCell {
+    
     //MARK: Properties
     let worldIconLabel: UILabel = {
         let label = UILabel()
@@ -41,8 +42,8 @@ class WorldwideView: UIView {
     }()
     
     //MARK: Init
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override required init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
     }
     
@@ -52,7 +53,7 @@ class WorldwideView: UIView {
 }
 
 //MARK: - UI
-extension WorldwideView {
+extension WorldwideTableViewCell {
     func setupView() {
         setupAppearance()
         addViews()
@@ -60,14 +61,13 @@ extension WorldwideView {
     }
     
     func setupAppearance() {
-        backgroundColor = .systemGray6
+        contentView.backgroundColor = .systemGray6
     }
     
     func addViews() {
-        //let views = [flagImageView, countryNameLabel]
         stackView.addArrangedSubview(worldIconLabel)
         stackView.addArrangedSubview(worldwideLabel)
-        addSubviews([stackView, horizontalDividor])
+        contentView.addSubviews([stackView, horizontalDividor])
     }
     
     func setupLayout() {

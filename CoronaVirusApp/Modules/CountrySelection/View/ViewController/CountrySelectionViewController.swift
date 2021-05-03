@@ -25,13 +25,6 @@ class CountrySelectionViewController: UIViewController {
         return searchBar
     }()
     
-    let worldwideView: WorldwideView = {
-        let view = WorldwideView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.isUserInteractionEnabled = true
-        return view
-    }()
-    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,16 +33,6 @@ class CountrySelectionViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
         return tableView
-    }()
-    
-    let noResultsLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "No results found"
-        label.font = UIFont(name: "Montserrat", size: 16)
-        label.textColor = .systemGray
-        label.isHidden = true
-        return label
     }()
     
     //MARK: Init
@@ -102,7 +85,7 @@ private extension CountrySelectionViewController {
     }
     
     func addViews() {
-        let views = [searchBar, worldwideView, tableView, noResultsLabel]
+        let views = [searchBar, tableView]
         view.addSubviews(views)
     }
     
@@ -111,18 +94,9 @@ private extension CountrySelectionViewController {
             make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(UIEdgeInsets(top: 16, left: 32, bottom: 0, right: 32))
         }
         
-        worldwideView.snp.makeConstraints { (make) in
-            make.top.equalTo(searchBar.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(32)
-        }
-        
         tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(worldwideView.snp.bottom).offset(10)
+            make.top.equalTo(searchBar.snp.bottom).offset(10)
             make.leading.bottom.trailing.equalTo(view.safeAreaLayoutGuide).inset(UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 32))
-        }
-        
-        noResultsLabel.snp.makeConstraints { (make) in
-            make.top.leading.trailing.equalTo(tableView)
         }
     }
     
@@ -140,7 +114,6 @@ private extension CountrySelectionViewController {
 //MARK: - Bindings
 extension CountrySelectionViewController {
     func setupBindings() {
-        worldwideView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleWorldwideTap)))
         
         viewModel.initializeScreenData(with: viewModel.loadData).store(in: &disposeBag)
         
@@ -150,30 +123,11 @@ extension CountrySelectionViewController {
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: RunLoop.main)
             .sink(receiveValue: { [weak self] in
-                self?.processSearchResult()
                 self?.tableView.reloadData()
             })
             .store(in: &disposeBag)
 
         #warning("add error handling")
-    }
-}
-
-//MARK: - Methods
-private extension CountrySelectionViewController {
-    @objc func handleWorldwideTap() {
-        viewModel.update("worldwide")
-        navigationController?.popViewController(animated: false)
-    }
-    
-    func processSearchResult() {
-        if viewModel.screenData.isEmpty {
-            tableView.isHidden = true
-            noResultsLabel.isHidden = false
-        } else {
-            tableView.isHidden = false
-            noResultsLabel.isHidden = true
-        }
     }
 }
 
@@ -184,24 +138,43 @@ extension CountrySelectionViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let country = viewModel.screenData[indexPath.row]
+        let itemType = viewModel.screenData[indexPath.row].type
         
-        let cell: CountrySelectionTableViewCell = tableView.dequeue(for: indexPath)
+        switch itemType {
         
-        cell.configure(with: country)
-        cell.selectionStyle = .none
-        return cell
+        case .worldwide:
+            let cell: WorldwideTableViewCell = tableView.dequeue(for: indexPath)
+            
+            return cell
+            
+        case .country:
+            let cell: CountryTableViewCell = tableView.dequeue(for: indexPath)
+            
+            let country = viewModel.screenData[indexPath.row].content
+            cell.configure(with: country as! Country)
+                
+            return cell
+            
+        case .emptyState:
+            let cell: EmptyStateTableViewCell = tableView.dequeue(for: indexPath)
+            
+            cell.isUserInteractionEnabled = false
+            
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCountry = viewModel.screenData[indexPath.row].country
-        viewModel.update(selectedCountry.lowercased())
+        //let selected = viewModel.screenData[indexPath.row].content
+        //viewModel.update(selected.lowercased())
         navigationController?.popViewController(animated: false)
     }
     
     func configureTableView() {
         setTableViewDelegates()
-        tableView.register(CountrySelectionTableViewCell.self, forCellReuseIdentifier: CountrySelectionTableViewCell.reuseIdentifier)
+        tableView.register(CountryTableViewCell.self, forCellReuseIdentifier: CountryTableViewCell.reuseIdentifier)
+        tableView.register(WorldwideTableViewCell.self, forCellReuseIdentifier: WorldwideTableViewCell.reuseIdentifier)
+        tableView.register(EmptyStateTableViewCell.self, forCellReuseIdentifier: EmptyStateTableViewCell.reuseIdentifier)
     }
     func setTableViewDelegates() {
         tableView.delegate = self

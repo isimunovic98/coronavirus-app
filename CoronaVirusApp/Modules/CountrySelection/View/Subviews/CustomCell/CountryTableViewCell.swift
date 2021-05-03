@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CountrySelectionTableViewCell: UITableViewCell {
+class CountryTableViewCell: UITableViewCell {
     //MARK: Properties
     let flagLabel: UILabel = {
         let label = UILabel()
@@ -46,7 +46,7 @@ class CountrySelectionTableViewCell: UITableViewCell {
 }
 
 //MARK: - UI
-private extension CountrySelectionTableViewCell {
+private extension CountryTableViewCell {
     func setupView() {
         setupAppearance()
         addViews()
@@ -75,7 +75,7 @@ private extension CountrySelectionTableViewCell {
     }
 }
 
-extension CountrySelectionTableViewCell {
+extension CountryTableViewCell {
     func configure(with country: Country) {
         let countryISO = country.iso
         let countryName = country.country
