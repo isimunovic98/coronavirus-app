@@ -8,7 +8,8 @@
 import Foundation
 import Combine
 
-class CountrySelectionViewModel {
+class CountrySelectionViewModel: LoaderViewModel {
+    
     private let repository: Covid19Repository
     
     var coordinatorDelegate: CoordinatorDelegate?
@@ -19,6 +20,7 @@ class CountrySelectionViewModel {
     let loadData = CurrentValueSubject<Bool, Never>(true)
     let dataReadyPublisher = PassthroughSubject<Void, Never>()
     let searchPublisher = PassthroughSubject<String, Never>()
+    var loaderPublisher = PassthroughSubject<Bool, Never>()
     
     init(repository: Covid19Repository) {
         self.repository = repository
@@ -33,9 +35,10 @@ extension CountrySelectionViewModel {
     func initializeScreenData(with subject: CurrentValueSubject<Bool, Never>) -> AnyCancellable {
         return subject
             .flatMap({ [unowned self] shouldShowLoader -> AnyPublisher<Result<[Country], NetworkError>, Never> in
-                #warning("show loader screen")
+                self.loaderPublisher.send(shouldShowLoader)
                 return self.repository.getCountriesList()
             })
+            
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: RunLoop.main)
             .sink(receiveValue: { [unowned self] result in
@@ -44,7 +47,7 @@ extension CountrySelectionViewModel {
                     self.countriesList = setupInitialData(with: data)
                     self.screenData = self.createScreenData(from: self.countriesList)
                     self.dataReadyPublisher.send()
-                    #warning("remove loader screen")
+                    self.loaderPublisher.send(false)
                 case .failure(let error):
                     print(error.localizedDescription)
                     #warning("send error and show screen acordingly")
@@ -54,12 +57,15 @@ extension CountrySelectionViewModel {
     
     func attachFilterListener(subject: PassthroughSubject<String, Never>) -> AnyCancellable {
         return subject
+            .map({ [unowned self] (filterString) -> [RowItem<Any?, Any>] in
+                let filteredList = filter(self.countriesList, with: filterString)
+                return self.createScreenData(from: filteredList)
+            })
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: RunLoop.main)
             .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
-            .sink { [unowned self] filer in
-                let filtered = self.filter(self.countriesList, with: filer)
-                self.screenData = self.createScreenData(from: filtered)
+            .sink { [unowned self] data in
+                self.screenData = data
                 self.dataReadyPublisher.send()
         }
    }

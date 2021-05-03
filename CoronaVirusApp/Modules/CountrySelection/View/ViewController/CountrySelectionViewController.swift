@@ -10,6 +10,8 @@ import SnapKit
 import Combine
 
 class CountrySelectionViewController: UIViewController {
+    let loaderOverlay = LoaderOverlay()
+    
     let viewModel: CountrySelectionViewModel
     var disposeBag = Set<AnyCancellable>()
     
@@ -112,8 +114,10 @@ private extension CountrySelectionViewController {
 }
 
 //MARK: - Bindings
-extension CountrySelectionViewController {
+extension CountrySelectionViewController: LoadableViewController {
+    
     func setupBindings() {
+        initializeLoaderSubject(viewModel.loaderPublisher).store(in: &disposeBag)
         
         viewModel.initializeScreenData(with: viewModel.loadData).store(in: &disposeBag)
         
@@ -126,7 +130,6 @@ extension CountrySelectionViewController {
                 self?.tableView.reloadData()
             })
             .store(in: &disposeBag)
-
         #warning("add error handling")
     }
 }
