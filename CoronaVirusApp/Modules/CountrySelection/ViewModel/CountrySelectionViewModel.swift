@@ -38,13 +38,21 @@ extension CountrySelectionViewModel {
                 self.loaderPublisher.send(shouldShowLoader)
                 return self.repository.getCountriesList()
             })
+            .map({ [unowned self] (result) -> Result<[CountrySelectionModel], NetworkError> in
+                switch result {
+                case .success(let data):
+                    self.countriesList = self.setupInitialData(with: data)
+                    return .success(self.createScreenData(from: self.countriesList))
+                case .failure(let error):
+                return .failure(error)
+                }
+            })
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: RunLoop.main)
             .sink(receiveValue: { [unowned self] result in
                 switch result {
                 case .success(let data):
-                    self.countriesList = setupInitialData(with: data)
-                    self.screenData = self.createScreenData(from: self.countriesList)
+                    self.screenData = data
                     self.dataReadyPublisher.send()
                     self.loaderPublisher.send(false)
                 case .failure(let error):
@@ -88,7 +96,7 @@ extension CountrySelectionViewModel {
         
     }
     
-    func setupInitialData(with data: [Country]) -> [Country] {
+    private func setupInitialData(with data: [Country]) -> [Country] {
         let sortedCountriesList = data.sorted { $0.country < $1.country }
         return sortedCountriesList
     }

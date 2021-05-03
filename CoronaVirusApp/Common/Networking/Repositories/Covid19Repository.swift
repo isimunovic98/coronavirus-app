@@ -17,4 +17,3 @@ class Covid19RepositoryImpl: Covid19Repository {
         return RestManager.requestObservable(url: RestEndpoints.countriesList.endpoint())
     }
 }
-
