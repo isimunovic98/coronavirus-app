@@ -21,12 +21,16 @@
 		0226D47D262E3D50001169F0 /* CountrySelectionViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D47C262E3D50001169F0 /* CountrySelectionViewModelTest.swift */; };
 		0229A578262C6E14003C1053 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0229A577262C6E14003C1053 /* AppCoordinator.swift */; };
 		0264B20226175FDF001AA002 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		02469403262752BA00D84927 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02469402262752BA00D84927 /* LoaderView.swift */; };
 		02691254262C6FF9008932E2 /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02691253262C6FF9008932E2 /* DummyViewController.swift */; };
 		02691261262CBB7E008932E2 /* DummyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02691260262CBB7E008932E2 /* DummyCoordinator.swift */; };
 		02691272262CBFCF008932E2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02691271262CBFCF008932E2 /* TabBarViewController.swift */; };
 		0273CA4C26234D9300A7CC00 /* TabBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273CA4B26234D9300A7CC00 /* TabBarPage.swift */; };
 		0273CA5026234EE500A7CC00 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273CA4F26234EE500A7CC00 /* TabBarCoordinator.swift */; };
 		0273CA5D26244C3800A7CC00 /* WorldwideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273CA5C26244C3800A7CC00 /* WorldwideView.swift */; };
+		02900A4A26396AE50081E1E6 /* LoaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02900A4926396AE50081E1E6 /* LoaderViewModel.swift */; };
+		02900A5026396BCA0081E1E6 /* LoadableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02900A4F26396BCA0081E1E6 /* LoadableViewController.swift */; };
+		02900A642639827D0081E1E6 /* LoaderOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02900A632639827D0081E1E6 /* LoaderOverlay.swift */; };
 		0297B78E2615CE4D00BB40A9 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */; };
 		0297B79F2615CEBF00BB40A9 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B79E2615CEBF00BB40A9 /* UIImageView+Extensions.swift */; };
 		0297B7AD2615CEF300BB40A9 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7AC2615CEF300BB40A9 /* UIView+Extensions.swift */; };
@@ -75,12 +79,16 @@
 		0226D476262E3C6E001169F0 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
 		0226D47C262E3D50001169F0 /* CountrySelectionViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionViewModelTest.swift; sourceTree = "<group>"; };
 		0229A577262C6E14003C1053 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		02469402262752BA00D84927 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		02691253262C6FF9008932E2 /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		02691260262CBB7E008932E2 /* DummyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyCoordinator.swift; sourceTree = "<group>"; };
 		02691271262CBFCF008932E2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		0273CA4B26234D9300A7CC00 /* TabBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPage.swift; sourceTree = "<group>"; };
 		0273CA4F26234EE500A7CC00 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		0273CA5C26244C3800A7CC00 /* WorldwideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldwideView.swift; sourceTree = "<group>"; };
+		02900A4926396AE50081E1E6 /* LoaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewModel.swift; sourceTree = "<group>"; };
+		02900A4F26396BCA0081E1E6 /* LoadableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableViewController.swift; sourceTree = "<group>"; };
+		02900A632639827D0081E1E6 /* LoaderOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderOverlay.swift; sourceTree = "<group>"; };
 		0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
 		0297B79E2615CEBF00BB40A9 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		0297B7AC2615CEF300BB40A9 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -166,6 +174,24 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
+		0267A7902625C8E900797A45 /* LoadingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				02900A4826396AA30081E1E6 /* Protocols */,
+				0267A7932625C90700797A45 /* View */,
+			);
+			path = LoadingScreen;
+			sourceTree = "<group>";
+		};
+		0267A7932625C90700797A45 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				02469402262752BA00D84927 /* LoaderView.swift */,
+				02900A632639827D0081E1E6 /* LoaderOverlay.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		02691252262C6FE9008932E2 /* DummyView */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,9 +209,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		02900A4826396AA30081E1E6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				02900A4926396AE50081E1E6 /* LoaderViewModel.swift */,
+				02900A4F26396BCA0081E1E6 /* LoadableViewController.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		0297B7852615CDFF00BB40A9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0267A7902625C8E900797A45 /* LoadingScreen */,
 				0226D44A262DF7CF001169F0 /* Utils */,
 				0297B7CA2615D02F00BB40A9 /* UserDefaults */,
 				0297B7B42615CFA100BB40A9 /* Networking */,
@@ -635,6 +671,7 @@
 			files = (
 				02B3D673262468E90063972C /* CountrySelectionViewModel.swift in Sources */,
 				02F39DBF263AACEB002AA019 /* ObjectSavableError.swift in Sources */,
+				02900A5026396BCA0081E1E6 /* LoadableViewController.swift in Sources */,
 				0297B79F2615CEBF00BB40A9 /* UIImageView+Extensions.swift in Sources */,
 				02691272262CBFCF008932E2 /* TabBarViewController.swift in Sources */,
 				0297B7AD2615CEF300BB40A9 /* UIView+Extensions.swift in Sources */,
@@ -667,6 +704,10 @@
 				02F39DC3263AACFD002AA019 /* ObjectSavable.swift in Sources */,
 				0297B7F42615ECF700BB40A9 /* CountrySelectionViewController.swift in Sources */,
 				0226D463262E3A4F001169F0 /* Covid19Repository.swift in Sources */,
+				0226D447262DF745001169F0 /* UseCaseData.swift in Sources */,
+				02900A642639827D0081E1E6 /* LoaderOverlay.swift in Sources */,
+				02900A4A26396AE50081E1E6 /* LoaderViewModel.swift in Sources */,
+				02469403262752BA00D84927 /* LoaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
