@@ -44,7 +44,7 @@ extension CountrySelectionViewModel {
                     self.countriesList = self.setupInitialData(with: data)
                     return .success(self.createScreenData(from: self.countriesList))
                 case .failure(let error):
-                return .failure(error)
+                    return .failure(error)
                 }
             })
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -74,8 +74,8 @@ extension CountrySelectionViewModel {
             .sink { [unowned self] data in
                 self.screenData = data
                 self.dataReadyPublisher.send()
-        }
-   }
+            }
+    }
 }
 
 extension CountrySelectionViewModel {
