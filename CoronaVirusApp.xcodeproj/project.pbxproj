@@ -28,7 +28,6 @@
 		0273CA4C26234D9300A7CC00 /* TabBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273CA4B26234D9300A7CC00 /* TabBarPage.swift */; };
 		0273CA5026234EE500A7CC00 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273CA4F26234EE500A7CC00 /* TabBarCoordinator.swift */; };
 		0273CA5D26244C3800A7CC00 /* WorldwideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273CA5C26244C3800A7CC00 /* WorldwideTableViewCell.swift */; };
-		02757A6D263FE4BD0040B80A /* RowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02757A6C263FE4BD0040B80A /* RowItem.swift */; };
 		02757A73263FE6330040B80A /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02757A72263FE6330040B80A /* CellType.swift */; };
 		02900A4A26396AE50081E1E6 /* LoaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02900A4926396AE50081E1E6 /* LoaderViewModel.swift */; };
 		02900A5026396BCA0081E1E6 /* LoadableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02900A4F26396BCA0081E1E6 /* LoadableViewController.swift */; };
@@ -46,6 +45,7 @@
 		02B3D673262468E90063972C /* CountrySelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3D672262468E90063972C /* CountrySelectionViewModel.swift */; };
 		02B3D677262471710063972C /* CountrySelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3D676262471710063972C /* CountrySelectionCoordinator.swift */; };
 		02DC8DE3263FEB5400476F1F /* EmptyStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC8DE2263FEB5400476F1F /* EmptyStateTableViewCell.swift */; };
+		02DC8E03264002C700476F1F /* CountrySelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC8E02264002C700476F1F /* CountrySelectionModel.swift */; };
 		02F39DB5263AAB0F002AA019 /* UserDefaultsDomainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F39DB4263AAB0F002AA019 /* UserDefaultsDomainItem.swift */; };
 		02F39DBB263AAC81002AA019 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F39DBA263AAC81002AA019 /* UserDefaults+Extensions.swift */; };
 		02F39DBF263AACEB002AA019 /* ObjectSavableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F39DBE263AACEB002AA019 /* ObjectSavableError.swift */; };
@@ -89,7 +89,6 @@
 		0273CA4B26234D9300A7CC00 /* TabBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPage.swift; sourceTree = "<group>"; };
 		0273CA4F26234EE500A7CC00 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		0273CA5C26244C3800A7CC00 /* WorldwideTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldwideTableViewCell.swift; sourceTree = "<group>"; };
-		02757A6C263FE4BD0040B80A /* RowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowItem.swift; sourceTree = "<group>"; };
 		02757A72263FE6330040B80A /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
 		02900A4926396AE50081E1E6 /* LoaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewModel.swift; sourceTree = "<group>"; };
 		02900A4F26396BCA0081E1E6 /* LoadableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +106,7 @@
 		02B3D672262468E90063972C /* CountrySelectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountrySelectionViewModel.swift; sourceTree = "<group>"; };
 		02B3D676262471710063972C /* CountrySelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionCoordinator.swift; sourceTree = "<group>"; };
 		02DC8DE2263FEB5400476F1F /* EmptyStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateTableViewCell.swift; sourceTree = "<group>"; };
+		02DC8E02264002C700476F1F /* CountrySelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionModel.swift; sourceTree = "<group>"; };
 		02F39DB4263AAB0F002AA019 /* UserDefaultsDomainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDomainItem.swift; sourceTree = "<group>"; };
 		02F39DBA263AAC81002AA019 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		02F39DBE263AACEB002AA019 /* ObjectSavableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSavableError.swift; sourceTree = "<group>"; };
@@ -393,8 +393,8 @@
 			isa = PBXGroup;
 			children = (
 				0297B83E26161DD000BB40A9 /* Country.swift */,
-				02757A6C263FE4BD0040B80A /* RowItem.swift */,
 				02757A72263FE6330040B80A /* CellType.swift */,
+				02DC8E02264002C700476F1F /* CountrySelectionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -709,6 +709,7 @@
 				0229A578262C6E14003C1053 /* AppCoordinator.swift in Sources */,
 				02DC8DE3263FEB5400476F1F /* EmptyStateTableViewCell.swift in Sources */,
 				0297B7B62615CFAE00BB40A9 /* NetworkError.swift in Sources */,
+				02DC8E03264002C700476F1F /* CountrySelectionModel.swift in Sources */,
 				0226D44C262DF7DC001169F0 /* DateUtils.swift in Sources */,
 				02B3D677262471710063972C /* CountrySelectionCoordinator.swift in Sources */,
 				0297B83F26161DD000BB40A9 /* Country.swift in Sources */,
@@ -717,7 +718,6 @@
 				0226D463262E3A4F001169F0 /* Covid19Repository.swift in Sources */,
 				02900A642639827D0081E1E6 /* LoaderOverlay.swift in Sources */,
 				02900A4A26396AE50081E1E6 /* LoaderViewModel.swift in Sources */,
-				02757A6D263FE4BD0040B80A /* RowItem.swift in Sources */,
 				02469403262752BA00D84927 /* LoaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

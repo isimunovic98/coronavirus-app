@@ -14,7 +14,7 @@ class CountrySelectionViewModel: LoaderViewModel {
     
     var coordinatorDelegate: CoordinatorDelegate?
     
-    var screenData = [RowItem<Any?, Any>]()
+    var screenData = [CountrySelectionModel]()
     private var countriesList = [Country]()
     
     let loadData = CurrentValueSubject<Bool, Never>(true)
@@ -38,7 +38,6 @@ extension CountrySelectionViewModel {
                 self.loaderPublisher.send(shouldShowLoader)
                 return self.repository.getCountriesList()
             })
-            
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: RunLoop.main)
             .sink(receiveValue: { [unowned self] result in
@@ -57,7 +56,7 @@ extension CountrySelectionViewModel {
     
     func attachFilterListener(subject: PassthroughSubject<String, Never>) -> AnyCancellable {
         return subject
-            .map({ [unowned self] (filterString) -> [RowItem<Any?, Any>] in
+            .map({ [unowned self] (filterString) -> [CountrySelectionModel] in
                 let filteredList = filter(self.countriesList, with: filterString)
                 return self.createScreenData(from: filteredList)
             })
@@ -72,18 +71,21 @@ extension CountrySelectionViewModel {
 }
 
 extension CountrySelectionViewModel {
-    private func createScreenData(from data: [Country]) -> [RowItem<Any?, Any>] {
-        var temporaryScreenData = [RowItem<Any?, Any>]()
-        temporaryScreenData.append(RowItem(content: "Worldwide", type: .worldwide))
+    private func createScreenData(from data: [Country]) -> [CountrySelectionModel] {
+        var temporaryScreenData = [CountrySelectionModel]()
+        
+        temporaryScreenData.append(CountrySelectionModel(content: "Worldwide", cellType: .worldwide))
+        
         if data.isEmpty {
-            temporaryScreenData.append(RowItem(content: "No results found", type: .emptyState))
+            temporaryScreenData.append(CountrySelectionModel(content: "No results found", cellType: .emptyState))
             return temporaryScreenData
         } else {
             for country in data {
-                temporaryScreenData.append(RowItem(content: country, type: .country))
+                temporaryScreenData.append(CountrySelectionModel(country: country))
             }
             return temporaryScreenData
         }
+        
     }
     
     func setupInitialData(with data: [Country]) -> [Country] {
@@ -101,7 +103,7 @@ extension CountrySelectionViewModel {
     }
     
     func update(_ selectedCountry: String) {
-        let item = UserDefaultsDomainItem(usecase: selectedCountry, details: [])
+        let item = UserDefaultsDomainItem(usecase: selectedCountry.lowercased(), details: [])
         UserDefaultsService.update(item)
     }
 }

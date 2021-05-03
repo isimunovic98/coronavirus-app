@@ -75,21 +75,10 @@ private extension CountryTableViewCell {
     }
 }
 
+//MARK: - Methods
 extension CountryTableViewCell {
-    func configure(with country: Country) {
-        let countryISO = country.iso
-        let countryName = country.country
-        
-        flagLabel.text = flag(country: countryISO)
-        countryNameLabel.text = countryName
-    }
-    
-    func flag(country:String) -> String {
-        let base = 127397
-        var usv = String.UnicodeScalarView()
-        for i in country.utf16 {
-            usv.append(UnicodeScalar(base + Int(i))!)
-        }
-        return String(usv)
+    func configure(with object: CountrySelectionModel) {
+        flagLabel.text = object.icon
+        countryNameLabel.text = object.content
     }
 }

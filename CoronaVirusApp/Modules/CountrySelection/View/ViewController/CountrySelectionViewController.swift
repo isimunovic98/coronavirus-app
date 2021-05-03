@@ -141,7 +141,7 @@ extension CountrySelectionViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let itemType = viewModel.screenData[indexPath.row].type
+        let itemType = viewModel.screenData[indexPath.row].cellType
         
         switch itemType {
         
@@ -153,8 +153,8 @@ extension CountrySelectionViewController: UITableViewDelegate, UITableViewDataSo
         case .country:
             let cell: CountryTableViewCell = tableView.dequeue(for: indexPath)
             
-            let country = viewModel.screenData[indexPath.row].content
-            cell.configure(with: country as! Country)
+            let country = viewModel.screenData[indexPath.row]
+            cell.configure(with: country)
                 
             return cell
             
@@ -168,8 +168,11 @@ extension CountrySelectionViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //let selected = viewModel.screenData[indexPath.row].content
-        //viewModel.update(selected.lowercased())
+        let selected = viewModel.screenData[indexPath.row]
+        guard let name = selected.content else {
+                return
+        }
+        viewModel.update(name)
         navigationController?.popViewController(animated: false)
     }
     
