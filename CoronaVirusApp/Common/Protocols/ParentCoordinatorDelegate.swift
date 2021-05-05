@@ -7,6 +7,11 @@
 
 import Foundation
 
-protocol ParentCoordinatorDelegate {
-    func childDidFinish(_ coordinator: Coordinator)
+protocol ParentCoordinatorDelegate: Coordinator { }
+
+extension ParentCoordinatorDelegate where Self: Coordinator {
+    func childDidFinish(_ coordinator: Coordinator) {
+        childCoordinators = childCoordinators.filter({$0 !== coordinator})
+    }
 }
+

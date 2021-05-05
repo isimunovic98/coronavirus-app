@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol CoordinatorDelegate: class {
+protocol CoordinatorDelegate: AnyObject {
     func viewControllerDidFinish()
 }

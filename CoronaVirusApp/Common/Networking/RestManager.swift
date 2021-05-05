@@ -1,10 +1,3 @@
-//
-//  RestManager.swift
-//  CoronaVirusApp
-//
-//  Created by Ivan Simunovic on 01.04.2021..
-//
-
 import Foundation
 import Alamofire
 import Combine
@@ -19,28 +12,27 @@ public class RestManager {
         return sessionManager
     }()
     
-    public static func requestObservable<T: Codable>(url: String) -> AnyPublisher<Result<T, NetworkError>, Never> {
-        return Future { promise in
-            let request = RestManager.manager
-                .request(url, encoding: URLEncoding.default)
-                .validate()
-                .responseData { (response) in
-                    switch response.result {
-                    case .success(let value):
-                        if let decodedObject: T = SerializationManager.parseData(jsonData: value) {
-                            promise(.success(.success(decodedObject)))
-                        } else {
-                            promise(.success(.failure(.parseFailed)))
+    static func requestObservable<T: Codable>(url: String) -> AnyPublisher<Result<T, ErrorType>, Never> {
+        return Future<Result<T, ErrorType>, Never> { promise in
+            AF.request(url)
+                .validate(statusCode: 200..<423)
+                .response(completionHandler: { (response) in
+                    if let responseError = response.error,
+                       let error: URLError = responseError.underlyingError as? URLError {
+                        switch error.code {
+                        case .timedOut, .notConnectedToInternet, .networkConnectionLost:
+                            promise(.success(.failure(.noInternet)))
+                        default: break
                         }
-                    case .failure(let error):
-                        guard let _ = error.underlyingError as? URLError else {
-                            return promise(.success(.failure(.generalError)))
-                        }
-                        
-                        return  promise(.success(.failure(.notConnectedToInternet)))
                     }
+                })
+                .responseData { (response) in
+                    if let data = response.data,
+                       let parsedData: T = SerializationManager.parseData(jsonData: data) {
+                            promise(.success(.success(parsedData)))
+                        }
+                    promise(.success(.failure(.general)))
                 }
-            request.resume()
         }.eraseToAnyPublisher()
     }
 }

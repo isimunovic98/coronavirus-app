@@ -14,7 +14,6 @@
 		0212B77226389D2500F87F9D /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0212B77126389D2500F87F9D /* ReusableView.swift */; };
 		0212B77726389D4700F87F9D /* ParentCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0212B77626389D4700F87F9D /* ParentCoordinatorDelegate.swift */; };
 		0212B77B26389D6600F87F9D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0212B77A26389D6600F87F9D /* Coordinator.swift */; };
-		0226D447262DF745001169F0 /* UseCaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D446262DF745001169F0 /* UseCaseData.swift */; };
 		0226D44C262DF7DC001169F0 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D44B262DF7DC001169F0 /* DateUtils.swift */; };
 		0229A578262C6E14003C1053 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0229A577262C6E14003C1053 /* AppCoordinator.swift */; };
 		02469403262752BA00D84927 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02469402262752BA00D84927 /* LoaderView.swift */; };
@@ -29,7 +28,6 @@
 		0297B78E2615CE4D00BB40A9 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */; };
 		0297B79F2615CEBF00BB40A9 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B79E2615CEBF00BB40A9 /* UIImageView+Extensions.swift */; };
 		0297B7AD2615CEF300BB40A9 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7AC2615CEF300BB40A9 /* UIView+Extensions.swift */; };
-		0297B7B62615CFAE00BB40A9 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7B52615CFAE00BB40A9 /* NetworkError.swift */; };
 		0297B7BC2615CFD300BB40A9 /* RestEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7BB2615CFD300BB40A9 /* RestEndpoints.swift */; };
 		0297B7C02615CFED00BB40A9 /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7BF2615CFED00BB40A9 /* RestManager.swift */; };
 		0297B7CC2615D03F00BB40A9 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297B7CB2615D03F00BB40A9 /* UserDefaultsService.swift */; };
@@ -40,6 +38,16 @@
 		602F4C682600CB870034A798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C672600CB870034A798 /* Assets.xcassets */; };
 		602F4C6B2600CB870034A798 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602F4C692600CB870034A798 /* LaunchScreen.storyboard */; };
 		602F4C762600CB870034A798 /* CoronaVirusAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C752600CB870034A798 /* CoronaVirusAppTests.swift */; };
+		60CF64A12642D8A500359B6E /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF64A02642D8A500359B6E /* ErrorType.swift */; };
+		60CF64A32642D8BF00359B6E /* UseCaseSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF64A22642D8BF00359B6E /* UseCaseSelection.swift */; };
+		60CF64A52642D91200359B6E /* ObjectSavableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF64A42642D91200359B6E /* ObjectSavableError.swift */; };
+		60CF64A72642D93B00359B6E /* UserDefaultsDomainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF64A62642D93B00359B6E /* UserDefaultsDomainItem.swift */; };
+		60CF64A92642D98F00359B6E /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF64A82642D98F00359B6E /* UserDefaults+Extensions.swift */; };
+		60CF64AB2642D9B000359B6E /* ObjectSavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF64AA2642D9B000359B6E /* ObjectSavable.swift */; };
+		60CF64AD2642DBB800359B6E /* NumberUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF64AC2642DBB800359B6E /* NumberUtils.swift */; };
+		60CF64AF2642DBFF00359B6E /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF64AE2642DBFF00359B6E /* StringUtils.swift */; };
+		60CF64B22642DD6900359B6E /* Covid19RepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF64B12642DD6900359B6E /* Covid19RepositoryImpl.swift */; };
+		60CF64B42642DDCD00359B6E /* Covid19Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF64B32642DDCD00359B6E /* Covid19Repository.swift */; };
 		B762BAFA626927774FB1EE54 /* Pods_CoronaVirusAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E68AE4172489161E429834B8 /* Pods_CoronaVirusAppTests.framework */; };
 		F726305C1EAC6FC0130DD7C3 /* Pods_CoronaVirusApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E94E7FCB026138087CB563 /* Pods_CoronaVirusApp.framework */; };
 /* End PBXBuildFile section */
@@ -62,7 +70,6 @@
 		0212B77126389D2500F87F9D /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		0212B77626389D4700F87F9D /* ParentCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		0212B77A26389D6600F87F9D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		0226D446262DF745001169F0 /* UseCaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseData.swift; sourceTree = "<group>"; };
 		0226D44B262DF7DC001169F0 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		0229A577262C6E14003C1053 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		02469402262752BA00D84927 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
@@ -77,9 +84,8 @@
 		0297B78D2615CE4D00BB40A9 /* CoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegate.swift; sourceTree = "<group>"; };
 		0297B79E2615CEBF00BB40A9 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		0297B7AC2615CEF300BB40A9 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		0297B7B52615CFAE00BB40A9 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		0297B7BB2615CFD300BB40A9 /* RestEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestEndpoints.swift; sourceTree = "<group>"; };
-		0297B7BF2615CFED00BB40A9 /* RestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
+		0297B7BB2615CFD300BB40A9 /* RestEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestEndpoints.swift; path = CoronaVirusApp/Common/Networking/RestEndpoints.swift; sourceTree = SOURCE_ROOT; };
+		0297B7BF2615CFED00BB40A9 /* RestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestManager.swift; path = CoronaVirusApp/Common/Networking/RestManager.swift; sourceTree = SOURCE_ROOT; };
 		0297B7CB2615D03F00BB40A9 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		02C5F8C92639D937009F85FC /* PageComingSoonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageComingSoonViewController.swift; sourceTree = "<group>"; };
 		02C5F8CF2639DB06009F85FC /* PageComingSoonCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageComingSoonCoordinator.swift; sourceTree = "<group>"; };
@@ -93,6 +99,16 @@
 		602F4C712600CB870034A798 /* CoronaVirusAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoronaVirusAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		602F4C752600CB870034A798 /* CoronaVirusAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoronaVirusAppTests.swift; sourceTree = "<group>"; };
 		602F4C772600CB870034A798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60CF64A02642D8A500359B6E /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorType.swift; path = CoronaVirusApp/Common/Networking/Model/ErrorType.swift; sourceTree = SOURCE_ROOT; };
+		60CF64A22642D8BF00359B6E /* UseCaseSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UseCaseSelection.swift; path = CoronaVirusApp/Common/Networking/Model/UseCaseSelection.swift; sourceTree = SOURCE_ROOT; };
+		60CF64A42642D91200359B6E /* ObjectSavableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSavableError.swift; sourceTree = "<group>"; };
+		60CF64A62642D93B00359B6E /* UserDefaultsDomainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDomainItem.swift; sourceTree = "<group>"; };
+		60CF64A82642D98F00359B6E /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		60CF64AA2642D9B000359B6E /* ObjectSavable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSavable.swift; sourceTree = "<group>"; };
+		60CF64AC2642DBB800359B6E /* NumberUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberUtils.swift; sourceTree = "<group>"; };
+		60CF64AE2642DBFF00359B6E /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		60CF64B12642DD6900359B6E /* Covid19RepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid19RepositoryImpl.swift; sourceTree = "<group>"; };
+		60CF64B32642DDCD00359B6E /* Covid19Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid19Repository.swift; sourceTree = "<group>"; };
 		67E94E7FCB026138087CB563 /* Pods_CoronaVirusApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoronaVirusApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6906D5EDE500FD676CF8F5AA /* Pods-CoronaVirusAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusAppTests.debug.xcconfig"; path = "Target Support Files/Pods-CoronaVirusAppTests/Pods-CoronaVirusAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7C25D35AE51B13565C77EAC8 /* Pods-CoronaVirusAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusAppTests.release.xcconfig"; path = "Target Support Files/Pods-CoronaVirusAppTests/Pods-CoronaVirusAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,7 +139,8 @@
 		0226D445262DF72C001169F0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0226D446262DF745001169F0 /* UseCaseData.swift */,
+				60CF64A42642D91200359B6E /* ObjectSavableError.swift */,
+				60CF64A62642D93B00359B6E /* UserDefaultsDomainItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -132,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				0226D44B262DF7DC001169F0 /* DateUtils.swift */,
+				60CF64AC2642DBB800359B6E /* NumberUtils.swift */,
+				60CF64AE2642DBFF00359B6E /* StringUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -200,6 +219,8 @@
 				0212B77126389D2500F87F9D /* ReusableView.swift */,
 				0212B77626389D4700F87F9D /* ParentCoordinatorDelegate.swift */,
 				0212B77A26389D6600F87F9D /* Coordinator.swift */,
+				60CF64AA2642D9B000359B6E /* ObjectSavable.swift */,
+				60CF64B32642DDCD00359B6E /* Covid19Repository.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -212,6 +233,7 @@
 				0212B76126389C9900F87F9D /* UIStackView+Extensions.swift */,
 				0212B76526389CB700F87F9D /* UITableView+Extensions.swift */,
 				0212B76926389CD200F87F9D /* UITableViewCell+Extensions.swift */,
+				60CF64A82642D98F00359B6E /* UserDefaults+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -219,7 +241,8 @@
 		0297B7B42615CFA100BB40A9 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				0297B7B52615CFAE00BB40A9 /* NetworkError.swift */,
+				60CF64B02642DD5400359B6E /* Repositories */,
+				60CF649F2642D89E00359B6E /* Model */,
 				0297B7BB2615CFD300BB40A9 /* RestEndpoints.swift */,
 				0297B7BF2615CFED00BB40A9 /* RestManager.swift */,
 				0212B76D26389CFF00F87F9D /* SerializationManager.swift */,
@@ -383,6 +406,23 @@
 				0229A577262C6E14003C1053 /* AppCoordinator.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		60CF649F2642D89E00359B6E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				60CF64A02642D8A500359B6E /* ErrorType.swift */,
+				60CF64A22642D8BF00359B6E /* UseCaseSelection.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		60CF64B02642DD5400359B6E /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				60CF64B12642DD6900359B6E /* Covid19RepositoryImpl.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -570,32 +610,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60CF64AD2642DBB800359B6E /* NumberUtils.swift in Sources */,
 				02900A5026396BCA0081E1E6 /* LoadableViewController.swift in Sources */,
 				0297B79F2615CEBF00BB40A9 /* UIImageView+Extensions.swift in Sources */,
 				02C5F8CA2639D937009F85FC /* PageComingSoonViewController.swift in Sources */,
 				02C5F8D02639DB06009F85FC /* PageComingSoonCoordinator.swift in Sources */,
 				02691272262CBFCF008932E2 /* TabBarViewController.swift in Sources */,
+				60CF64AF2642DBFF00359B6E /* StringUtils.swift in Sources */,
+				60CF64A32642D8BF00359B6E /* UseCaseSelection.swift in Sources */,
 				0297B7AD2615CEF300BB40A9 /* UIView+Extensions.swift in Sources */,
 				0212B77726389D4700F87F9D /* ParentCoordinatorDelegate.swift in Sources */,
 				02691254262C6FF9008932E2 /* DummyViewController.swift in Sources */,
 				0273CA5026234EE500A7CC00 /* TabBarCoordinator.swift in Sources */,
+				60CF64A92642D98F00359B6E /* UserDefaults+Extensions.swift in Sources */,
 				0297B7C02615CFED00BB40A9 /* RestManager.swift in Sources */,
+				60CF64AB2642D9B000359B6E /* ObjectSavable.swift in Sources */,
+				60CF64B22642DD6900359B6E /* Covid19RepositoryImpl.swift in Sources */,
 				602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */,
 				0212B76226389C9900F87F9D /* UIStackView+Extensions.swift in Sources */,
+				60CF64B42642DDCD00359B6E /* Covid19Repository.swift in Sources */,
+				60CF64A52642D91200359B6E /* ObjectSavableError.swift in Sources */,
 				0273CA4C26234D9300A7CC00 /* TabBarPage.swift in Sources */,
 				0212B76A26389CD200F87F9D /* UITableViewCell+Extensions.swift in Sources */,
 				0212B76E26389CFF00F87F9D /* SerializationManager.swift in Sources */,
 				0212B76626389CB700F87F9D /* UITableView+Extensions.swift in Sources */,
+				60CF64A12642D8A500359B6E /* ErrorType.swift in Sources */,
 				0212B77226389D2500F87F9D /* ReusableView.swift in Sources */,
 				0297B7BC2615CFD300BB40A9 /* RestEndpoints.swift in Sources */,
+				60CF64A72642D93B00359B6E /* UserDefaultsDomainItem.swift in Sources */,
 				02691261262CBB7E008932E2 /* DummyCoordinator.swift in Sources */,
 				0297B78E2615CE4D00BB40A9 /* CoordinatorDelegate.swift in Sources */,
 				0212B77B26389D6600F87F9D /* Coordinator.swift in Sources */,
 				0297B7CC2615D03F00BB40A9 /* UserDefaultsService.swift in Sources */,
 				0229A578262C6E14003C1053 /* AppCoordinator.swift in Sources */,
-				0297B7B62615CFAE00BB40A9 /* NetworkError.swift in Sources */,
 				0226D44C262DF7DC001169F0 /* DateUtils.swift in Sources */,
-				0226D447262DF745001169F0 /* UseCaseData.swift in Sources */,
 				02900A642639827D0081E1E6 /* LoaderOverlay.swift in Sources */,
 				02900A4A26396AE50081E1E6 /* LoaderViewModel.swift in Sources */,
 				02469403262752BA00D84927 /* LoaderView.swift in Sources */,
