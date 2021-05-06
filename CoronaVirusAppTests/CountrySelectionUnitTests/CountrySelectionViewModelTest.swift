@@ -39,10 +39,10 @@ class CountrySelectionViewModelTest: QuickSpec {
                 
                 it("Screeen initalized") {
                     viewModel.loadData.send(false)
-                    expect(viewModel.screenData.count).toEventually(equal(248))
-                    expect(viewModel.screenData[0].country).toEventually(equal("ALA Aland Islands"))
-                    expect(viewModel.screenData[1].iso).toEventually(equal("AF"))
-                    expect(viewModel.screenData[2].slug).toEventually(equal("albania"))
+                    expect(viewModel.screenData.count).toEventually(equal(249))
+                    expect(viewModel.screenData[0].content).toEventually(equal("Worldwide"))
+                    expect(viewModel.screenData[1].content).toEventually(equal("ALA Aland Islands"))
+                    expect(viewModel.screenData[2].content).toEventually(equal("Afghanistan"))
                 }
             }
             
