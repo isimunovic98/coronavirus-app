@@ -12,7 +12,7 @@ struct CountrySelectionModel {
     var icon: String?
     var cellType: CellType
     
-    init(country: Country) {
+    init(country: CountryListResponseItem) {
         self.content = country.country
         self.icon = CountrySelectionModel.transformToFlagEmoji(iso: country.iso)
         self.cellType = .country

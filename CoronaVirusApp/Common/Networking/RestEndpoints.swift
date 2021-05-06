@@ -9,8 +9,8 @@ import Foundation
 
 public enum RestEndpoints {
     case countriesList
-    case countryStats(country: String)
-    case countryStatsTotal(country: String)
+    case countryStats(countryName: String)
+    case countryStatsTotal(countryName: String)
     case worldwideStats
     case latestNews
     

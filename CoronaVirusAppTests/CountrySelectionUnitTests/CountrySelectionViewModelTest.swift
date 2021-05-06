@@ -16,8 +16,8 @@ import UIKit
 class CountrySelectionViewModelTest: QuickSpec {
 
     func getResource<T: Codable>() -> T? {
-        let bundle = Bundle.init(for: CoronaVirusAppTests.self)
-        guard let resourcePath = bundle.url(forResource: "CountriesResponse", withExtension: "json"),
+        let bundle = Bundle.init(for: CountrySelectionViewModelTest.self)
+        guard let resourcePath = bundle.url(forResource: "Covid19CountryList", withExtension: "json"),
         let data = try? Data(contentsOf: resourcePath),
         let parsedData: T = SerializationManager.parseData(jsonData: data) else {
             return nil
@@ -27,7 +27,7 @@ class CountrySelectionViewModelTest: QuickSpec {
     
     override func spec() {
         describe("Test for view model") {
-            let mockRepository = MockCovid19Repository()
+            let mockRepository = MockCovid19RepositoryImpl()
             var viewModel: CountrySelectionViewModel!
             var disposeBag = Set<AnyCancellable>()
             
@@ -65,19 +65,15 @@ class CountrySelectionViewModelTest: QuickSpec {
             
             func successStub() {
                 stub(mockRepository) { (mock) in
-                    guard let response: [Country] = getResource() else {
-                        return
-                    }
-                    let publisher = CurrentValueSubject<Result<[Country], NetworkError>, Never>(.success(response)).eraseToAnyPublisher()
+                    guard let response: [CountryListResponseItem] = getResource() else { return }
+                    let publisher = Just<Result<[CountryListResponseItem], ErrorType>>(.success(response)).eraseToAnyPublisher()
                     when(mock.getCountriesList()).thenReturn(publisher)
-
                 }
             }
             
             func failStub() {
                 stub(mockRepository) { mock in
-                    let error = NetworkError.connectionTimedOut
-                    let publisher =  CurrentValueSubject<Result<[Country], NetworkError>, Never>(.failure(error)).eraseToAnyPublisher()
+                    let publisher =  Just<Result<[CountryListResponseItem], ErrorType>>(.failure(.general)).eraseToAnyPublisher()
                     when(mock.getCountriesList()).thenReturn(publisher)
                    
                 }

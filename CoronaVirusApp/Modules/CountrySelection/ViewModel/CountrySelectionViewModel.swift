@@ -15,7 +15,7 @@ class CountrySelectionViewModel: LoaderViewModel {
     var coordinatorDelegate: CoordinatorDelegate?
     
     var screenData = [CountrySelectionModel]()
-    private var countriesList = [Country]()
+    private var countriesList = [CountryListResponseItem]()
     
     let loadData = CurrentValueSubject<Bool, Never>(true)
     let dataReadyPublisher = PassthroughSubject<Void, Never>()
@@ -34,11 +34,11 @@ class CountrySelectionViewModel: LoaderViewModel {
 extension CountrySelectionViewModel {
     func initializeScreenData(with subject: CurrentValueSubject<Bool, Never>) -> AnyCancellable {
         return subject
-            .flatMap({ [unowned self] shouldShowLoader -> AnyPublisher<Result<[Country], NetworkError>, Never> in
+            .flatMap({ [unowned self] shouldShowLoader -> AnyPublisher<Result<[CountryListResponseItem], ErrorType>, Never> in
                 self.loaderPublisher.send(shouldShowLoader)
                 return self.repository.getCountriesList()
             })
-            .map({ [unowned self] (result) -> Result<[CountrySelectionModel], NetworkError> in
+            .map({ [unowned self] (result) -> Result<[CountrySelectionModel], ErrorType> in
                 switch result {
                 case .success(let data):
                     self.countriesList = self.setupInitialData(with: data)
@@ -79,7 +79,7 @@ extension CountrySelectionViewModel {
 }
 
 extension CountrySelectionViewModel {
-    private func createScreenData(from data: [Country]) -> [CountrySelectionModel] {
+    private func createScreenData(from data: [CountryListResponseItem]) -> [CountrySelectionModel] {
         var temporaryScreenData = [CountrySelectionModel]()
         
         temporaryScreenData.append(CountrySelectionModel(content: "Worldwide", cellType: .worldwide))
@@ -96,12 +96,12 @@ extension CountrySelectionViewModel {
         
     }
     
-    private func setupInitialData(with data: [Country]) -> [Country] {
+    private func setupInitialData(with data: [CountryListResponseItem]) -> [CountryListResponseItem] {
         let sortedCountriesList = data.sorted { $0.country < $1.country }
         return sortedCountriesList
     }
     
-    private func filter(_ list: [Country], with filter: String) -> [Country] {
+    private func filter(_ list: [CountryListResponseItem], with filter: String) -> [CountryListResponseItem] {
         if filter.isEmpty {
             return list
         } else {
