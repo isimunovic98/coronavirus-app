@@ -20,7 +20,7 @@ public class SerializationManager {
         return parseData(jsonData: jsonData)
     }
     
-    public static func parseData<T: Codable>(jsonData: Data) -> T? {
+    static func parseData<T: Codable>(jsonData: Data) -> T? {
         let object: T?
         do { object = try jsonDecoder.decode(T.self, from: jsonData) }
         catch (_) { object = nil }
