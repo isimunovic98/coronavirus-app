@@ -9,26 +9,24 @@ import UIKit
 
 class AppCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
-    
-    var navigationController: UINavigationController
-    
+    var presenter: UINavigationController
     let window: UIWindow
     
-    init(window: UIWindow) {
-        self.window = window
-        self.navigationController = UINavigationController()
+    init() {
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.presenter = UINavigationController()
     }
 }
 
 extension AppCoordinator {
     func start() {
-        window.rootViewController = navigationController
+        window.rootViewController = presenter
         window.makeKeyAndVisible()
         presentTabBar()
     }
     
     func presentTabBar() {
-        let child = TabBarCoordinator(navigationController: navigationController)
+        let child = TabBarCoordinator(presenter: presenter)
         childCoordinators.append(child)
         child.start()
     }

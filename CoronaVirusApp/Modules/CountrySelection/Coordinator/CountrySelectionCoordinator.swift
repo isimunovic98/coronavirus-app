@@ -8,29 +8,22 @@
 import UIKit
 
 class CountrySelectionCoordinator: Coordinator {
-    var parent: ParentCoordinatorDelegate?
     
+    weak var parent: ParentCoordinatorDelegate?
     var childCoordinators: [Coordinator] = []
-    
-    var navigationController: UINavigationController
-    
+    var presenter: UINavigationController
     let controller: CountrySelectionViewController
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init(presenter: UINavigationController) {
+        self.presenter = presenter
         self.controller = CountrySelectionCoordinator.createController()
-        controller.viewModel.coordinatorDelegate = self
     }
-}
-
-extension CountrySelectionCoordinator {
     
     func start() {
-        navigationController.pushViewController(controller, animated: false)
+        controller.viewModel.coordinatorDelegate = self
+        presenter.pushViewController(controller, animated: false)
     }
-}
-
-private extension CountrySelectionCoordinator {
+    
     static func createController() -> CountrySelectionViewController {
         let repository = Covid19RepositoryImpl()
         let viewModel = CountrySelectionViewModel(repository: repository)

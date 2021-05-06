@@ -10,22 +10,19 @@ import UIKit
 class DummyCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     
-    var navigationController: UINavigationController
+    var presenter: UINavigationController
     
     let controller: DummyViewController
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init(presenter: UINavigationController) {
+        self.presenter = presenter
         self.controller = DummyCoordinator.createController()
     }
     
     func start() {
-        navigationController.pushViewController(controller, animated: true)
+        presenter.pushViewController(controller, animated: true)
     }
-
-}
-
-private extension DummyCoordinator {
+    
     static func createController() -> DummyViewController {
         let vc = DummyViewController()
         return vc

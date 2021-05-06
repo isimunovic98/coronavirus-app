@@ -14,6 +14,7 @@
 		0212B77226389D2500F87F9D /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0212B77126389D2500F87F9D /* ReusableView.swift */; };
 		0212B77726389D4700F87F9D /* ParentCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0212B77626389D4700F87F9D /* ParentCoordinatorDelegate.swift */; };
 		0212B77B26389D6600F87F9D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0212B77A26389D6600F87F9D /* Coordinator.swift */; };
+		0226D447262DF745001169F0 /* UseCaseSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D446262DF745001169F0 /* UseCaseSelection.swift */; };
 		0226D44C262DF7DC001169F0 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D44B262DF7DC001169F0 /* DateUtils.swift */; };
 		0226D477262E3C6F001169F0 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D476262E3C6E001169F0 /* GeneratedMocks.swift */; };
 		0226D47D262E3D50001169F0 /* CountrySelectionViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226D47C262E3D50001169F0 /* CountrySelectionViewModelTest.swift */; };
@@ -62,6 +63,15 @@
 		60CF64CF2643C53500359B6E /* Covid19CountryStats.json in Resources */ = {isa = PBXBuildFile; fileRef = 60CF64CE2643C53500359B6E /* Covid19CountryStats.json */; };
 		60CF64D12643C56300359B6E /* Covid19WorldwideStats.json in Resources */ = {isa = PBXBuildFile; fileRef = 60CF64D02643C56300359B6E /* Covid19WorldwideStats.json */; };
 		60CF64D52643C7BF00359B6E /* Covid19RepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF64D42643C7BF00359B6E /* Covid19RepositoryImpl.swift */; };
+
+		02C5F8CA2639D937009F85FC /* PageComingSoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5F8C92639D937009F85FC /* PageComingSoonViewController.swift */; };
+		02C5F8D02639DB06009F85FC /* PageComingSoonCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5F8CF2639DB06009F85FC /* PageComingSoonCoordinator.swift */; };
+		02C5F8D92639DC83009F85FC /* loadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 02C5F8D82639DC83009F85FC /* loadingAnimation.json */; };
+		601A2F7726399BC9001E1E08 /* ErrorableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601A2F7626399BC9001E1E08 /* ErrorableViewModel.swift */; };
+		60FD83AF263AEC4E002384E0 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD83AE263AEC4E002384E0 /* ErrorType.swift */; };
+		60FD83C2263AEC9F002384E0 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD83BB263AEC9F002384E0 /* ErrorView.swift */; };
+		60FD83C3263AEC9F002384E0 /* ErrorableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD83BD263AEC9F002384E0 /* ErrorableViewController.swift */; };
+		
 		B762BAFA626927774FB1EE54 /* Pods_CoronaVirusAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E68AE4172489161E429834B8 /* Pods_CoronaVirusAppTests.framework */; };
 		F726305C1EAC6FC0130DD7C3 /* Pods_CoronaVirusApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E94E7FCB026138087CB563 /* Pods_CoronaVirusApp.framework */; };
 /* End PBXBuildFile section */
@@ -84,6 +94,7 @@
 		0212B77126389D2500F87F9D /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		0212B77626389D4700F87F9D /* ParentCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		0212B77A26389D6600F87F9D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		0226D446262DF745001169F0 /* UseCaseSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UseCaseSelection.swift; path = CoronaVirusApp/Common/Model/UseCaseSelection.swift; sourceTree = SOURCE_ROOT; };
 		0226D44B262DF7DC001169F0 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		0226D476262E3C6E001169F0 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
 		0226D47C262E3D50001169F0 /* CountrySelectionViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionViewModelTest.swift; sourceTree = "<group>"; };
@@ -112,6 +123,8 @@
 		02DC8DE2263FEB5400476F1F /* EmptyStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateTableViewCell.swift; sourceTree = "<group>"; };
 		02DC8E02264002C700476F1F /* CountrySelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionModel.swift; sourceTree = "<group>"; };
 		57F89CF7DF78AC38F950C846 /* Pods-CoronaVirusApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusApp.debug.xcconfig"; path = "Target Support Files/Pods-CoronaVirusApp/Pods-CoronaVirusApp.debug.xcconfig"; sourceTree = "<group>"; };
+		601A2F7026399AF0001E1E08 /* ErrorableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorableViewController.swift; path = CoronaVirusApp/Common/ErrorManagement/Protocols/ErrorableViewController.swift; sourceTree = SOURCE_ROOT; };
+		601A2F7626399BC9001E1E08 /* ErrorableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorableViewModel.swift; path = CoronaVirusApp/Common/ErrorManagement/Protocols/ErrorableViewModel.swift; sourceTree = SOURCE_ROOT; };
 		602F4C5B2600CB860034A798 /* CoronaVirusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaVirusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602F4C5E2600CB860034A798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		602F4C672600CB870034A798 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,6 +150,10 @@
 		60CF64CE2643C53500359B6E /* Covid19CountryStats.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Covid19CountryStats.json; sourceTree = "<group>"; };
 		60CF64D02643C56300359B6E /* Covid19WorldwideStats.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Covid19WorldwideStats.json; sourceTree = "<group>"; };
 		60CF64D42643C7BF00359B6E /* Covid19RepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Covid19RepositoryImpl.swift; path = CoronaVirusApp/Common/Networking/Repositories/Covid19RepositoryImpl.swift; sourceTree = SOURCE_ROOT; };
+		606E0D8426383EE2005DF680 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorView.swift; path = CoronaVirusApp/Common/ErrorManagement/View/ErrorView.swift; sourceTree = SOURCE_ROOT; };
+		60FD83BB263AEC9F002384E0 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		60FD83BD263AEC9F002384E0 /* ErrorableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorableViewController.swift; sourceTree = "<group>"; };
+		60FD83BE263AEC9F002384E0 /* ErrorableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorableViewModel.swift; sourceTree = "<group>"; };
 		67E94E7FCB026138087CB563 /* Pods_CoronaVirusApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoronaVirusApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6906D5EDE500FD676CF8F5AA /* Pods-CoronaVirusAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusAppTests.debug.xcconfig"; path = "Target Support Files/Pods-CoronaVirusAppTests/Pods-CoronaVirusAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7C25D35AE51B13565C77EAC8 /* Pods-CoronaVirusAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoronaVirusAppTests.release.xcconfig"; path = "Target Support Files/Pods-CoronaVirusAppTests/Pods-CoronaVirusAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -230,6 +247,7 @@
 		0297B7852615CDFF00BB40A9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				60FD83B6263AEC9F002384E0 /* ErrorManagement */,
 				60CF649F2642D89E00359B6E /* Model */,
 				0267A7902625C8E900797A45 /* LoadingScreen */,
 				0226D44A262DF7CF001169F0 /* Utils */,
@@ -477,6 +495,46 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		
+60FD8391263AEBDC002384E0 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				601A2F7026399AF0001E1E08 /* ErrorableViewController.swift */,
+				606E0D8426383EE2005DF680 /* ErrorView.swift */,
+				601A2F7626399BC9001E1E08 /* ErrorableViewModel.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+
+60FD83B6263AEC9F002384E0 /* ErrorManagement */ = {
+			isa = PBXGroup;
+			children = (
+				60FD83B9263AEC9F002384E0 /* View */,
+				60FD83BC263AEC9F002384E0 /* Protocols */,
+			);
+			path = ErrorManagement;
+			sourceTree = "<group>";
+		};
+		60FD83B9263AEC9F002384E0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				60FD83BB263AEC9F002384E0 /* ErrorView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		60FD83BC263AEC9F002384E0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				60FD83BD263AEC9F002384E0 /* ErrorableViewController.swift */,
+				60FD83BE263AEC9F002384E0 /* ErrorableViewModel.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+
+		
 		60CF649F2642D89E00359B6E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,7 +616,7 @@
 			buildConfigurationList = 602F4C882600CB870034A798 /* Build configuration list for PBXNativeTarget "CoronaVirusAppTests" */;
 			buildPhases = (
 				2B5E3FF38E0221CDCB5E07D9 /* [CP] Check Pods Manifest.lock */,
-				60CF64D32643C5FD00359B6E /* ShellScript */,
+
 				602F4C6D2600CB870034A798 /* Sources */,
 				602F4C6E2600CB870034A798 /* Frameworks */,
 				602F4C6F2600CB870034A798 /* Resources */,
@@ -749,6 +807,7 @@
 				0212B77726389D4700F87F9D /* ParentCoordinatorDelegate.swift in Sources */,
 				02691254262C6FF9008932E2 /* DummyViewController.swift in Sources */,
 				60CF64BD2643C19000359B6E /* ObjectSavableError.swift in Sources */,
+				60FD83C2263AEC9F002384E0 /* ErrorView.swift in Sources */,
 				0273CA5026234EE500A7CC00 /* TabBarCoordinator.swift in Sources */,
 				60CF64A92642D98F00359B6E /* UserDefaults+Extensions.swift in Sources */,
 				0297B7C02615CFED00BB40A9 /* RestManager.swift in Sources */,
@@ -759,6 +818,7 @@
 				60CF64B42642DDCD00359B6E /* Covid19Repository.swift in Sources */,
 				0273CA4C26234D9300A7CC00 /* TabBarPage.swift in Sources */,
 				0212B76A26389CD200F87F9D /* UITableViewCell+Extensions.swift in Sources */,
+				60FD83C3263AEC9F002384E0 /* ErrorableViewController.swift in Sources */,
 				0212B76E26389CFF00F87F9D /* SerializationManager.swift in Sources */,
 				0212B76626389CB700F87F9D /* UITableView+Extensions.swift in Sources */,
 				60CF64B82643C07C00359B6E /* ErrorType.swift in Sources */,
@@ -786,6 +846,7 @@
 				02900A642639827D0081E1E6 /* LoaderOverlay.swift in Sources */,
 				02900A4A26396AE50081E1E6 /* LoaderViewModel.swift in Sources */,
 				02469403262752BA00D84927 /* LoaderView.swift in Sources */,
+				601A2F7726399BC9001E1E08 /* ErrorableViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,3 +1,4 @@
+
 import Foundation
 import Alamofire
 import Combine
@@ -16,23 +17,30 @@ public class RestManager {
         return Future<Result<T, ErrorType>, Never> { promise in
             AF.request(url)
                 .validate(statusCode: 200..<423)
-                .response(completionHandler: { (response) in
-                    if let responseError = response.error,
-                       let error: URLError = responseError.underlyingError as? URLError {
-                        switch error.code {
-                        case .timedOut, .notConnectedToInternet, .networkConnectionLost:
-                            promise(.success(.failure(.noInternet)))
-                        default: break
+                .responseData(completionHandler: { response in
+                    switch response.result {
+                    case .success(let value):
+                        if let decodedObject: T = SerializationManager.parseData(jsonData: value) {
+                            promise(.success(.success(decodedObject)))
+                        } else {
+                            promise(.success(.failure(.general)))
+                        }
+                    case .failure(let error):
+                        if let underlyingError = error.underlyingError {
+                            if let urlError = underlyingError as? URLError {
+                                switch urlError.code {
+                                case .timedOut, .notConnectedToInternet, .networkConnectionLost:
+                                    promise(.success(.failure(.noInternet)))
+                                case .cannotDecodeRawData, .cannotDecodeContentData:
+                                    promise(.success(.failure(.general)))
+                                default: break
+                                }
+                            }
                         }
                     }
                 })
-                .responseData { (response) in
-                    if let data = response.data,
-                       let parsedData: T = SerializationManager.parseData(jsonData: data) {
-                            promise(.success(.success(parsedData)))
-                        }
-                    promise(.success(.failure(.general)))
-                }
         }.eraseToAnyPublisher()
     }
 }
+
+
