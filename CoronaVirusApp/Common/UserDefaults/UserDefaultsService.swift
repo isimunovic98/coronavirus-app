@@ -26,10 +26,8 @@ class UserDefaultsService {
     static func getUsecase() -> UseCaseSelection {
         if let data = UserDefaultsService.getSavedData() {
             switch data.usecase {
-            case "worldwide":
-                return .worldwide
-            default:
-                return .country(data.usecase)
+            case "worldwide": return .worldwide
+            default: return .country(data.usecase)
             }
         }
         return .country("croatia")

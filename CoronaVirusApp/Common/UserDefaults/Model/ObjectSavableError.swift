@@ -2,8 +2,9 @@
 //  ObjectSavableError.swift
 //  CoronaVirusApp
 //
-//  Created by Tomislav Gelesic on 05.05.2021..
+//  Created by Ivan Simunovic on 29.04.2021..
 //
+
 
 import Foundation
 

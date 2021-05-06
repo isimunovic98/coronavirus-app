@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: CoronaVirusApp/Common/Networking/Repositories/Covid19Repository.swift at 2021-04-19 23:03:09 +0000
+// MARK: - Mocks generated from file: CoronaVirusApp/Common/Networking/Repositories/Covid19Repository.swift at 2021-05-03 11:51:41 +0000
 
 //
 //  Covid19Repository.swift
@@ -39,16 +39,16 @@ import Foundation
     
     
     
-     func getCountriesList(using endpoint: RestEndpoints) -> AnyPublisher<Result<[Country], NetworkError>, Never> {
+     func getCountriesList() -> AnyPublisher<Result<[Country], NetworkError>, Never> {
         
-    return cuckoo_manager.call("getCountriesList(using: RestEndpoints) -> AnyPublisher<Result<[Country], NetworkError>, Never>",
-            parameters: (endpoint),
-            escapingParameters: (endpoint),
+    return cuckoo_manager.call("getCountriesList() -> AnyPublisher<Result<[Country], NetworkError>, Never>",
+            parameters: (),
+            escapingParameters: (),
             superclassCall:
                 
                 Cuckoo.MockManager.crashOnProtocolSuperclassCall()
                 ,
-            defaultCall: __defaultImplStub!.getCountriesList(using: endpoint))
+            defaultCall: __defaultImplStub!.getCountriesList())
         
     }
     
@@ -61,9 +61,9 @@ import Foundation
 	    }
 	    
 	    
-	    func getCountriesList<M1: Cuckoo.Matchable>(using endpoint: M1) -> Cuckoo.ProtocolStubFunction<(RestEndpoints), AnyPublisher<Result<[Country], NetworkError>, Never>> where M1.MatchedType == RestEndpoints {
-	        let matchers: [Cuckoo.ParameterMatcher<(RestEndpoints)>] = [wrap(matchable: endpoint) { $0 }]
-	        return .init(stub: cuckoo_manager.createStub(for: MockCovid19Repository.self, method: "getCountriesList(using: RestEndpoints) -> AnyPublisher<Result<[Country], NetworkError>, Never>", parameterMatchers: matchers))
+	    func getCountriesList() -> Cuckoo.ProtocolStubFunction<(), AnyPublisher<Result<[Country], NetworkError>, Never>> {
+	        let matchers: [Cuckoo.ParameterMatcher<Void>] = []
+	        return .init(stub: cuckoo_manager.createStub(for: MockCovid19Repository.self, method: "getCountriesList() -> AnyPublisher<Result<[Country], NetworkError>, Never>", parameterMatchers: matchers))
 	    }
 	    
 	}
@@ -83,9 +83,9 @@ import Foundation
 	
 	    
 	    @discardableResult
-	    func getCountriesList<M1: Cuckoo.Matchable>(using endpoint: M1) -> Cuckoo.__DoNotUse<(RestEndpoints), AnyPublisher<Result<[Country], NetworkError>, Never>> where M1.MatchedType == RestEndpoints {
-	        let matchers: [Cuckoo.ParameterMatcher<(RestEndpoints)>] = [wrap(matchable: endpoint) { $0 }]
-	        return cuckoo_manager.verify("getCountriesList(using: RestEndpoints) -> AnyPublisher<Result<[Country], NetworkError>, Never>", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+	    func getCountriesList() -> Cuckoo.__DoNotUse<(), AnyPublisher<Result<[Country], NetworkError>, Never>> {
+	        let matchers: [Cuckoo.ParameterMatcher<Void>] = []
+	        return cuckoo_manager.verify("getCountriesList() -> AnyPublisher<Result<[Country], NetworkError>, Never>", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
 	    }
 	    
 	}
@@ -97,7 +97,7 @@ import Foundation
     
 
     
-     func getCountriesList(using endpoint: RestEndpoints) -> AnyPublisher<Result<[Country], NetworkError>, Never>  {
+     func getCountriesList() -> AnyPublisher<Result<[Country], NetworkError>, Never>  {
         return DefaultValueRegistry.defaultValue(for: (AnyPublisher<Result<[Country], NetworkError>, Never>).self)
     }
     
@@ -130,16 +130,16 @@ import Foundation
     
     
     
-     override func getCountriesList(using endpoint: RestEndpoints) -> AnyPublisher<Result<[Country], NetworkError>, Never> {
+     override func getCountriesList() -> AnyPublisher<Result<[Country], NetworkError>, Never> {
         
-    return cuckoo_manager.call("getCountriesList(using: RestEndpoints) -> AnyPublisher<Result<[Country], NetworkError>, Never>",
-            parameters: (endpoint),
-            escapingParameters: (endpoint),
+    return cuckoo_manager.call("getCountriesList() -> AnyPublisher<Result<[Country], NetworkError>, Never>",
+            parameters: (),
+            escapingParameters: (),
             superclassCall:
                 
-                super.getCountriesList(using: endpoint)
+                super.getCountriesList()
                 ,
-            defaultCall: __defaultImplStub!.getCountriesList(using: endpoint))
+            defaultCall: __defaultImplStub!.getCountriesList())
         
     }
     
@@ -152,9 +152,9 @@ import Foundation
 	    }
 	    
 	    
-	    func getCountriesList<M1: Cuckoo.Matchable>(using endpoint: M1) -> Cuckoo.ClassStubFunction<(RestEndpoints), AnyPublisher<Result<[Country], NetworkError>, Never>> where M1.MatchedType == RestEndpoints {
-	        let matchers: [Cuckoo.ParameterMatcher<(RestEndpoints)>] = [wrap(matchable: endpoint) { $0 }]
-	        return .init(stub: cuckoo_manager.createStub(for: MockCovid19RepositoryImpl.self, method: "getCountriesList(using: RestEndpoints) -> AnyPublisher<Result<[Country], NetworkError>, Never>", parameterMatchers: matchers))
+	    func getCountriesList() -> Cuckoo.ClassStubFunction<(), AnyPublisher<Result<[Country], NetworkError>, Never>> {
+	        let matchers: [Cuckoo.ParameterMatcher<Void>] = []
+	        return .init(stub: cuckoo_manager.createStub(for: MockCovid19RepositoryImpl.self, method: "getCountriesList() -> AnyPublisher<Result<[Country], NetworkError>, Never>", parameterMatchers: matchers))
 	    }
 	    
 	}
@@ -174,9 +174,9 @@ import Foundation
 	
 	    
 	    @discardableResult
-	    func getCountriesList<M1: Cuckoo.Matchable>(using endpoint: M1) -> Cuckoo.__DoNotUse<(RestEndpoints), AnyPublisher<Result<[Country], NetworkError>, Never>> where M1.MatchedType == RestEndpoints {
-	        let matchers: [Cuckoo.ParameterMatcher<(RestEndpoints)>] = [wrap(matchable: endpoint) { $0 }]
-	        return cuckoo_manager.verify("getCountriesList(using: RestEndpoints) -> AnyPublisher<Result<[Country], NetworkError>, Never>", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+	    func getCountriesList() -> Cuckoo.__DoNotUse<(), AnyPublisher<Result<[Country], NetworkError>, Never>> {
+	        let matchers: [Cuckoo.ParameterMatcher<Void>] = []
+	        return cuckoo_manager.verify("getCountriesList() -> AnyPublisher<Result<[Country], NetworkError>, Never>", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
 	    }
 	    
 	}
@@ -188,7 +188,7 @@ import Foundation
     
 
     
-     override func getCountriesList(using endpoint: RestEndpoints) -> AnyPublisher<Result<[Country], NetworkError>, Never>  {
+     override func getCountriesList() -> AnyPublisher<Result<[Country], NetworkError>, Never>  {
         return DefaultValueRegistry.defaultValue(for: (AnyPublisher<Result<[Country], NetworkError>, Never>).self)
     }
     
