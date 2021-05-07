@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class CountrySelectionViewModel: LoaderViewModel {
+class CountrySelectionViewModel: LoaderViewModel, ErrorableViewModel {
     
     private let repository: Covid19Repository
     
@@ -21,6 +21,7 @@ class CountrySelectionViewModel: LoaderViewModel {
     let dataReadyPublisher = PassthroughSubject<Void, Never>()
     let searchPublisher = PassthroughSubject<String, Never>()
     var loaderPublisher = PassthroughSubject<Bool, Never>()
+    var errorSubject = PassthroughSubject<ErrorType?, Never>()
     
     init(repository: Covid19Repository) {
         self.repository = repository
@@ -55,9 +56,11 @@ extension CountrySelectionViewModel {
                     self.screenData = data
                     self.dataReadyPublisher.send()
                     self.loaderPublisher.send(false)
+                    self.errorSubject.send(nil)
                 case .failure(let error):
+                    self.loaderPublisher.send(false)
                     print(error.localizedDescription)
-                    #warning("send error and show screen acordingly")
+                    self.errorSubject.send(error)
                 }
             })
     }

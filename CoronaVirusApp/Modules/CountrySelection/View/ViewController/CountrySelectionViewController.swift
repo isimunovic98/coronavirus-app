@@ -114,12 +114,14 @@ private extension CountrySelectionViewController {
 }
 
 //MARK: - Bindings
-extension CountrySelectionViewController: LoadableViewController {
+extension CountrySelectionViewController: LoadableViewController, ErrorableViewController {
     
     func setupBindings() {
         initializeLoaderSubject(viewModel.loaderPublisher).store(in: &disposeBag)
         
         viewModel.initializeScreenData(with: viewModel.loadData).store(in: &disposeBag)
+        
+        initializeErrorSubject(viewModel.errorSubject.eraseToAnyPublisher()).store(in: &disposeBag)
         
         viewModel.attachFilterListener(subject: viewModel.searchPublisher).store(in: &disposeBag)
         
@@ -130,7 +132,14 @@ extension CountrySelectionViewController: LoadableViewController {
                 self?.tableView.reloadData()
             })
             .store(in: &disposeBag)
-        #warning("add error handling")
+        
+    }
+}
+
+//MARK: - Methods
+extension CountrySelectionViewController {
+    func tryAgainAfterError() {
+        viewModel.loadData.send(true)
     }
 }
 
@@ -146,12 +155,12 @@ extension CountrySelectionViewController: UITableViewDelegate, UITableViewDataSo
         switch itemType {
         
         case .worldwide:
-            let cell: WorldwideTableViewCell = tableView.dequeue(for: indexPath)
+            let cell: WorldwideTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             
             return cell
             
         case .country:
-            let cell: CountryTableViewCell = tableView.dequeue(for: indexPath)
+            let cell: CountryTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             
             let country = viewModel.screenData[indexPath.row]
             cell.configure(with: country)
@@ -159,7 +168,7 @@ extension CountrySelectionViewController: UITableViewDelegate, UITableViewDataSo
             return cell
             
         case .emptyState:
-            let cell: EmptyStateTableViewCell = tableView.dequeue(for: indexPath)
+            let cell: EmptyStateTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             
             cell.isUserInteractionEnabled = false
             
