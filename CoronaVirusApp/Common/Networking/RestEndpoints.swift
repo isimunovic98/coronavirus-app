@@ -25,9 +25,9 @@ public enum RestEndpoints {
         switch self {
         case .countriesList: return RestEndpoints.ENDPOINT_COVID + "/countries"
         case .countryStats(let countryName):
-            return RestEndpoints.ENDPOINT_COVID + "/dayone/country/" + StringUtils.transformToSlug(countryName)
+            return RestEndpoints.ENDPOINT_COVID + "/dayone/country/" + countryName
         case .countryStatsTotal(let countryName):
-            return RestEndpoints.ENDPOINT_COVID + "/total/country/" + StringUtils.transformToSlug(countryName)
+            return RestEndpoints.ENDPOINT_COVID + "/total/country/" + countryName
         case .worldwideStats: return RestEndpoints.ENDPOINT_COVID + "/summary"
         case .latestNews: return RestEndpoints.ENDPOINT_NEWS
         }

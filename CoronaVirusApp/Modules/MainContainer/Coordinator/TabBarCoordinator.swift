@@ -10,12 +10,12 @@ import UIKit
 class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
     var childCoordinators: [Coordinator] = []
     var presenter: UINavigationController
-    var controller: TabBarViewController
+    var controller: TabBarViewController = .init()
     
     init(presenter: UINavigationController) {
         self.presenter = presenter
-        self.controller = TabBarCoordinator.createController()
         super.init()
+        self.controller = createController()
     }
     deinit { print("TabCoordinator deinit called.") }
     func start() {
@@ -24,7 +24,7 @@ class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
 }
 
 private extension TabBarCoordinator {
-    static func createController() -> TabBarViewController {
+    func createController() -> TabBarViewController {
         let tabController = TabBarViewController()
         let tabs: [TabBarPage] = [.home, .statistics, .news, .healthTips]
         let viewControllers: [UINavigationController] = tabs.map({ createTabItems(from: $0) })
@@ -32,7 +32,7 @@ private extension TabBarCoordinator {
         return tabController
     }
     
-    static func createTabItems(from page: TabBarPage) -> UINavigationController {
+    func createTabItems(from page: TabBarPage) -> UINavigationController {
          switch page {
          case .home: return createHomeViewController(from: page)
          case .statistics: return createStatisticsViewController(from: page)
@@ -44,36 +44,40 @@ private extension TabBarCoordinator {
 }
 
 private extension TabBarCoordinator {
-    static func createHomeViewController(from page: TabBarPage) -> UINavigationController {
+    func createHomeViewController(from page: TabBarPage) -> UINavigationController {
         let presenter = UINavigationController()
-        let homeCoordinator = DummyCoordinator(presenter: presenter)
+        let coordinator = DummyCoordinator(presenter: presenter)
+        childCoordinators.append(coordinator)
         presenter.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
-        homeCoordinator.start()
-        return homeCoordinator.presenter
+        coordinator.start()
+        return coordinator.presenter
     }
 
-    static func createStatisticsViewController(from page: TabBarPage) -> UINavigationController {
+    func createStatisticsViewController(from page: TabBarPage) -> UINavigationController {
         let presenter = UINavigationController()
-        let statisticsCoordinator = DummyCoordinator(presenter: presenter)
+        let coordinator = DummyCoordinator(presenter: presenter)
+        childCoordinators.append(coordinator)
         presenter.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
-        statisticsCoordinator.start()
-        return statisticsCoordinator.presenter
+        coordinator.start()
+        return coordinator.presenter
     }
 
-    static func createLatestNewsViewController(from page: TabBarPage) -> UINavigationController {
+    func createLatestNewsViewController(from page: TabBarPage) -> UINavigationController {
         let presenter = UINavigationController()
-        let latestNewsCoordinator = DummyCoordinator(presenter: presenter)
+        let coordinator = DummyCoordinator(presenter: presenter)
+        childCoordinators.append(coordinator)
         presenter.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
-        latestNewsCoordinator.start()
-        return latestNewsCoordinator.presenter
+        coordinator.start()
+        return coordinator.presenter
     }
 
-    static func createHealthTipsViewController(from page: TabBarPage) -> UINavigationController {
+    func createHealthTipsViewController(from page: TabBarPage) -> UINavigationController {
         let presenter = UINavigationController()
-        let healthTipsCoordinator = DummyCoordinator(presenter: presenter)
+        let coordinator = DummyCoordinator(presenter: presenter)
+        childCoordinators.append(coordinator)
         presenter.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
-        healthTipsCoordinator.start()
-        return healthTipsCoordinator.presenter
+        coordinator.start()
+        return coordinator.presenter
     }
 }
 
