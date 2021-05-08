@@ -178,10 +178,7 @@ extension CountrySelectionViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = viewModel.screenData[indexPath.row]
-        guard let name = selected.content else {
-                return
-        }
-        viewModel.update(name)
+        viewModel.update(selected.slug)
         navigationController?.popViewController(animated: false)
     }
     
