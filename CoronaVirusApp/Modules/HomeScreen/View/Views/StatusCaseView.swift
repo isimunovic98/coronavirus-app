@@ -8,7 +8,8 @@ class StatusCaseView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fill
+        stackView.spacing = 10
         return stackView
     }()
     
@@ -17,7 +18,7 @@ class StatusCaseView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.alignment = .center
-        stackView.distribution = .fill
+        stackView.distribution = .fillProportionally
         return stackView
     }()
 
@@ -51,12 +52,6 @@ class StatusCaseView: UIView {
         return label
     }()
     
-    let spaceFillView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     let differenceArrowImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: "arrow.down"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -74,8 +69,8 @@ class StatusCaseView: UIView {
         super.init(frame: .zero)
         backgroundColor = UIColor(named: "whiteBlackwithDarkAlphaComponent")
         differenceContainer.addSubviews([differenceArrowImageView, differenceCountLabel])
-        horizontalStackView.addArrangedSubviews([totalCountLabel, differenceContainer, spaceFillView])
-        verticalStackView.addArrangedSubviews([ titleLabel, horizontalStackView, graphImageView])
+        horizontalStackView.addArrangedSubviews([totalCountLabel, differenceContainer])
+        verticalStackView.addArrangedSubviews([titleLabel, horizontalStackView, graphImageView])
         addSubview(verticalStackView)
         setConstraints()
     }
@@ -103,9 +98,11 @@ class StatusCaseView: UIView {
     }
     
     func setConstraints() {
-        verticalStackView.snp.makeConstraints { (make) in make.edges.equalTo(self).inset(10) }
-        totalCountLabel.setContentHuggingPriority(UILayoutPriority(249), for: .horizontal)
-//        differenceContainer.setContentHuggingPriority(UILayoutPriority(249), for: .horizontal)
+        verticalStackView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self).inset(10)
+        }
+        titleLabel.snp.makeConstraints { make in make.height.equalTo(30)}
+        totalCountLabel.snp.makeConstraints { make in make.height.equalTo(30) }
         differenceArrowImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.width.height.equalTo(differenceCountLabel.font.pointSize)
@@ -116,6 +113,6 @@ class StatusCaseView: UIView {
             make.trailing.equalTo(differenceContainer)
             make.centerY.equalToSuperview()
         }
-        
+        graphImageView.snp.makeConstraints { make in make.height.equalTo(44) }
     }
 }
