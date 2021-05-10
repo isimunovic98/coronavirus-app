@@ -5,8 +5,8 @@ PODS:
   - Cuckoo/Swift (1.5.0)
   - Kingfisher (6.3.0)
   - lottie-ios (3.2.2)
-  - Nimble (9.0.1)
-  - Quick (3.1.2)
+  - Nimble (9.2.0)
+  - Quick (4.0.0)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
@@ -33,8 +33,8 @@ SPEC CHECKSUMS:
   Cuckoo: 09ff1b7c6613b9c27dafea90702ca32208fe59d3
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   lottie-ios: a033bb989eea77d9f99cc4e2bbdd3788229761ad
-  Nimble: 7bed62ffabd6dbfe05f5925cbc43722533248990
-  Quick: 60f0ea3b8e0cfc0df3259a5c06a238ad8b3c46e0
+  Nimble: 4f4a345c80b503b3ea13606a4f98405974ee4d0b
+  Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
 PODFILE CHECKSUM: 1b77dfc4b5c57dbfab95e14ec6c1d43bb86d2e98
