@@ -132,15 +132,11 @@ extension CountrySelectionViewController: LoadableViewController, ErrorableViewC
                 self?.tableView.reloadData()
             })
             .store(in: &disposeBag)
-        
+        initializeErrorSubject(viewModel.errorSubject.eraseToAnyPublisher())
+            .store(in: &disposeBag)
     }
-}
-
-//MARK: - Methods
-extension CountrySelectionViewController {
-    func tryAgainAfterError() {
-        viewModel.loadData.send(true)
-    }
+    
+    func tryAgainAfterError() { viewModel.loadData.send(true) }
 }
 
 //MARK: - TableView Config
@@ -151,27 +147,18 @@ extension CountrySelectionViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let itemType = viewModel.screenData[indexPath.row].cellType
-        
         switch itemType {
-        
         case .worldwide:
             let cell: WorldwideTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-            
             return cell
-            
         case .country:
             let cell: CountryTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-            
             let country = viewModel.screenData[indexPath.row]
             cell.configure(with: country)
-                
             return cell
-            
         case .emptyState:
             let cell: EmptyStateTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-            
             cell.isUserInteractionEnabled = false
-            
             return cell
         }
     }
@@ -201,9 +188,7 @@ extension CountrySelectionViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let input = searchBar.text else {
-            return
-        }
+        guard let input = searchBar.text else { return }
         viewModel.searchPublisher.send(input)
     }
 }

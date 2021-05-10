@@ -8,9 +8,10 @@
 import UIKit
 
 class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
+   
     var childCoordinators: [Coordinator] = []
     var presenter: UINavigationController
-    var controller: TabBarViewController = .init()
+    var controller: TabBarViewController?
     
     init(presenter: UINavigationController) {
         self.presenter = presenter
@@ -18,12 +19,13 @@ class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
         self.controller = createController()
     }
     deinit { print("TabCoordinator deinit called.") }
+    
     func start() {
+        guard let controller = controller else { return }
         presenter.pushViewController(controller, animated: true)
+        
     }
-}
-
-private extension TabBarCoordinator {
+    
     func createController() -> TabBarViewController {
         let tabController = TabBarViewController()
         let tabs: [TabBarPage] = [.home, .statistics, .news, .healthTips]
@@ -34,51 +36,58 @@ private extension TabBarCoordinator {
     
     func createTabItems(from page: TabBarPage) -> UINavigationController {
          switch page {
-         case .home: return createHomeViewController(from: page)
-         case .statistics: return createStatisticsViewController(from: page)
-         case .news: return createLatestNewsViewController(from: page)
-         case .healthTips: return createHealthTipsViewController(from: page)
+         case .home:        return createHomeViewController(from: page)
+         case .statistics:  return createStatisticsViewController(from: page)
+         case .news:        return createLatestNewsViewController(from: page)
+         case .healthTips:  return createHealthTipsViewController(from: page)
          }
      }
-
-}
-
-private extension TabBarCoordinator {
+    
     func createHomeViewController(from page: TabBarPage) -> UINavigationController {
         let presenter = UINavigationController()
-        let coordinator = DummyCoordinator(presenter: presenter)
-        childCoordinators.append(coordinator)
         presenter.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
+        let coordinator = HomeScreenCoordinatorImpl(presenter: presenter)
+        childCoordinators.append(coordinator)
+        coordinator.parentCoordinator = self
         coordinator.start()
         return coordinator.presenter
     }
 
     func createStatisticsViewController(from page: TabBarPage) -> UINavigationController {
         let presenter = UINavigationController()
+        presenter.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
         let coordinator = DummyCoordinator(presenter: presenter)
         childCoordinators.append(coordinator)
-        presenter.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
         coordinator.start()
         return coordinator.presenter
     }
 
     func createLatestNewsViewController(from page: TabBarPage) -> UINavigationController {
         let presenter = UINavigationController()
+        presenter.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
         let coordinator = DummyCoordinator(presenter: presenter)
         childCoordinators.append(coordinator)
-        presenter.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
         coordinator.start()
         return coordinator.presenter
     }
 
     func createHealthTipsViewController(from page: TabBarPage) -> UINavigationController {
         let presenter = UINavigationController()
-        let coordinator = DummyCoordinator(presenter: presenter)
-        childCoordinators.append(coordinator)
         presenter.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
+        let coordinator = PageComingSoonCoordinator(presenter: presenter)
+        childCoordinators.append(coordinator)
         coordinator.start()
         return coordinator.presenter
     }
 }
 
+extension TabBarCoordinator: ParentCoordinatorDelegate { }
 
+extension TabBarCoordinator: CountrySelectionHandler {
+    func openCountrySelection() {
+        let child = CountrySelectionCoordinator(presenter: presenter)
+        child.parent = self
+        childCoordinators.append(child)
+        child.start()
+    }
+}

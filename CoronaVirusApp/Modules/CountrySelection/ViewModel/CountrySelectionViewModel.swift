@@ -10,33 +10,26 @@ import Combine
 
 class CountrySelectionViewModel: LoaderViewModel, ErrorableViewModel {
     
+    var errorSubject = PassthroughSubject<ErrorType?, Never>()
     private let repository: Covid19Repository
-    
     var coordinatorDelegate: CoordinatorDelegate?
-    
     var screenData = [CountrySelectionModel]()
     private var countriesList = [CountryListResponseItem]()
-    
     let loadData = CurrentValueSubject<Bool, Never>(true)
     let dataReadyPublisher = PassthroughSubject<Void, Never>()
     let searchPublisher = PassthroughSubject<String, Never>()
     var loaderPublisher = PassthroughSubject<Bool, Never>()
-    var errorSubject = PassthroughSubject<ErrorType?, Never>()
     
-    init(repository: Covid19Repository) {
-        self.repository = repository
-    }
-    
-    deinit {
-        print("CountrySelection VM deinit")
-    }
+    init(repository: Covid19Repository) { self.repository = repository }
+    deinit { print("CountrySelection VM deinit") }
 }
 
 extension CountrySelectionViewModel {
+    
     func initializeScreenData(with subject: CurrentValueSubject<Bool, Never>) -> AnyCancellable {
         return subject
-            .flatMap({ [unowned self] shouldShowLoader -> AnyPublisher<Result<[CountryListResponseItem], ErrorType>, Never> in
-                self.loaderPublisher.send(shouldShowLoader)
+            .flatMap({ [unowned self] (_) -> AnyPublisher<Result<[CountryListResponseItem], ErrorType>, Never> in
+                self.loaderPublisher.send(true)
                 return self.repository.getCountriesList()
             })
             .map({ [unowned self] (result) -> Result<[CountrySelectionModel], ErrorType> in
@@ -55,13 +48,10 @@ extension CountrySelectionViewModel {
                 case .success(let data):
                     self.screenData = data
                     self.dataReadyPublisher.send()
-                    self.loaderPublisher.send(false)
-                    self.errorSubject.send(nil)
                 case .failure(let error):
-                    self.loaderPublisher.send(false)
-                    print(error.localizedDescription)
-                    self.errorSubject.send(error)
+                    self.handleError(error)
                 }
+                self.loaderPublisher.send(false)
             })
     }
     
@@ -82,21 +72,16 @@ extension CountrySelectionViewModel {
 }
 
 extension CountrySelectionViewModel {
+    
     private func createScreenData(from data: [CountryListResponseItem]) -> [CountrySelectionModel] {
         var temporaryScreenData = [CountrySelectionModel]()
-        
-        temporaryScreenData.append(CountrySelectionModel(content: "Worldwide", cellType: .worldwide))
-        
+        temporaryScreenData.append(CountrySelectionModel(content: "Worldwide", cellType: .worldwide, slug: "worldwide"))
         if data.isEmpty {
             temporaryScreenData.append(CountrySelectionModel(content: "No results found", cellType: .emptyState))
-            return temporaryScreenData
         } else {
-            for country in data {
-                temporaryScreenData.append(CountrySelectionModel(country: country))
-            }
-            return temporaryScreenData
+            for country in data { temporaryScreenData.append(CountrySelectionModel(country: country)) }
         }
-        
+        return temporaryScreenData
     }
     
     private func setupInitialData(with data: [CountryListResponseItem]) -> [CountryListResponseItem] {
@@ -114,7 +99,7 @@ extension CountrySelectionViewModel {
     }
     
     func update(_ selectedCountry: String) {
-        let item = UserDefaultsDomainItem(usecase: selectedCountry.lowercased(), details: [])
+        let item = UserDefaultsDomainItem(usecase: selectedCountry, details: [])
         UserDefaultsService.update(item)
     }
 }

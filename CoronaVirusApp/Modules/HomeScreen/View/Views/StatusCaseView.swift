@@ -1,0 +1,121 @@
+
+import UIKit
+import SnapKit
+
+class StatusCaseView: UIView {
+    
+    let verticalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    
+    let horizontalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        return stackView
+    }()
+
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .gray
+        label.font = label.font.withSize(14)
+        return label
+    }()
+    
+    let totalCountLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = label.font.withSize(28)
+        label.textColor = .gray
+        return label
+    }()
+    
+    let differenceContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let differenceCountLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = label.font.withSize(16)
+        label.textColor = .gray
+        return label
+    }()
+    
+    let spaceFillView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let differenceArrowImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(systemName: "arrow.down"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let graphImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    init() {
+        super.init(frame: .zero)
+        backgroundColor = UIColor(named: "whiteBlackwithDarkAlphaComponent")
+        differenceContainer.addSubviews([differenceArrowImageView, differenceCountLabel])
+        horizontalStackView.addArrangedSubviews([totalCountLabel, differenceContainer, spaceFillView])
+        verticalStackView.addArrangedSubviews([ titleLabel, horizontalStackView, graphImageView])
+        addSubview(verticalStackView)
+        setConstraints()
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
+    func configure(totalCount: Int, differenceCount: Int, color: UIColor) {
+        var arrowImage: UIImage? = .init()
+        var graphImage: UIImage? = .init()
+        if differenceCount > 0 {
+            graphImage = UIImage(named: "graph-up-homescreen")
+            arrowImage = UIImage(systemName: "arrow.up")
+        } else {
+            graphImage = UIImage(named: "graph-down-homescreen")
+            arrowImage = UIImage(systemName: "arrow.down")
+        }
+        differenceCountLabel.text = "\(NumberUtils.getPositiveNumberWithMetricPrefixSymbol(differenceCount))"
+        totalCountLabel.text = "\(NumberUtils.getPositiveNumberWithMetricPrefixSymbol(totalCount))"
+        totalCountLabel.textColor = color
+        differenceCountLabel.textColor = color
+        differenceArrowImageView.image = arrowImage
+        differenceArrowImageView.tintColor = color
+        graphImageView.image = graphImage
+        graphImageView.tintColor = color
+    }
+    
+    func setConstraints() {
+        verticalStackView.snp.makeConstraints { (make) in make.edges.equalTo(self).inset(10) }
+        totalCountLabel.setContentHuggingPriority(UILayoutPriority(249), for: .horizontal)
+//        differenceContainer.setContentHuggingPriority(UILayoutPriority(249), for: .horizontal)
+        differenceArrowImageView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.width.height.equalTo(differenceCountLabel.font.pointSize)
+            make.leading.equalTo(differenceContainer)
+        }
+        differenceCountLabel.snp.makeConstraints { make in
+            make.leading.equalTo(differenceArrowImageView.snp.trailing)
+            make.trailing.equalTo(differenceContainer)
+            make.centerY.equalToSuperview()
+        }
+        
+    }
+}

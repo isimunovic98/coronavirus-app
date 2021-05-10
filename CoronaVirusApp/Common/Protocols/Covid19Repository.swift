@@ -2,7 +2,7 @@
 //  Covid19Repository.swift
 //  CoronaVirusApp
 //
-//  Created by Tomislav Gelesic on 05.05.2021..
+//  Created by Ivan Simunovic on 20.04.2021..
 //
 
 import Foundation

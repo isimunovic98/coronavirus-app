@@ -9,16 +9,12 @@ import UIKit
 
 class AppCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
-    var presenter: UINavigationController
+    var presenter: UINavigationController = .init()
     let window: UIWindow
     
-    init() {
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.presenter = UINavigationController()
-    }
-}
-
-extension AppCoordinator {
+    init() { self.window = UIWindow(frame: UIScreen.main.bounds) }
+    deinit { print("AppCoordinator deinit called.") }
+    
     func start() {
         window.rootViewController = presenter
         window.makeKeyAndVisible()
