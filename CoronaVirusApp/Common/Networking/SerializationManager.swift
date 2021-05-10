@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class SerializationManager {
+class SerializationManager {
     static let jsonDecoder: JSONDecoder = {
         let decoder = JSONDecoder()
         decoder.dataDecodingStrategy = .deferredToData
@@ -15,7 +15,7 @@ public class SerializationManager {
         return decoder
     }()
     
-    public static func parseData<T: Codable>(jsonString: String) -> T? {
+    static func parseData<T: Codable>(jsonString: String) -> T? {
         guard let jsonData = jsonString.data(using: .utf8) else { return nil }
         return parseData(jsonData: jsonData)
     }

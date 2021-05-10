@@ -4,13 +4,11 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var coordinator: AppCoordinator?
+    var appCoordinator: AppCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        coordinator = AppCoordinator()
-        coordinator?.start()
-        
+        appCoordinator = AppCoordinator()
+        appCoordinator?.start()
         return true
     }
 }

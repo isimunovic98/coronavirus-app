@@ -8,23 +8,17 @@
 import UIKit
 
 class DummyCoordinator: Coordinator {
+    
     var childCoordinators: [Coordinator] = []
-    
     var presenter: UINavigationController
-    
-    let controller: DummyViewController
+    var controller: UIViewController
     
     init(presenter: UINavigationController) {
         self.presenter = presenter
         self.controller = DummyCoordinator.createController()
     }
+    deinit { print("DummyCoordinator deinit called.") }
     
-    func start() {
-        presenter.pushViewController(controller, animated: true)
-    }
-    
-    static func createController() -> DummyViewController {
-        let vc = DummyViewController()
-        return vc
-    }
+    func start() { presenter.pushViewController(controller, animated: true) }
+    static func createController() -> UIViewController { return DummyViewController() }
 }

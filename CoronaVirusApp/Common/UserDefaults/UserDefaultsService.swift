@@ -15,21 +15,16 @@ class UserDefaultsService {
         let userDefaults = UserDefaults.standard
         guard let usecase = userDefaults.value(forKey: "usecase") as? String else { return nil }
         result.usecase = usecase
-        do {
-            let details: [String] = try userDefaults.getCustomObject(forKey: "usecaseDetails")
-            result.details = details
-        }
+        do { result.details = try userDefaults.getCustomObject(forKey: "usecaseDetails") }
         catch (_) { }
         return result
     }
     
-    static func getUsecase() -> UseCaseSelection {
-        if let data = UserDefaultsService.getSavedData() {
-            switch data.usecase {
-            case "worldwide": return .worldwide
-            default: return .country(data.usecase)
-            }
+    static func getUsecase() -> UseCaseSelection? {
+        guard let data = UserDefaultsService.getSavedData() else { return nil }
+        switch data.usecase {
+        case "worldwide": return .worldwide
+        default: return .country(data.usecase)
         }
-        return .country("croatia")
     }
 }

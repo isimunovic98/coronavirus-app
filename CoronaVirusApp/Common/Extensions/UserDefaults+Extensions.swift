@@ -1,10 +1,3 @@
-//
-//  UserDefaults+Extensions.swift
-//  CoronaVirusApp
-//
-//  Created by Ivan Simunovic on 29.04.2021..
-//
-
 
 import Foundation
 

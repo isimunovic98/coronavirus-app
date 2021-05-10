@@ -76,7 +76,7 @@ extension WorldwideTableViewCell {
             make.width.equalTo(16)
         }
         stackView.snp.makeConstraints { (make) in
-            make.top.bottom.equalToSuperview().inset(10)
+            make.top.leading.bottom.equalToSuperview().inset(10)
         }
         
         horizontalDividor.snp.makeConstraints { (make) in
