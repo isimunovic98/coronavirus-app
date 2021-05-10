@@ -8,7 +8,7 @@ class HomeScreenViewController: UIViewController, LoadableViewController {
     var viewModel: HomeScreenViewModel
     var disposeBag = Set<AnyCancellable>()
     var locationManager: CLLocationManager
-    var loaderOverlay = LoaderOverlay()
+    var loaderOverlay: LoaderOverlay
     
     let mainView: HomeScreenMainView = {
         let view = HomeScreenMainView()
@@ -20,6 +20,7 @@ class HomeScreenViewController: UIViewController, LoadableViewController {
     init(viewModel: HomeScreenViewModel) {
         self.viewModel = viewModel
         self.locationManager = CLLocationManager()
+        self.loaderOverlay = .init()
         super.init(nibName: nil, bundle: nil)
     }
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -30,8 +31,9 @@ class HomeScreenViewController: UIViewController, LoadableViewController {
         setup()
         setConstraintsMainView()
         setViewModelSubscribers()
-        viewModel.loaderPublisher.send(true)
+        loaderOverlay.showLoader(viewController: self)
         viewModel.loaderIsVisible = true
+        viewModel.getData(using: locationManager)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,6 +112,8 @@ extension HomeScreenViewController {
         view.addSubview(mainView)
         mainView.delegate = self
         mainView.tableView.dataSource = self
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
     func setConstraintsMainView() {
