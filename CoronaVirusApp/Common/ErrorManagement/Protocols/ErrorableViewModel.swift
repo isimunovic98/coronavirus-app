@@ -13,7 +13,7 @@ protocol ErrorableViewModel {
 }
 
 extension ErrorableViewModel {
-    
+
     func handleError(_ errorType: ErrorType?) {
         errorSubject.send(errorType)
     }
