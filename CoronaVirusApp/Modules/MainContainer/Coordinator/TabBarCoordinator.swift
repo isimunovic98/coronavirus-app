@@ -6,6 +6,9 @@
 //
 
 import UIKit
+protocol TabBarCoordinatorDelegate: class {
+    func openWebView(with url: URL)
+}
 
 class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
    
@@ -18,6 +21,7 @@ class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
         super.init()
         self.controller = createController()
     }
+    
     deinit { print("TabCoordinator deinit called.") }
     
     func start() {
@@ -31,6 +35,7 @@ class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
         let tabs: [TabBarPage] = [.home, .statistics, .news, .healthTips]
         let viewControllers: [UINavigationController] = tabs.map({ createTabItems(from: $0) })
         tabController.setViewControllers(viewControllers, animated: true)
+        
         return tabController
     }
     
@@ -46,9 +51,9 @@ class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
     func createHomeViewController(from page: TabBarPage) -> UINavigationController {
         let presenter = UINavigationController()
         presenter.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
-        let coordinator = HomeScreenCoordinatorImpl(presenter: presenter)
+        let coordinator = DummyCoordinator(presenter: presenter)
         childCoordinators.append(coordinator)
-        coordinator.parentCoordinator = self
+        //coordinator.parentCoordinator = self
         coordinator.start()
         return coordinator.presenter
     }
@@ -65,7 +70,8 @@ class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
     func createLatestNewsViewController(from page: TabBarPage) -> UINavigationController {
         let presenter = UINavigationController()
         presenter.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
-        let coordinator = DummyCoordinator(presenter: presenter)
+        let coordinator = LatestNewsCoordinator(presenter: presenter)
+        coordinator.parent = self
         childCoordinators.append(coordinator)
         coordinator.start()
         return coordinator.presenter
@@ -73,6 +79,7 @@ class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
 
     func createHealthTipsViewController(from page: TabBarPage) -> UINavigationController {
         let presenter = UINavigationController()
+
         presenter.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
         let coordinator = PageComingSoonCoordinator(presenter: presenter)
         childCoordinators.append(coordinator)
@@ -86,6 +93,18 @@ extension TabBarCoordinator: ParentCoordinatorDelegate { }
 extension TabBarCoordinator: CountrySelectionHandler {
     func openCountrySelection() {
         let child = CountrySelectionCoordinator(presenter: presenter)
+        child.parent = self
+        childCoordinators.append(child)
+        child.start()
+    }
+}
+extension TabBarCoordinator: TabBarCoordinatorDelegate {
+    func openWebView(with url: URL) {
+        guard let tabController = controller else {
+            return
+        }
+        tabController.setNavTitle("Latest News")
+        let child = WebViewCoordinator(presenter: presenter, url)
         child.parent = self
         childCoordinators.append(child)
         child.start()

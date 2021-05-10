@@ -99,7 +99,7 @@ class ErrorView: UIView {
         virusTwoImageView.isHidden = false
         virusThreeImageView.isHidden = false
         switch option {
-        case .general:
+        case .general :
             titleLabel.text = "Oops!"
             descriptionLabel.text = "Something went wrong."
             noInternetImageView.isHidden = true
