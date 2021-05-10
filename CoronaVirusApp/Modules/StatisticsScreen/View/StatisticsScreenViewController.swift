@@ -20,25 +20,28 @@ class StatistiscScreenViewController: UIViewController, LoadableViewController, 
     let mapView: MKMapView = {
         let view = MKMapView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.addShadow(color: .systemGray)
         return view
     }()
     
     let statsView: StatsCardView = {
         let view = StatsCardView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.addShadow(color: .systemGray)
+        view.layer.shadowColor = UIColor.systemGray.cgColor
+        view.layer.shadowOpacity = 0.3
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 1
         return view
     }()
     
     let containerView: UIStackView = {
-        let view = UIStackView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
-        view.axis = .vertical
-        view.distribution = .equalSpacing
-        view.alignment = .center
-        return view
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.backgroundColor = .white
+        stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
+        stackView.alignment = .center
+        stackView.backgroundColor = UIColor(named: "BackgroundColor")
+        return stackView
     }()
     
     init(viewModel: StatisticsScreenViewModel) {
@@ -72,8 +75,7 @@ extension StatistiscScreenViewController {
     }
     
     func setupAppearance() {
-        #warning("color")
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "BackgroundColor")
     }
     
     func addViews() {
