@@ -6,8 +6,9 @@ class StatsCardView: UIView {
     
     let titleLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "Montserrat", size: 20)
         label.font = label.font.withSize(20)
-        label.text = "USECASE title"
+        label.textColor = .systemGray
         return label
     }()
 
@@ -94,8 +95,7 @@ extension StatsCardView {
     }
     
     func setupAppearance() {
-        #warning("color")
-        backgroundColor = .white
+        backgroundColor = UIColor(named: "BackgroundColor")
     }
     
     func addViews() {
@@ -110,15 +110,7 @@ extension StatsCardView {
             make.edges.equalToSuperview().inset(15)
         }
     }
-    
-    func configure(title: String, confirmed: Int, active: Int, recovered: Int, deaths: Int) {
-        titleLabel.text = title
-        confirmedCasesView.statCountLabel.text = NumberUtils.getCommaSeparatedNumber(confirmed)
-        activeCasesView.statCountLabel.text =  NumberUtils.getCommaSeparatedNumber(active)
-        recoveredCasesView.statCountLabel.text =  NumberUtils.getCommaSeparatedNumber(recovered)
-        deceasedCasesView.statCountLabel.text =  NumberUtils.getCommaSeparatedNumber(deaths)
-    }
-    
+
     func configure(with screenData: StatsDomainItem) {
         titleLabel.text = screenData.cardTitle
         confirmedCasesView.statCountLabel.text = NumberUtils.getCommaSeparatedNumber(screenData.confirmed)

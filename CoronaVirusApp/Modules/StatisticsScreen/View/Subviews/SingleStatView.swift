@@ -14,12 +14,16 @@ class SingleStatView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .systemGray
+        label.font = UIFont(name: "Montserrat", size: 12)
+        label.font = label.font.withSize(12)
         return label
     }()
     
     let statCountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Montserrat", size: 16)
+        label.font = label.font.withSize(16)
         return label
     }()
     
@@ -52,8 +56,7 @@ extension SingleStatView {
     }
     
     func setupAppearance() {
-        #warning("color")
-        backgroundColor = .white
+        backgroundColor = UIColor(named: "BackgroundColor")
     }
     
     func addViews() {

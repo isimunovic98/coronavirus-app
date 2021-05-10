@@ -34,6 +34,7 @@ class CountrySelectionViewController: UIViewController {
         tableView.backgroundColor = .systemGray6
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.backgroundColor = UIColor(named: "BackgroundColor")
         return tableView
     }()
     
@@ -83,7 +84,7 @@ private extension CountrySelectionViewController {
     }
     
     func setupAppearance() {
-        view.backgroundColor = .systemGray6
+        view.backgroundColor = UIColor(named: "BackgroundColor")
     }
     
     func addViews() {
@@ -105,7 +106,7 @@ private extension CountrySelectionViewController {
     func setupNavigationBar() {
         title = "Choose your country"
         navigationController?.navigationBar.isHidden = false
-        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.tintColor = UIColor(named: "BackgroundColor")
         let backImage = UIImage(systemName: "chevron.backward")
         navigationController?.navigationBar.backIndicatorImage = backImage
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
