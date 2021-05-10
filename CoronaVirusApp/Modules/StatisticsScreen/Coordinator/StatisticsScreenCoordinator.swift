@@ -22,5 +22,4 @@ class StatisticsScreenCoordinator: Coordinator {
         let controller = StatistiscScreenViewController(viewModel: viewModel)
         return controller
     }
-    
 }

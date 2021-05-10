@@ -51,9 +51,9 @@ class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
     func createHomeViewController(from page: TabBarPage) -> UINavigationController {
         let presenter = UINavigationController()
         presenter.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
-        let coordinator = DummyCoordinator(presenter: presenter)
+        let coordinator = HomeScreenCoordinatorImpl(presenter: presenter)
         childCoordinators.append(coordinator)
-        //coordinator.parentCoordinator = self
+        coordinator.parentCoordinator = self
         coordinator.start()
         return coordinator.presenter
     }

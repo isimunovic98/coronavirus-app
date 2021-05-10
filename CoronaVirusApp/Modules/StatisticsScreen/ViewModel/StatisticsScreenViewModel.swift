@@ -32,7 +32,6 @@ class StatisticsScreenViewModel: LoaderViewModel, ErrorableViewModel {
 }
 
 extension StatisticsScreenViewModel {
-    
     func initializeFetchScreenDataSubject(_ subject: CurrentValueSubject<UseCaseSelection, Never>) -> AnyCancellable {
         return subject.flatMap { [unowned self] (usecase) -> AnyPublisher<Result<StatsDomainItem, ErrorType>, Never> in
             loaderPublisher.send(true)
@@ -105,6 +104,12 @@ extension StatisticsScreenViewModel {
 }
 
 extension StatisticsScreenViewModel {
+    func updateUsecase() {
+        usecase = UserDefaultsService.getUsecase()
+        guard let updatedUsecase = usecase else { return }
+        fetchScreenDataSubject.send(updatedUsecase)
+    }
+    
     func annotationSelected(_ view: MKAnnotationView) {
         guard let annotation = view.annotation as? MKPointAnnotation else {
             return
@@ -144,7 +149,12 @@ extension StatisticsScreenViewModel {
     }
     
     func annotationDeselected() {
-        fetchScreenDataSubject.send(.worldwide)
+        switch usecase {
+        case .worldwide:
+            fetchScreenDataSubject.send(.worldwide)
+        default:
+            return
+        }
     }
 }
 

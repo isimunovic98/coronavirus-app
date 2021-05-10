@@ -53,7 +53,6 @@ class StatistiscScreenViewController: UIViewController, LoadableViewController, 
     deinit { print("StatsScreenViewController deinit called.") }
     
     override func viewDidLoad() {
-        UserDefaultsService.update(UserDefaultsDomainItem(usecase: "croatia", details: []))
         super.viewDidLoad()
         setupView()
     }
@@ -61,6 +60,7 @@ class StatistiscScreenViewController: UIViewController, LoadableViewController, 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        viewModel.updateUsecase()
     }
 }
 
