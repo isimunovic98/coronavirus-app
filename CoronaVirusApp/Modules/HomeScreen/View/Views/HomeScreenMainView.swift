@@ -94,15 +94,6 @@ extension HomeScreenMainView {
         let newHeight = calculateScrollViewContentHeight()
         scrollView.contentSize = CGSize(width: self.frame.width, height: newHeight)
         setConstraintsScrollViewContentHeight(to: newHeight)
-        #warning("delete print")
-        print("")
-        print("scrollViewContentHeight: \(scrollViewContent.frame.height)")
-        print("headerViewHeight: \(headerView.frame.height)")
-        print("middleViewHeight: \(middleView.frame.height)")
-        print("tableViewHeight: \(headerView.frame.height)")
-        print("tableViewContentHeight: \(tableView.contentSize)")
-        print("scrollViewContentSize \(scrollView.contentSize)")
-        print("")
     }
     
     func calculateScrollViewContentHeight() -> CGFloat {
