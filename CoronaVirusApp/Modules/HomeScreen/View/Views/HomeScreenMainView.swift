@@ -52,7 +52,9 @@ class HomeScreenMainView: UIView {
         tableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         tableView.isScrollEnabled = false
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 20
+        tableView.estimatedRowHeight = 0
+        tableView.estimatedSectionHeaderHeight = 0
+        tableView.estimatedSectionFooterHeight = 0
         return tableView
     }()
     
@@ -104,7 +106,7 @@ extension HomeScreenMainView {
     }
     
     func calculateTableViewContentHeight() -> CGFloat {
-        let height = tableView.contentSize.height
+        let height = tableView.contentSize.height + 20
         return CGFloat(height)
     }
 }
@@ -141,9 +143,9 @@ extension HomeScreenMainView {
     
     func setConstraintsMiddleView() {
         middleView.snp.makeConstraints { (make) in
-            make.width.greaterThanOrEqualTo(self).dividedBy(1.2)
-            make.centerX.equalTo(scrollView)
             make.top.equalTo(backgroundView.snp.bottom).offset(-50)
+            make.width.equalToSuperview().dividedBy(1.2)
+            make.centerX.equalTo(scrollView)
         }
     }
     
@@ -152,7 +154,6 @@ extension HomeScreenMainView {
             make.top.equalTo(middleView.snp.bottom).offset(20)
             make.width.equalToSuperview().dividedBy(1.2)
             make.centerX.equalTo(scrollView)
-            make.bottom.equalTo(scrollView).offset(-20)
         }
         setConstraintsTableViewHeight(to: 100)
     }
@@ -160,10 +161,12 @@ extension HomeScreenMainView {
     func setConstraintsTableViewHeight(to newHeight: CGFloat) {
         if let constraint = tableViewHeightConstraint { constraint.deactivate() }
         tableView.snp.makeConstraints { (make) in tableViewHeightConstraint = make.height.equalTo(newHeight).constraint }
+        layoutIfNeeded()
     }
     
     func setConstraintsScrollViewContentHeight(to newHeight: CGFloat) {
         if let constraint = scrollViewContentHeightConstraint { constraint.deactivate() }
         scrollViewContent.snp.makeConstraints { (make) in scrollViewContentHeightConstraint = make.height.equalTo(newHeight).constraint }
+        layoutIfNeeded()
     }
 }
