@@ -56,7 +56,7 @@ class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
     func createStatisticsViewController(from page: TabBarPage) -> UINavigationController {
         let presenter = UINavigationController()
         presenter.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
-        let coordinator = DummyCoordinator(presenter: presenter)
+        let coordinator = StatisticsScreenCoordinator(presenter: presenter)
         childCoordinators.append(coordinator)
         coordinator.start()
         return coordinator.presenter

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02D5FB1E26492AFC004B6BA3 /* StatisticsScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D5FB1D26492AFC004B6BA3 /* StatisticsScreenCoordinator.swift */; };
+		02D5FB2426492B2A004B6BA3 /* NavigationInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D5FB2326492B2A004B6BA3 /* NavigationInformation.swift */; };
+		02D5FB2926492B44004B6BA3 /* StatsDomainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D5FB2826492B44004B6BA3 /* StatsDomainItem.swift */; };
+		02D5FB2F26492B4F004B6BA3 /* StatsDomainItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D5FB2E26492B4F004B6BA3 /* StatsDomainItemDetail.swift */; };
+		02D5FB3426492B92004B6BA3 /* StatisticsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D5FB3326492B92004B6BA3 /* StatisticsScreenViewModel.swift */; };
+		02D5FB3B26492BE2004B6BA3 /* SingleStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D5FB3A26492BE2004B6BA3 /* SingleStatView.swift */; };
+		02D5FB4126492BEE004B6BA3 /* StatsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D5FB4026492BEE004B6BA3 /* StatsCardView.swift */; };
+		02D5FB4526492C0E004B6BA3 /* StatisticsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D5FB4426492C0E004B6BA3 /* StatisticsScreenViewController.swift */; };
 		602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C5E2600CB860034A798 /* AppDelegate.swift */; };
 		60311BA6264428B1006DD857 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60311BA5264428B1006DD857 /* AppCoordinator.swift */; };
 		60311BAE264428C5006DD857 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60311BA7264428C4006DD857 /* CoordinatorDelegate.swift */; };
@@ -98,6 +106,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02D5FB1D26492AFC004B6BA3 /* StatisticsScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsScreenCoordinator.swift; sourceTree = "<group>"; };
+		02D5FB2326492B2A004B6BA3 /* NavigationInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationInformation.swift; sourceTree = "<group>"; };
+		02D5FB2826492B44004B6BA3 /* StatsDomainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDomainItem.swift; sourceTree = "<group>"; };
+		02D5FB2E26492B4F004B6BA3 /* StatsDomainItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDomainItemDetail.swift; sourceTree = "<group>"; };
+		02D5FB3326492B92004B6BA3 /* StatisticsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsScreenViewModel.swift; sourceTree = "<group>"; };
+		02D5FB3A26492BE2004B6BA3 /* SingleStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStatView.swift; sourceTree = "<group>"; };
+		02D5FB4026492BEE004B6BA3 /* StatsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsCardView.swift; sourceTree = "<group>"; };
+		02D5FB4426492C0E004B6BA3 /* StatisticsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsScreenViewController.swift; sourceTree = "<group>"; };
 		602F4C5B2600CB860034A798 /* CoronaVirusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaVirusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602F4C5E2600CB860034A798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		602F4C6C2600CB870034A798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -206,6 +222,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02D5FB1826492AB8004B6BA3 /* StatisticsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				02D5FB1C26492AE2004B6BA3 /* ViewModel */,
+				02D5FB1B26492ADB004B6BA3 /* View */,
+				02D5FB1A26492AD6004B6BA3 /* Model */,
+				02D5FB1926492ACD004B6BA3 /* Coordinator */,
+			);
+			path = StatisticsScreen;
+			sourceTree = "<group>";
+		};
+		02D5FB1926492ACD004B6BA3 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				02D5FB1D26492AFC004B6BA3 /* StatisticsScreenCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		02D5FB1A26492AD6004B6BA3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				02D5FB2326492B2A004B6BA3 /* NavigationInformation.swift */,
+				02D5FB2826492B44004B6BA3 /* StatsDomainItem.swift */,
+				02D5FB2E26492B4F004B6BA3 /* StatsDomainItemDetail.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		02D5FB1B26492ADB004B6BA3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				02D5FB3926492BC0004B6BA3 /* Subviews */,
+				02D5FB4426492C0E004B6BA3 /* StatisticsScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		02D5FB1C26492AE2004B6BA3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				02D5FB3326492B92004B6BA3 /* StatisticsScreenViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		02D5FB3926492BC0004B6BA3 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				02D5FB3A26492BE2004B6BA3 /* SingleStatView.swift */,
+				02D5FB4026492BEE004B6BA3 /* StatsCardView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		177F832A5D32E8BEF54B406A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -685,6 +756,7 @@
 		60D1BD9B2611BE77005819C2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				02D5FB1826492AB8004B6BA3 /* StatisticsScreen */,
 				60311C2626442B14006DD857 /* CountrySelection */,
 				60311C5126442B14006DD857 /* DummyView */,
 				60311C3E26442B14006DD857 /* HomeScreen */,
@@ -942,12 +1014,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02D5FB2F26492B4F004B6BA3 /* StatsDomainItemDetail.swift in Sources */,
 				60311C5926442B14006DD857 /* CountrySelectionViewModel.swift in Sources */,
 				60311C7126442B14006DD857 /* DummyCoordinator.swift in Sources */,
 				60311BBF264428D0006DD857 /* UIImageView+Extensions.swift in Sources */,
 				60311C6126442B14006DD857 /* TabBarCoordinator.swift in Sources */,
 				60311C6E26442B14006DD857 /* HomeScreenViewController.swift in Sources */,
 				60311BE126442900006DD857 /* UserDefaultsDomainItem.swift in Sources */,
+				02D5FB2926492B44004B6BA3 /* StatsDomainItem.swift in Sources */,
 				60311BCA264428DA006DD857 /* WorldwideResponseItem.swift in Sources */,
 				60311C0026442AEE006DD857 /* ErrorableViewController.swift in Sources */,
 				60311C0926442AF5006DD857 /* LoaderOverlay.swift in Sources */,
@@ -970,7 +1044,9 @@
 				60311BEA26442913006DD857 /* UseCaseSelection.swift in Sources */,
 				60311BAE264428C5006DD857 /* CoordinatorDelegate.swift in Sources */,
 				60311BEB26442913006DD857 /* ErrorType.swift in Sources */,
+				02D5FB3B26492BE2004B6BA3 /* SingleStatView.swift in Sources */,
 				60311BDF26442900006DD857 /* UserDefaultsService.swift in Sources */,
+				02D5FB4526492C0E004B6BA3 /* StatisticsScreenViewController.swift in Sources */,
 				60311BE62644290A006DD857 /* DateUtils.swift in Sources */,
 				60311BDA264428F2006DD857 /* RestManager.swift in Sources */,
 				60311C0A26442AF5006DD857 /* LoaderView.swift in Sources */,
@@ -981,6 +1057,7 @@
 				60311C5B26442B14006DD857 /* CellType.swift in Sources */,
 				60311BC8264428DA006DD857 /* CountryResponseItem.swift in Sources */,
 				60311BB1264428C5006DD857 /* Covid19Repository.swift in Sources */,
+				02D5FB4126492BEE004B6BA3 /* StatsCardView.swift in Sources */,
 				60311BFF26442AEE006DD857 /* ErrorView.swift in Sources */,
 				60311C0126442AEE006DD857 /* ErrorableViewModel.swift in Sources */,
 				60311C6426442B14006DD857 /* HomeScreenViewModel.swift in Sources */,
@@ -989,9 +1066,12 @@
 				60311BC9264428DA006DD857 /* Global.swift in Sources */,
 				60311C6826442B14006DD857 /* HomeScreenMiddleView.swift in Sources */,
 				60311C7226442B14006DD857 /* PageComingSoonCoordinator.swift in Sources */,
+				02D5FB1E26492AFC004B6BA3 /* StatisticsScreenCoordinator.swift in Sources */,
 				60311C6326442B14006DD857 /* TabBarViewController.swift in Sources */,
 				60311C5A26442B14006DD857 /* CountrySelectionCoordinator.swift in Sources */,
 				60311BB2264428C5006DD857 /* ParentCoordinatorDelegate.swift in Sources */,
+				02D5FB3426492B92004B6BA3 /* StatisticsScreenViewModel.swift in Sources */,
+				02D5FB2426492B2A004B6BA3 /* NavigationInformation.swift in Sources */,
 				60311C7026442B14006DD857 /* DummyViewController.swift in Sources */,
 				60311C5D26442B14006DD857 /* CountryTableViewCell.swift in Sources */,
 				60311C0C26442AF5006DD857 /* LoadableViewController.swift in Sources */,
