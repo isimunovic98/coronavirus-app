@@ -13,12 +13,8 @@ struct UserDefaultsDomainItem: Codable {
     var details: [String] = .init()
     
     init(usecase: String = "", details: [String] = .init()) {
-        self.usecase = createSlug(from: usecase)
-        self.details = details
-    }
-    
-    private func createSlug(from value: String) -> String {
-        return value.replacingOccurrences(of: " ", with: "-").lowercased()
+        self.usecase = StringUtils.createSlug(from: usecase)
+        self.details = details.map({ StringUtils.createSlug(from: $0) })
     }
 }
 
