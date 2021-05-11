@@ -6,7 +6,7 @@
 //
 
 import UIKit
-protocol TabBarCoordinatorDelegate: class {
+protocol TabBarCoordinatorDelegate: AnyObject {
     func openWebView(with url: URL)
 }
 

@@ -31,8 +31,6 @@ class HomeScreenViewController: UIViewController, LoadableViewController {
         setup()
         setConstraintsMainView()
         setViewModelSubscribers()
-        loaderOverlay.showLoader(viewController: self)
-        viewModel.loaderIsVisible = true
         viewModel.getData(using: locationManager)
     }
     

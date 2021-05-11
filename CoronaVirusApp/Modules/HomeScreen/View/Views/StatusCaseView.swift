@@ -99,7 +99,7 @@ class StatusCaseView: UIView {
     
     func setConstraints() {
         verticalStackView.snp.makeConstraints { (make) in
-            make.edges.equalTo(self).inset(10)
+            make.edges.equalToSuperview().inset(10)
         }
         titleLabel.snp.makeConstraints { make in make.height.equalTo(30)}
         totalCountLabel.snp.makeConstraints { make in make.height.equalTo(30) }
