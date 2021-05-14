@@ -116,7 +116,7 @@ extension HomeScreenViewController {
     
     func setConstraintsMainView() {
         mainView.snp.makeConstraints { (make) in
-            make.edges.equalTo(view)
+            make.edges.equalToSuperview()
         }
     }
     
