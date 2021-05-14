@@ -4,8 +4,6 @@ import Foundation
 class UserDefaultsService {
     
     static func update(_ item: UserDefaultsDomainItem) {
-        #warning("delete print")
-        print("Updating userdefaults:: -usecase: \(item.usecase)")
         let userDefaults = UserDefaults.standard
         userDefaults.setValue(item.usecase, forKey: "usecase")
         do { try userDefaults.setCustomObject(item.details, forKey: "usecaseDetails") }
@@ -19,8 +17,6 @@ class UserDefaultsService {
         result.usecase = savedUsecase
         do { result.details = try userDefaults.getCustomObject(forKey: "usecaseDetails") }
         catch (_) { }
-        #warning("delete print")
-        print("Retrieveing userdefaults:: -usecase: \(savedUsecase)")
         return result
     }
     
