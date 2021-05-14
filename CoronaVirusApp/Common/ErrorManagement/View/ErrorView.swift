@@ -17,6 +17,7 @@ class ErrorView: UIView {
         imageView.image = UIImage(named: "no-signal")
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = .systemRed
         return imageView
     }()
     let virusOneImageView: UIImageView = {
@@ -59,12 +60,19 @@ class ErrorView: UIView {
         label.textColor = label.textColor.withAlphaComponent(0.4)
         return label
     }()
-    
+    let tryAgainButtonContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .systemRed.withAlphaComponent(0.7)
+        view.layer.cornerRadius = 10
+        view.layer.masksToBounds = true
+        return view
+    }()
     let tryAgainButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(.systemGray, for: .normal)
-        button.setTitle("Try again!", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("Please, try again", for: .normal)
         return button
     }()
     
@@ -79,7 +87,8 @@ class ErrorView: UIView {
     
     func setViews() {
         backgroundColor = .systemGray6
-        addSubviews([virusOneImageView, virusTwoImageView, virusThreeImageView, titleLabel, descriptionLabel, noInternetImageView, tryAgainButton])
+        tryAgainButtonContainer.addSubview(tryAgainButton)
+        addSubviews([virusOneImageView, virusTwoImageView, virusThreeImageView, titleLabel, descriptionLabel, noInternetImageView, tryAgainButtonContainer])
         tryAgainButton.addTarget(self, action: #selector(tryAgainTapped), for: .touchUpInside)
     }
     
@@ -90,6 +99,7 @@ class ErrorView: UIView {
         setConstraintsTitleLabel()
         setConstraintsDescriptionLabel()
         setConstraintsNoInternetImageView()
+        setConstraintsTryAgainButtonContainer()
         setConstraintsTryAgainButton()
     }
     
@@ -102,10 +112,12 @@ class ErrorView: UIView {
         case .general :
             titleLabel.text = "Oops!"
             descriptionLabel.text = "Something went wrong."
+            tryAgainButton.setTitle("Please, try again", for: .normal)
             noInternetImageView.isHidden = true
         case .noInternet:
             titleLabel.text = "No Internet connection!"
             descriptionLabel.text = "Please check your internet connection."
+            tryAgainButton.setTitle("Try again", for: .normal)
             virusOneImageView.isHidden = true
             virusTwoImageView.isHidden = true
             virusThreeImageView.isHidden = true
@@ -165,12 +177,18 @@ extension ErrorView {
         }
     }
     
-    func setConstraintsTryAgainButton() {
-        tryAgainButton.snp.makeConstraints { (make) in
-            make.width.equalTo(self.snp.width).dividedBy(3)
+    func setConstraintsTryAgainButtonContainer() {
+        tryAgainButtonContainer.snp.makeConstraints { (make) in
             make.height.equalTo(44)
             make.top.equalTo(descriptionLabel.snp.bottom).offset(20)
             make.centerX.equalTo(self)
+        }
+    }
+    
+    func setConstraintsTryAgainButton() {
+        tryAgainButton.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(10)
         }
     }
 }
