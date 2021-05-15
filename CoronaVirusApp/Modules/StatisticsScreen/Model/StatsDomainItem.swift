@@ -13,11 +13,11 @@ struct StatsDomainItem {
     var centerLatitude: Double?
     var centerLongitude: Double?
     
-    init(screenTitle: String = "Statistics by Country",
-         cardTitle: String = "Croatia",
-         confirmed: Int = 45,
-         active: Int = 42,
-         recovered: Int = 3,
+    init(screenTitle: String = "Statistics",
+         cardTitle: String = "Unknown",
+         confirmed: Int = 0,
+         active: Int = 0,
+         recovered: Int = 0,
          deceased: Int = 0,
          annotations: [MKPointAnnotation] = []) {
         

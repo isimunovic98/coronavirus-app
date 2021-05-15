@@ -4,6 +4,7 @@ import Foundation
 struct CountryResponseItem: Codable {
     var country: String
     var countryCode: String
+    var province: String
     var lat: String
     var lon: String
     var confirmed, deaths, recovered, active: Int
@@ -12,6 +13,7 @@ struct CountryResponseItem: Codable {
     enum CodingKeys: String, CodingKey {
         case country = "Country"
         case countryCode = "CountryCode"
+        case province = "Province"
         case lat = "Lat"
         case lon = "Lon"
         case confirmed = "Confirmed"

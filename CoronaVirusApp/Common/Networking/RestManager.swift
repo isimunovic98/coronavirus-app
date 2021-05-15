@@ -16,7 +16,7 @@ public class RestManager {
     static func requestObservable<T: Codable>(url: String) -> AnyPublisher<Result<T, ErrorType>, Never> {
         return Future<Result<T, ErrorType>, Never> { promise in
             AF.request(url)
-                .validate(statusCode: 200..<423)
+                .validate()
                 .responseData(completionHandler: { response in
                     switch response.result {
                     case .success(let value):
@@ -42,5 +42,3 @@ public class RestManager {
         }.eraseToAnyPublisher()
     }
 }
-
-

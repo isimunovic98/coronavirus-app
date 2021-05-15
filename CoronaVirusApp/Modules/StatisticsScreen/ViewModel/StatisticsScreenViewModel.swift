@@ -4,6 +4,8 @@ import Combine
 import MapKit
 
 class StatisticsScreenViewModel: LoaderViewModel, ErrorableViewModel {
+    internal let singleLocationRadius: CLLocationDistance = 500000
+
     var coordinator: StatisticsScreenCoordinator?
     
     var repository: Covid19Repository
@@ -14,25 +16,24 @@ class StatisticsScreenViewModel: LoaderViewModel, ErrorableViewModel {
     
     private var navigationInformation = NavigationInformation()
     var screenDataReady = PassthroughSubject<Void, Never>()
-    var fetchScreenDataSubject: CurrentValueSubject<UseCaseSelection, Never>
+    var fetchScreenDataSubject = PassthroughSubject<UseCaseSelection, Never>()
     var loaderPublisher = PassthroughSubject<Bool, Never>()
     var errorSubject = PassthroughSubject<ErrorType?, Never>()
     
     init(repository: Covid19Repository) {
         self.repository = repository
-        self.usecase = UserDefaultsService.getUsecase()
-        guard let usecase = self.usecase else {
-            self.fetchScreenDataSubject = CurrentValueSubject<UseCaseSelection, Never>(.worldwide)
+        guard let usecase = UserDefaultsService.getUsecase() else {
+            self.usecase = .country("croatia")
             return
         }
-        self.fetchScreenDataSubject = CurrentValueSubject<UseCaseSelection, Never>(usecase)
-        
+        self.usecase = usecase
     }
+    
     deinit { print("StatsScreenViewModel deinit called.") }
 }
 
 extension StatisticsScreenViewModel {
-    func initializeFetchScreenDataSubject(_ subject: CurrentValueSubject<UseCaseSelection, Never>) -> AnyCancellable {
+    func initializeFetchScreenDataSubject(_ subject: PassthroughSubject<UseCaseSelection, Never>) -> AnyCancellable {
         return subject.flatMap { [unowned self] (usecase) -> AnyPublisher<Result<StatsDomainItem, ErrorType>, Never> in
             loaderPublisher.send(true)
             switch usecase {
@@ -91,6 +92,7 @@ extension StatisticsScreenViewModel {
             switch response {
             case .success(let newScreenData):
                 self.screenData = newScreenData
+                print(screenData)
                 self.screenDataReady.send()
                 errorSubject.send(nil)
                 loaderPublisher.send(false)
@@ -130,10 +132,8 @@ extension StatisticsScreenViewModel {
     func openAppleMaps() {
         let latitude: CLLocationDegrees = navigationInformation.latitude
         let longitude: CLLocationDegrees = navigationInformation.longitude
-        
-        let regionDistance:CLLocationDistance = 50000
         let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
-        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: singleLocationRadius, longitudinalMeters: singleLocationRadius)
         let options = [
             MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
             MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
@@ -161,9 +161,10 @@ extension StatisticsScreenViewModel {
 //MARK: - Private Methods
 private extension StatisticsScreenViewModel {
     func createScreenData(from countryResponse: [CountryResponseItem]) -> StatsDomainItem {
+        let real = countryResponse.filter({$0.province == ""})
         var tempScreenData = StatsDomainItem()
         tempScreenData.screenTitle = "Statistics by Country"
-        guard let lastStats = countryResponse.last else { return tempScreenData }
+        guard let lastStats = real.last else { return tempScreenData }
         createNavigationInfromation(from: lastStats)
         tempScreenData.cardTitle = lastStats.country
         tempScreenData.confirmed = lastStats.confirmed
@@ -195,11 +196,13 @@ private extension StatisticsScreenViewModel {
         tempScreenData.recovered = worldStats.global.totalRecovered
         tempScreenData.deceased = worldStats.global.totalDeaths
         tempScreenData.active = worldStats.global.totalConfirmed - worldStats.global.totalRecovered
+        
         for country in countries {
             guard let lastStats = country.last else { continue }
             let annotation = createPointAnnotation(for: lastStats)
             tempScreenData.annotations.append(annotation)
         }
+        
         return tempScreenData
     }
     

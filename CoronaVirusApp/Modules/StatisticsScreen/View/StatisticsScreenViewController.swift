@@ -54,6 +54,8 @@ class StatistiscScreenViewController: UIViewController, LoadableViewController, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        #warning("mock")
+        UserDefaultsService.update(UserDefaultsDomainItem(usecase: "worldwide", details: ["spain","portugal","croatia"]))
         setupView()
     }
     
@@ -61,6 +63,7 @@ class StatistiscScreenViewController: UIViewController, LoadableViewController, 
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         viewModel.updateUsecase()
+        viewModel.fetchScreenDataSubject.send(viewModel.usecase!)
     }
 }
 
@@ -142,13 +145,19 @@ extension StatistiscScreenViewController: MKMapViewDelegate {
 extension StatistiscScreenViewController {
     
     private func updateSubviews() {
-        titleLabel.text = viewModel.screenData.screenTitle
-        statsView.configure(with: viewModel.screenData)
-        mapView.showAnnotations(viewModel.screenData.annotations, animated: true)
-        guard let centerLat = viewModel.screenData.centerLatitude,
-              let centerLon = viewModel.screenData.centerLongitude else {return}
-        mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: centerLat, longitude: centerLon), span: MKCoordinateSpan(latitudeDelta: 3.5, longitudeDelta: 3.5)), animated: true)
+        let screenData = viewModel.screenData
+        
+        titleLabel.text = screenData.screenTitle
+        statsView.configure(with: screenData)
+        //mapView.removeAnnotations(mapView.annotations)
+        mapView.showAnnotations(screenData.annotations, animated: true)
+        guard let centerLat = screenData.centerLatitude,
+              let centerLon = screenData.centerLongitude else {return}
+        let center = CLLocationCoordinate2D(latitude: centerLat, longitude: centerLon)
+        mapView.setRegion(MKCoordinateRegion(center: center, latitudinalMeters: viewModel.singleLocationRadius, longitudinalMeters: viewModel.singleLocationRadius), animated: true)
+        print(mapView.annotations.count)
         }
+
     
     func tryAgainAfterError() {
         guard let usecase = viewModel.usecase else { return }
