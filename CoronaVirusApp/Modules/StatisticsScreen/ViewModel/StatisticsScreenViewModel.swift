@@ -5,6 +5,7 @@ import MapKit
 
 class StatisticsScreenViewModel: LoaderViewModel, ErrorableViewModel {
     internal let singleLocationRadius: CLLocationDistance = 500000
+    internal var zoomToCountry: Bool = false
 
     var coordinator: StatisticsScreenCoordinator?
     
@@ -15,7 +16,7 @@ class StatisticsScreenViewModel: LoaderViewModel, ErrorableViewModel {
     var usecase: UseCaseSelection?
     
     private var navigationInformation = NavigationInformation()
-    var screenDataReady = PassthroughSubject<Void, Never>()
+    var screenDataReady = PassthroughSubject<UseCaseSelection, Never>()
     var fetchScreenDataSubject = PassthroughSubject<UseCaseSelection, Never>()
     var loaderPublisher = PassthroughSubject<Bool, Never>()
     var errorSubject = PassthroughSubject<ErrorType?, Never>()
@@ -92,15 +93,14 @@ extension StatisticsScreenViewModel {
             switch response {
             case .success(let newScreenData):
                 self.screenData = newScreenData
-                print(screenData)
-                self.screenDataReady.send()
+                if let usecase = self.usecase {
+                    self.screenDataReady.send(usecase)
+                }
                 errorSubject.send(nil)
-                loaderPublisher.send(false)
             case .failure(let error):
-                loaderPublisher.send(false)
                 errorSubject.send(error)
-                print(error.localizedDescription)
             }
+            loaderPublisher.send(false)
         }
     }
 }
@@ -145,10 +145,12 @@ extension StatisticsScreenViewModel {
     }
     
     func showCountryInformation(_ countryName: String) {
+        zoomToCountry = true
         fetchScreenDataSubject.send(.country(countryName))
     }
     
     func annotationDeselected() {
+        zoomToCountry = false
         switch usecase {
         case .worldwide:
             fetchScreenDataSubject.send(.worldwide)

@@ -55,7 +55,8 @@ class StatistiscScreenViewController: UIViewController, LoadableViewController, 
     override func viewDidLoad() {
         super.viewDidLoad()
         #warning("mock")
-        UserDefaultsService.update(UserDefaultsDomainItem(usecase: "worldwide", details: ["spain","portugal","croatia"]))
+        //UserDefaultsService.update(UserDefaultsDomainItem(usecase: "worldwide", details: ["spain","portugal","croatia"]))
+        //UserDefaultsService.update(UserDefaultsDomainItem(usecase: "croatia", details: []))
         setupView()
     }
     
@@ -63,7 +64,6 @@ class StatistiscScreenViewController: UIViewController, LoadableViewController, 
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         viewModel.updateUsecase()
-        viewModel.fetchScreenDataSubject.send(viewModel.usecase!)
     }
 }
 
@@ -120,8 +120,8 @@ extension StatistiscScreenViewController {
         viewModel.screenDataReady
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: RunLoop.main)
-            .sink(receiveValue: { [unowned self] in
-                self.updateSubviews()
+            .sink(receiveValue: { [unowned self] usecase in
+                self.updateView(basedOn: usecase)
             })
             .store(in: &disposeBag)
     }
@@ -144,20 +144,43 @@ extension StatistiscScreenViewController: MKMapViewDelegate {
 //MARK: - Methods
 extension StatistiscScreenViewController {
     
-    private func updateSubviews() {
+    private func updateView(basedOn usecase: UseCaseSelection) {
         let screenData = viewModel.screenData
-        
         titleLabel.text = screenData.screenTitle
         statsView.configure(with: screenData)
-        //mapView.removeAnnotations(mapView.annotations)
-        mapView.showAnnotations(screenData.annotations, animated: true)
+        
+        switch usecase {
+        case .country:
+            updateViewForCountryStatistics(using: screenData)
+        default:
+            if viewModel.zoomToCountry {
+                zoomToCountry(using: screenData)
+            } else {
+                updateViewForWorldwideStatistics(using: screenData)
+            }
+        }
+    }
+
+    private func updateViewForCountryStatistics(using screenData: StatsDomainItem) {
+        mapView.removeAnnotations(mapView.annotations)
+        mapView.addAnnotations(screenData.annotations)
         guard let centerLat = screenData.centerLatitude,
               let centerLon = screenData.centerLongitude else {return}
         let center = CLLocationCoordinate2D(latitude: centerLat, longitude: centerLon)
         mapView.setRegion(MKCoordinateRegion(center: center, latitudinalMeters: viewModel.singleLocationRadius, longitudinalMeters: viewModel.singleLocationRadius), animated: true)
-        print(mapView.annotations.count)
-        }
-
+    }
+    
+    private func updateViewForWorldwideStatistics(using screenData: StatsDomainItem) {
+        mapView.removeAnnotations(mapView.annotations)
+        mapView.showAnnotations(screenData.annotations, animated: true)
+    }
+    
+    private func zoomToCountry(using screenData: StatsDomainItem) {
+        guard let centerLat = screenData.centerLatitude,
+              let centerLon = screenData.centerLongitude else {return}
+        let center = CLLocationCoordinate2D(latitude: centerLat, longitude: centerLon)
+        mapView.setRegion(MKCoordinateRegion(center: center, latitudinalMeters: viewModel.singleLocationRadius, longitudinalMeters: viewModel.singleLocationRadius), animated: true)
+    }
     
     func tryAgainAfterError() {
         guard let usecase = viewModel.usecase else { return }
