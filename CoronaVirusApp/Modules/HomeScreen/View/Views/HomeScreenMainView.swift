@@ -13,6 +13,7 @@ class HomeScreenMainView: UIView {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.bounces = false
         scrollView.isScrollEnabled = true
+        scrollView.contentInsetAdjustmentBehavior = .never
         return scrollView
     }()
     
@@ -101,12 +102,12 @@ extension HomeScreenMainView {
     func calculateScrollViewContentHeight() -> CGFloat {
         let height = (backgroundView.frame.height - 50) +
             (middleView.frame.height + 20) +
-            calculateTableViewContentHeight()
+            calculateTableViewContentHeight() + 100
         return CGFloat(height)
     }
     
     func calculateTableViewContentHeight() -> CGFloat {
-        let height = tableView.contentSize.height + 20
+        let height = tableView.contentSize.height
         return CGFloat(height)
     }
 }
@@ -115,7 +116,7 @@ extension HomeScreenMainView {
     
     func setConstraintsScrollView() {
         scrollView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+            make.top.leading.trailing.bottom.equalTo(self)
         }
     }
     
