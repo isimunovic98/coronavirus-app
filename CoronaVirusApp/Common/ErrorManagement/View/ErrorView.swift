@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ErrorView: UIView {
+class ErrorView: UIView, RemovableView {
     
     var tryAgainAction: (()->())?
     
@@ -109,7 +109,7 @@ class ErrorView: UIView {
         virusTwoImageView.isHidden = false
         virusThreeImageView.isHidden = false
         switch option {
-        case .general :
+        case .general:
             titleLabel.text = "Oops!"
             descriptionLabel.text = "Something went wrong."
             tryAgainButton.setTitle("Please, try again", for: .normal)
@@ -121,6 +121,7 @@ class ErrorView: UIView {
             virusOneImageView.isHidden = true
             virusTwoImageView.isHidden = true
             virusThreeImageView.isHidden = true
+        default: break
         }
     }
 }
