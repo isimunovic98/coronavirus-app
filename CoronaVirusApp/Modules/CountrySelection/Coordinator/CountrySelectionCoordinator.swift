@@ -17,10 +17,10 @@ class CountrySelectionCoordinator: Coordinator {
     init(presenter: UINavigationController) {
         self.presenter = presenter
         self.controller = CountrySelectionCoordinator.createController()
+        controller.viewModel.coordinatorDelegate = self
     }
     
     func start() {
-        controller.viewModel.coordinatorDelegate = self
         presenter.pushViewController(controller, animated: false)
     }
     

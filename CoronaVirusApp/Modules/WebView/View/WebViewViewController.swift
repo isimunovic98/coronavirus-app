@@ -43,10 +43,6 @@ extension WebViewViewController {
         setupView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if isMovingFromParent {
@@ -66,7 +62,7 @@ private extension WebViewViewController {
     }
     
     func setupAppearance() {
-        view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = UIColor.backgroundColorFirst
     }
     
     func addViews() {
@@ -80,11 +76,11 @@ private extension WebViewViewController {
     }
     
     func setupNavigationBar() {
-        navigationController?.isNavigationBarHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.tintColor = UIColor(named: "InvertedWhiteBlackColor")
-        navigationController?.navigationBar.barTintColor = UIColor(named: "BackgroundColor")
-        navigationController?.navigationBar.backgroundColor = UIColor(named: "BackgroundColor")
+        navigationController?.navigationBar.tintColor = UIColor.invertedWhiteBlack
+        navigationController?.navigationBar.barTintColor = UIColor.backgroundColorFirst
+        navigationController?.navigationBar.backgroundColor = UIColor.backgroundColorFirst
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.clipsToBounds = false

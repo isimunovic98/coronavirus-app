@@ -92,6 +92,10 @@ extension TabBarCoordinator: ParentCoordinatorDelegate { }
 
 extension TabBarCoordinator: CountrySelectionHandler {
     func openCountrySelection() {
+        guard let tabController = controller else {
+            return
+        }
+        tabController.setNavTitle("")
         let child = CountrySelectionCoordinator(presenter: presenter)
         child.parent = self
         childCoordinators.append(child)

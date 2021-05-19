@@ -59,11 +59,6 @@ extension CountrySelectionViewController {
         setupView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupNavigationBar()
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if isMovingFromParent {
@@ -75,9 +70,13 @@ extension CountrySelectionViewController {
 //MARK: - UI
 private extension CountrySelectionViewController {
     func setupView() {
+        DispatchQueue.main.async {
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
+        }
         setupAppearance()
         addViews()
         setupLayout()
+        setupNavigationBar()
         setupBindings()
         configureTableView()
         configureSearchBar()
@@ -105,12 +104,15 @@ private extension CountrySelectionViewController {
     
     func setupNavigationBar() {
         title = "Choose your country"
-        navigationController?.navigationBar.isHidden = false
-        navigationController?.navigationBar.tintColor = UIColor(named: "BackgroundColor")
-        let backImage = UIImage(systemName: "chevron.backward")
-        navigationController?.navigationBar.backIndicatorImage = backImage
-        navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
-        navigationController?.navigationBar.backItem?.title = ""
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "Arial", size: 24)!]
+        UINavigationBar.appearance().titleTextAttributes = attributes
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.tintColor = UIColor.invertedWhiteBlack
+        navigationController?.navigationBar.barTintColor = UIColor.backgroundColorFirst
+        navigationController?.navigationBar.backgroundColor = UIColor.backgroundColorFirst
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.clipsToBounds = false
     }
 }
 

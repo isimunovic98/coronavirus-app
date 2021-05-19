@@ -13,6 +13,7 @@ class TabBarViewController: UITabBarController {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.tintColor = .systemRed
