@@ -30,14 +30,15 @@ class HomeScreenViewController: UIViewController, LoadableViewController {
         super.viewDidLoad()
         setup()
         setConstraintsMainView()
+        loaderOverlay.showLoader(viewController: self)
         setViewModelSubscribers()
-        viewModel.getData(using: locationManager)
+        viewModel.handleLocation(using: locationManager)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        viewModel.getData()
+        viewModel.fetchScreenDataSubject.send()        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -69,7 +70,7 @@ extension HomeScreenViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: HomeScreenTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        if indexPath.row == 0 { cell.configureAsFirstCell(for: viewModel.usecase) }
+        if indexPath.row == 0 { cell.configureAsFirstCell(for: UserDefaultsService.getUsecase()) }
         else { cell.configure(with: viewModel.screenData.details[indexPath.row - 1]) }
         return cell
     }
