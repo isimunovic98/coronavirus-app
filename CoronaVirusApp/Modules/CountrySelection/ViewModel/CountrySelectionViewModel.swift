@@ -49,7 +49,9 @@ extension CountrySelectionViewModel {
                     self.screenData = data
                     self.dataReadyPublisher.send()
                 case .failure(let error):
-                    self.handleError(error)
+                    if error != .empty {
+                        self.handleError(error)
+                    }
                 }
                 self.loaderPublisher.send(false)
             })

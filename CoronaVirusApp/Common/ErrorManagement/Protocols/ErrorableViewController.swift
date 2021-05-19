@@ -11,6 +11,7 @@ import Combine
 protocol ErrorableViewController {
     var disposeBag: Set<AnyCancellable> { get set }
     func tryAgainAfterError()
+    func backToCountrySelection()
 }
 
 extension ErrorableViewController where Self: UIViewController {
@@ -25,16 +26,27 @@ extension ErrorableViewController where Self: UIViewController {
     }
     
     private func showError(_ errorType: ErrorType) {
-        let errorView = ErrorView()
-        errorView.configure(with: errorType)
-        errorView.tryAgainAction = tryAgainAfterError
-        self.view.addSubview(errorView)
-        errorView.snp.makeConstraints { (make) in make.edges.equalToSuperview() }
+        switch errorType {
+        case .general, .noInternet:
+            let errorView = ErrorView()
+            errorView.configure(with: errorType)
+            errorView.tryAgainAction = tryAgainAfterError
+            self.view.addSubview(errorView)
+            errorView.snp.makeConstraints { (make) in make.edges.equalToSuperview() }
+        case .empty:
+            let emptyView = EmptyView()
+            emptyView.backToSearchAction = backToCountrySelection
+            emptyView.startAnimation()
+            self.view.addSubview(emptyView)
+            emptyView.snp.makeConstraints({ make in make.edges.equalToSuperview() })
+        }
     }
     
     private func dismissError() {
         for subview in self.view.subviews {
-            if let viewToRemove = subview as? ErrorView { viewToRemove.removeFromSuperview() }
+            if let viewToRemove = subview as? RemovableView {
+                viewToRemove.removeFromSuperview()
+            }
         }
     }
 }

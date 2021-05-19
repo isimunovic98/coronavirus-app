@@ -184,4 +184,8 @@ extension StatistiscScreenViewController {
         guard let usecase = viewModel.usecase else { return }
         viewModel.fetchScreenDataSubject.send(usecase)
     }
+    
+    func backToCountrySelection() {
+        #warning("handle back to country selection")
+    }
 }

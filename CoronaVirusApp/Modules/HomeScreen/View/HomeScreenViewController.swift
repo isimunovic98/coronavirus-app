@@ -84,10 +84,14 @@ extension HomeScreenViewController: UITableViewDataSource {
 
 extension HomeScreenViewController: ErrorableViewController {
     func tryAgainAfterError() { viewModel.fetchScreenDataSubject.send() }
+    
+    func backToCountrySelection() {
+        viewModel.openCountrySelection()
+    }
 }
 
 extension HomeScreenViewController: CountrySelectionHandler {
-    func openCountrySelection() { viewModel.changeUsecaseSelection() }
+    func openCountrySelection() { viewModel.openCountrySelection() }
 }
 
 extension HomeScreenViewController {

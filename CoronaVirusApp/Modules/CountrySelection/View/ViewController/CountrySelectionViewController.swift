@@ -138,6 +138,7 @@ extension CountrySelectionViewController: LoadableViewController, ErrorableViewC
     }
     
     func tryAgainAfterError() { viewModel.loadData.send(true) }
+    func backToCountrySelection() { }
 }
 
 //MARK: - TableView Config

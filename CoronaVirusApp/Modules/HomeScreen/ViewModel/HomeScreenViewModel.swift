@@ -42,6 +42,21 @@ extension HomeScreenViewModel {
         }
     }
     
+    func getData() {
+        guard let savedUsecase = UserDefaultsService.getUsecase()
+        else {
+            getDefaultData()
+            return
+        }
+        self.usecase = savedUsecase
+        fetchScreenDataSubject.send()
+    }
+    
+    func getDefaultData() {
+        self.usecase = .country("croatia")
+        fetchScreenDataSubject.send()
+    }
+    
     func changeUsecaseSelection() { coordinator?.openCountrySelection() }
     
     func initializeFetchScreenDataSubject(_ subject: AnyPublisher<Void, Never>) -> AnyCancellable {

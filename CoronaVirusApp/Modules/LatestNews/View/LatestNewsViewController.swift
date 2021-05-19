@@ -119,6 +119,10 @@ extension LatestNewsViewController {
     func tryAgainAfterError() {
         viewModel.loadData.send(25)
     }
+    
+    func backToCountrySelection() {
+        #warning("handle back to country selection")
+    }
 }
 
 //MARK: - TableView Config

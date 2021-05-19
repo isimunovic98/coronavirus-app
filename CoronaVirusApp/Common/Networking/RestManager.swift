@@ -21,6 +21,10 @@ public class RestManager {
                     switch response.result {
                     case .success(let value):
                         if let decodedObject: T = SerializationManager.parseData(jsonData: value) {
+                            if let array = decodedObject as? [AnyObject],
+                               array.isEmpty {
+                                promise(.success(.failure(.empty)))
+                            }
                             promise(.success(.success(decodedObject)))
                         } else {
                             promise(.success(.failure(.general)))
@@ -33,9 +37,14 @@ public class RestManager {
                                     promise(.success(.failure(.noInternet)))
                                 case .cannotDecodeRawData, .cannotDecodeContentData:
                                     promise(.success(.failure(.general)))
-                                default: break
+                                default: 
+                                    break
                                 }
                             }
+                        }
+                        if let responseCode = error.responseCode,
+                           responseCode == 408 {
+                            promise(.success(.failure(.empty)))
                         }
                     }
                 })
