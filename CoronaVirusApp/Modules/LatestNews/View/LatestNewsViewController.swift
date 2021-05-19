@@ -85,7 +85,8 @@ extension LatestNewsViewController {
         }
         
         tableView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 100, left: 0, bottom: 0, right: 0))
+            make.top.equalTo(backgroundView.titleLabel.snp.bottom)
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 120, left: 0, bottom: 0, right: 0))
         }
     }
 }

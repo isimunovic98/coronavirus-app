@@ -150,6 +150,7 @@ extension LatestNewsTableViewCell {
         
         bodyStackView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview().inset(UIEdgeInsets(top: 12, left: 12, bottom: 0, right: 12))
+            make.height.greaterThanOrEqualTo(120)
         }
         
         footerStackView.snp.makeConstraints { make in

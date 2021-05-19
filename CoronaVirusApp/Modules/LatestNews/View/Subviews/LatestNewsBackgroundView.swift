@@ -15,6 +15,7 @@ class LatestNewsBackgroundView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Latest News"
         label.font = UIFont(name: "Montserrat", size: 30.0)
+        label.font = label.font.withSize(30)
         label.sizeToFit()
         return label
     }()
@@ -23,7 +24,6 @@ class LatestNewsBackgroundView: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = .virusTopLeft
-        imageView.alpha = 0.4
         return imageView
     }()
     
@@ -39,7 +39,6 @@ class LatestNewsBackgroundView: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = .virusTopRight
-        imageView.alpha = 0.5
         return imageView
     }()
 
@@ -47,7 +46,6 @@ class LatestNewsBackgroundView: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = .virusBlurred
-        imageView.alpha = 0.4
         return imageView
     }()
     
@@ -75,7 +73,7 @@ extension LatestNewsBackgroundView {
     
     func setupLayout() {
         titleLabel.snp.makeConstraints { (make) in
-            make.top.leading.trailing.equalToSuperview().inset(UIEdgeInsets(top: 44.0, left: 20.0, bottom: 0.0, right: 15.0))
+            make.top.leading.trailing.equalToSuperview().inset(UIEdgeInsets(top: 72, left: 20.0, bottom: 0.0, right: 15.0))
         }
         
         virusImageView1.snp.makeConstraints { (make) in
