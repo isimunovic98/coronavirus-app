@@ -69,10 +69,16 @@ extension HomeScreenViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: HomeScreenTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        if indexPath.row == 0 { cell.configureAsFirstCell(for: UserDefaultsService.getUsecase()) }
-        else { cell.configure(with: viewModel.screenData.details[indexPath.row - 1]) }
-        return cell
+        if indexPath.row == 0 {
+            let cell: HomeScreenTableViewHeaderCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.configure(for: viewModel.usecase)
+            return cell
+        }
+        else {
+            let cell: HomeScreenTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.configure(with: viewModel.screenData.details[indexPath.row - 1])
+            return cell
+        }
     }
 }
 

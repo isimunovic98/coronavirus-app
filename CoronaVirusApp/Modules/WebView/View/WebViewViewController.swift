@@ -82,7 +82,7 @@ private extension WebViewViewController {
     func setupNavigationBar() {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.tintColor = UIColor(named: "Color")
+        navigationController?.navigationBar.tintColor = UIColor(named: "InvertedWhiteBlackColor")
         navigationController?.navigationBar.barTintColor = UIColor(named: "BackgroundColor")
         navigationController?.navigationBar.backgroundColor = UIColor(named: "BackgroundColor")
         navigationController?.navigationBar.shadowImage = UIImage()
