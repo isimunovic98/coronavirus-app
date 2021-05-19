@@ -1,7 +1,7 @@
 
 import UIKit
 
-class HomeScreenTableViewCell: UITableViewCell {
+class HomeScreenTableViewHeaderCell: UITableViewCell {
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -17,10 +17,10 @@ class HomeScreenTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
-        label.textColor = .invertedDarkGray
+        label.textColor = .black
         label.textAlignment = .center
         label.font = label.font.withSize(14)
-        label.backgroundColor = .backgroundColor_Cell
+        label.backgroundColor = .backgroundColor_HeaderCell
         label.numberOfLines = 0
         return label
     }()
@@ -30,10 +30,11 @@ class HomeScreenTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
-        label.textColor = .invertedDarkGray
+        label.textColor = .systemRed
+        label.text = "C"
         label.textAlignment = .center
         label.font = label.font.withSize(14)
-        label.backgroundColor = .backgroundColor_Cell
+        label.backgroundColor = .backgroundColor_HeaderCell
         return label
     }()
     
@@ -42,10 +43,11 @@ class HomeScreenTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
-        label.textColor = .invertedDarkGray
+        label.textColor = .systemBlue
+        label.text = "A"
         label.textAlignment = .center
         label.font = label.font.withSize(14)
-        label.backgroundColor = .backgroundColor_Cell
+        label.backgroundColor = .backgroundColor_HeaderCell
         return label
     }()
     
@@ -54,10 +56,11 @@ class HomeScreenTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
-        label.textColor = .invertedDarkGray
+        label.textColor = .systemGreen
+        label.text = "R"
         label.textAlignment = .center
         label.font = label.font.withSize(14)
-        label.backgroundColor = .backgroundColor_Cell
+        label.backgroundColor = .backgroundColor_HeaderCell
         return label
     }()
     
@@ -66,10 +69,11 @@ class HomeScreenTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
-        label.textColor = .invertedDarkGray
+        label.textColor = .gray
+        label.text = "D"
         label.textAlignment = .center
         label.font = label.font.withSize(14)
-        label.backgroundColor = .backgroundColor_Cell
+        label.backgroundColor = .backgroundColor_HeaderCell
         return label
     }()
     
@@ -84,16 +88,16 @@ class HomeScreenTableViewCell: UITableViewCell {
     }
 }
 
-extension HomeScreenTableViewCell {
+extension HomeScreenTableViewHeaderCell {
     
-    func configure(with info: HomeScreenDomainItemDetail) {
-        titleLabel.text = info.title
-        confirmedLabel.text = "\(NumberUtils.getPositiveNumberWithMetricPrefixSymbol(info.confirmed))"
-        activeLabel.text = "\(NumberUtils.getPositiveNumberWithMetricPrefixSymbol(info.active))"
-        recoveredLabel.text = "\(NumberUtils.getPositiveNumberWithMetricPrefixSymbol(info.recovered))"
-        deathsLabel.text = "\(NumberUtils.getPositiveNumberWithMetricPrefixSymbol(info.deaths))"
+    func configure(for value: UseCaseSelection?) {
+        guard let usecase = value else { return }
+        switch usecase {
+        case .country(_): titleLabel.text = "Date"
+        case .worldwide: titleLabel.text = "State"
+        }
     }
-    
+
     func setupViews() {
         backgroundColor = UIColor.clear
         isOpaque = false

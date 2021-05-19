@@ -23,28 +23,32 @@ class LatestNewsBackgroundView: UIView {
     let virusImageView1: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "virus_top_left")
+        imageView.image = .virusTopLeft
+        imageView.alpha = 0.4
         return imageView
     }()
     
     let virusImageView2: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "virus")
+        imageView.image = .virusImage
+        imageView.alpha = 0.6
         return imageView
     }()
 
     let virusImageView3: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "virus_top_right")
+        imageView.image = .virusTopRight
+        imageView.alpha = 0.5
         return imageView
     }()
 
     let virusImageView4: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "virus_blurred")
+        imageView.image = .virusBlurred
+        imageView.alpha = 0.4
         return imageView
     }()
     
@@ -61,13 +65,8 @@ class LatestNewsBackgroundView: UIView {
 //MARK: - UI
 extension LatestNewsBackgroundView {
     func setupView() {
-        setupAppearance()
         addViews()
         setupLayout()
-    }
-    
-    func setupAppearance() {
-        self.backgroundColor = UIColor(named: "BackgroundColor")
     }
     
     func addViews() {

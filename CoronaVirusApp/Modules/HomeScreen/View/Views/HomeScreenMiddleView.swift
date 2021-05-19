@@ -34,7 +34,6 @@ class HomeScreenMiddleView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.titleLabel.text = "confirmed".uppercased()
         view.graphImageView.image = UIImage(named: "graph-homescreen")
-        view.addShadow(color: .black)
         return view
     }()
     
@@ -43,7 +42,6 @@ class HomeScreenMiddleView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.titleLabel.text = "active".uppercased()
         view.graphImageView.image = UIImage(named: "graph-homescreen")
-        view.addShadow(color: .black)
         return view
     }()
     
@@ -52,7 +50,6 @@ class HomeScreenMiddleView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.titleLabel.text = "recovered".uppercased()
         view.graphImageView.image = UIImage(named: "graph-up-homescreen")
-        view.addShadow(color: .black)
         return view
     }()
     
@@ -61,7 +58,6 @@ class HomeScreenMiddleView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.titleLabel.text = "deceased".uppercased()
         view.graphImageView.image = UIImage(named: "graph-down-homescreen")
-        view.addShadow(color: .black)
         return view
     }()
     
@@ -87,6 +83,12 @@ extension HomeScreenMiddleView {
         secondHorizontalStackView.addArrangedSubviews([recoveredCaseView, deathsCaseView])
         verticalStackView.addArrangedSubviews([firstHorizontalStackView, secondHorizontalStackView])
         addSubview(verticalStackView)
+        addShadow(on: [confirmedCaseView, activeCaseView, recoveredCaseView, deathsCaseView], shadowColor: .black)
+    }
+    
+    func addShadow(on views: [UIView], shadowColor color: UIColor) {
+        for view in views { view.addShadow(color: color) }
+        layoutIfNeeded()
     }
     
     func setConstraints() {

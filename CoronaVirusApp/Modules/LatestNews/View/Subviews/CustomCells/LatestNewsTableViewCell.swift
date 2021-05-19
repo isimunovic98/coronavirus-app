@@ -67,7 +67,7 @@ class LatestNewsTableViewCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.layer.borderWidth = 1
         stackView.layer.cornerRadius = 12
-        stackView.backgroundColor = UIColor(named: "LatestNewsCellColor")
+        stackView.backgroundColor = .backgroundColorSecond
         stackView.axis = .vertical
         stackView.spacing = 10
         stackView.alignment = .center
@@ -127,7 +127,7 @@ extension LatestNewsTableViewCell {
     }
     
     func setupAppearance() {
-        self.backgroundColor = UIColor(named: "BackgroundColor")
+        self.backgroundColor = .backgroundColorFirst
         contentContainer.layer.borderColor = UIColor.gray.cgColor
         articleImageView.tintColor = .systemGray4
     }

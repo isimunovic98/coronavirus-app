@@ -63,7 +63,7 @@ extension PageComingSoonViewController {
     }
     
     func setupAppearance() {
-        view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = .backgroundColorFirst
     }
     
     func setupLayout() {

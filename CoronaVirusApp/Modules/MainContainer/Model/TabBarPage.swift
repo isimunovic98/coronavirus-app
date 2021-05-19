@@ -15,15 +15,10 @@ enum TabBarPage: Int {
     
     func getIcon() -> UIImage? {
         switch self {
-        case .home:
-            return UIImage(named: "HomeTabIcon")
-        case .statistics:
-            return UIImage(named: "StatisticsTabIcon")
-        case .news:
-            return UIImage(named: "LatestNewsTabIcon")
-        case .healthTips:
-            return UIImage(named: "HealthTipsTabIcon")
+        case .home:        return .homeTabIcon
+        case .statistics:  return .statisticsTabIcon
+        case .news:        return .latestNewsTabIcon
+        case .healthTips:  return .healthTipsTabIcon
         }
     }
-
 }

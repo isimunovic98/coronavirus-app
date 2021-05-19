@@ -8,7 +8,6 @@ class StatsCardView: UIView {
         let label = UILabel()
         label.font = UIFont(name: "Montserrat", size: 20)
         label.font = label.font.withSize(20)
-        label.textColor = .systemGray
         return label
     }()
 

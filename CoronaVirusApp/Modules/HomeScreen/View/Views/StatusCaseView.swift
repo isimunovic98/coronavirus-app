@@ -67,7 +67,7 @@ class StatusCaseView: UIView {
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = UIColor(named: "whiteBlackwithDarkAlphaComponent")
+        backgroundColor = .backgroundColorSecond
         differenceContainer.addSubviews([differenceArrowImageView, differenceCountLabel])
         horizontalStackView.addArrangedSubviews([totalCountLabel, differenceContainer])
         verticalStackView.addArrangedSubviews([titleLabel, horizontalStackView, graphImageView])

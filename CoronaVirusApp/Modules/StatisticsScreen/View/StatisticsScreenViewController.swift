@@ -13,7 +13,7 @@ class StatistiscScreenViewController: UIViewController, LoadableViewController, 
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = label.font.withSize(24)
+        label.font = label.font.withSize(18)
         return label
     }()
     
@@ -26,10 +26,8 @@ class StatistiscScreenViewController: UIViewController, LoadableViewController, 
     let statsView: StatsCardView = {
         let view = StatsCardView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.shadowColor = UIColor.systemGray.cgColor
-        view.layer.shadowOpacity = 0.3
-        view.layer.shadowOffset = .zero
-        view.layer.shadowRadius = 1
+        view.backgroundColor = .backgroundColorSecond
+        view.addShadow(color: .black)
         return view
     }()
     
@@ -78,7 +76,7 @@ extension StatistiscScreenViewController {
     }
     
     func setupAppearance() {
-        view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = .backgroundColorFirst
     }
     
     func addViews() {
@@ -88,7 +86,7 @@ extension StatistiscScreenViewController {
     
     func setupLayout() {
         containerView.snp.makeConstraints { (make) in
-            make.edges.equalTo(view.safeAreaLayoutGuide).inset(10)
+            make.edges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
         titleLabel.snp.makeConstraints { (make) in

@@ -50,13 +50,8 @@ class SingleStatView: UIView {
 //MARK: - UI
 extension SingleStatView {
     func setupView() {
-        setupAppearance()
         addViews()
         setupLayout()
-    }
-    
-    func setupAppearance() {
-        backgroundColor = UIColor(named: "BackgroundColor")
     }
     
     func addViews() {

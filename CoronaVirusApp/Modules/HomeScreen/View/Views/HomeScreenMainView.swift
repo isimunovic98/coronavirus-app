@@ -45,6 +45,7 @@ class HomeScreenMainView: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(HomeScreenTableViewCell.self, forCellReuseIdentifier: HomeScreenTableViewCell.reuseIdentifier)
+        tableView.register(HomeScreenTableViewHeaderCell.self, forCellReuseIdentifier: HomeScreenTableViewHeaderCell.reuseIdentifier)
         tableView.isUserInteractionEnabled = false
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
@@ -61,6 +62,7 @@ class HomeScreenMainView: UIView {
     
     init() {
         super.init(frame: .zero)
+        setAppearance()
         setViews()
         setConstraints()
     }
@@ -72,6 +74,10 @@ extension HomeScreenMainView: CountrySelectionHandler {
 }
 
 extension HomeScreenMainView {
+    
+    func setAppearance() {
+        backgroundColor = .backgroundColorFirst
+    }
     
     func setViews() {
         addSubview(scrollView)
@@ -136,7 +142,7 @@ extension HomeScreenMainView {
     
     func setConstraintsHeaderView() {
         headerView.snp.makeConstraints { (make) in
-            make.top.equalTo(scrollView).offset(50)
+            make.top.equalToSuperview()
             make.width.equalToSuperview().dividedBy(1.2)
             make.centerX.equalTo(scrollView)
         }

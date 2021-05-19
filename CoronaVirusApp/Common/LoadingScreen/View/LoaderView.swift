@@ -51,7 +51,7 @@ extension LoaderView {
     }
     
     func setupAppearance() {
-        backgroundColor = .systemGray6
+        backgroundColor = .backgroundColorFirst
     }
     
     func setupLayout() {

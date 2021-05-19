@@ -24,7 +24,7 @@ class LatestNewsViewController: UIViewController, LoadableViewController, Errora
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor(named: "BackgroundColor")
+        tableView.backgroundColor = .clear
         tableView.layer.cornerRadius = 12
         tableView.layer.masksToBounds = true
         return tableView
@@ -71,7 +71,7 @@ extension LatestNewsViewController {
     }
     
     func setupAppearance() {
-        view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = .backgroundColorFirst
     }
     
     func addViews() {
