@@ -13,7 +13,7 @@ class StatistiscScreenViewController: UIViewController, LoadableViewController, 
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = label.font.withSize(18)
+        label.font = label.font.withSize(30)
         return label
     }()
     
@@ -87,7 +87,7 @@ extension StatistiscScreenViewController {
         }
         
         titleLabel.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview().inset(32)
+            make.width.equalToSuperview()
         }
         
         mapView.snp.makeConstraints { (make) in
@@ -190,7 +190,5 @@ extension StatistiscScreenViewController {
         viewModel.updateUsecase()
     }
     
-    func backToCountrySelection() {
-        #warning("handle back to country selection")
-    }
+    func backToCountrySelection() { }
 }

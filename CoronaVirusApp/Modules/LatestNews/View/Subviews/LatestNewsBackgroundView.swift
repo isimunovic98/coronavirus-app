@@ -14,8 +14,7 @@ class LatestNewsBackgroundView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Latest News"
-        label.font = UIFont(name: "Montserrat", size: 24.0)
-        label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.font = UIFont(name: "Montserrat", size: 30.0)
         label.sizeToFit()
         return label
     }()

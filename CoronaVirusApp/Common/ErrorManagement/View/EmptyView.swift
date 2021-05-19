@@ -24,17 +24,12 @@ class EmptyView: UIView, RemovableView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textAlignment = .center
-        #warning("fix color")
-        label.textColor = .systemGray
+        label.textColor = .invertedWhiteBlack
         let text = NSMutableAttributedString()
         text.append(NSAttributedString(string: "Sorry, there's no information for your search.\n",
-                                       attributes: [.font            : UIFont.boldSystemFont(ofSize: 16),
-                                                    .foregroundColor : UIColor.black]))
-        text.append(NSAttributedString(string: "We will try to find it.\n",
                                        attributes: [.font : UIFont.boldSystemFont(ofSize: 16)]))
-
-        text.append(NSAttributedString(string: "Please check other countries in the meantime.",
-                                       attributes: [.font : UIFont.boldSystemFont(ofSize: 16)]))
+        text.append(NSAttributedString(string: "We will try to find it.\nPlease check other countries in the meantime.",
+                                       attributes: [.font : UIFont.systemFont(ofSize: 16)]))
         label.attributedText = text
         return label
     }()
@@ -52,30 +47,35 @@ class EmptyView: UIView, RemovableView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "virus")
+        imageView.alpha = 0.9
         return imageView
     }()
     let virus2ImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "virus")
+        imageView.alpha = 0.7
         return imageView
     }()
     let virus3ImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "virus")
+        imageView.alpha = 0.4
         return imageView
     }()
     let virus4ImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "virus")
+        imageView.alpha = 0.8
         return imageView
     }()
     let virus5ImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "virus")
+        imageView.alpha = 0.6
         return imageView
     }()
     
@@ -92,8 +92,7 @@ class EmptyView: UIView, RemovableView {
 extension EmptyView {
     
     func setAppearance() {
-        #warning("fix background color")
-        backgroundColor = .systemGray4
+        backgroundColor = .backgroundColorFirst
     }
     
     func setViews() {

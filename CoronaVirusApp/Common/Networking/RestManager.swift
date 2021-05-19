@@ -37,8 +37,7 @@ public class RestManager {
                                     promise(.success(.failure(.noInternet)))
                                 case .cannotDecodeRawData, .cannotDecodeContentData:
                                     promise(.success(.failure(.general)))
-                                default: 
-                                    break
+                                default: break
                                 }
                             }
                         }

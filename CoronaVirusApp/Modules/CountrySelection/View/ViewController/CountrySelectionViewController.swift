@@ -84,7 +84,7 @@ private extension CountrySelectionViewController {
     }
     
     func setupAppearance() {
-        view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = .backgroundColorFirst
     }
     
     func addViews() {

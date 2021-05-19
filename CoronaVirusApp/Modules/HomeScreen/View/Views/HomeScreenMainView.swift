@@ -142,7 +142,7 @@ extension HomeScreenMainView {
     
     func setConstraintsHeaderView() {
         headerView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
+            make.top.equalTo(self.safeAreaLayoutGuide)
             make.width.equalToSuperview().dividedBy(1.2)
             make.centerX.equalTo(scrollView)
         }

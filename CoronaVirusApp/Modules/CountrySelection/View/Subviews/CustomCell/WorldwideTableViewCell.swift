@@ -61,7 +61,7 @@ extension WorldwideTableViewCell {
     }
     
     func setupAppearance() {
-        contentView.backgroundColor = UIColor(named: "BackgroundColor")
+        contentView.backgroundColor = .backgroundColorFirst
     }
     
     func addViews() {

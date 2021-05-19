@@ -127,7 +127,7 @@ extension LatestNewsTableViewCell {
     }
     
     func setupAppearance() {
-        self.backgroundColor = .backgroundColorFirst
+        self.backgroundColor = .clear
         contentContainer.layer.borderColor = UIColor.gray.cgColor
         articleImageView.tintColor = .systemGray4
     }
@@ -149,7 +149,7 @@ extension LatestNewsTableViewCell {
         }
         
         bodyStackView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12))
+            make.top.leading.trailing.equalToSuperview().inset(UIEdgeInsets(top: 12, left: 12, bottom: 0, right: 12))
         }
         
         footerStackView.snp.makeConstraints { make in

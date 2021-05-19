@@ -42,21 +42,6 @@ extension HomeScreenViewModel {
         }
     }
     
-    func getData() {
-        guard let savedUsecase = UserDefaultsService.getUsecase()
-        else {
-            getDefaultData()
-            return
-        }
-        self.usecase = savedUsecase
-        fetchScreenDataSubject.send()
-    }
-    
-    func getDefaultData() {
-        self.usecase = .country("croatia")
-        fetchScreenDataSubject.send()
-    }
-    
     func changeUsecaseSelection() { coordinator?.openCountrySelection() }
     
     func initializeFetchScreenDataSubject(_ subject: AnyPublisher<Void, Never>) -> AnyCancellable {
@@ -105,7 +90,7 @@ extension HomeScreenViewModel {
         return repository.getCountryStats(for: name)
     }
     func getTotalCountryStatsPublisher(name: String) -> AnyPublisher<Result<[CountryResponseItem], ErrorType>, Never> {
-        return repository.getCountryStats(for: name)
+        return repository.getCountryStatsTotal(for: name)
     }
     func getWorldwideData() -> AnyPublisher<Result<HomeScreenDomainItem, ErrorType>, Never> {
         return repository.getWorldwideData()
@@ -130,7 +115,6 @@ extension HomeScreenViewModel {
                 switch UserDefaultsService.getUsecase() {
                 case .country(let countryName): screenData.title = countryName
                 case .worldwide: screenData.title = "Worldwide"
-                default: break
                 }
             }
             else {
@@ -147,20 +131,24 @@ extension HomeScreenViewModel {
     func createScreenData(from totalStats: [CountryResponseItem], and dayOneStats: [CountryResponseItem]) -> HomeScreenDomainItem {
         var screenData = HomeScreenDomainItem()
         if totalStats.count > 2,
-           dayOneStats.count > 2 {
-            let dayOneStatsLast = dayOneStats[dayOneStats.count - 2]    // skip today data (same data on api for today and yesterday)
-            let totalLast = totalStats[totalStats.count - 2]            // skip today data (same data on api for today and yesterday)
-            let dayOneStatsSecondToLast = dayOneStats[dayOneStats.count - 3]
-            screenData.title = totalLast.country
-            screenData.confirmedTotalCount = totalLast.confirmed
-            screenData.confirmedDifferenceCount = dayOneStatsLast.confirmed - dayOneStatsSecondToLast.confirmed
-            screenData.activeTotalCount = totalLast.active
-            screenData.activeDifferenceCount = dayOneStatsLast.active - dayOneStatsSecondToLast.active
-            screenData.recoveredTotalCount = totalLast.recovered
-            screenData.recoveredDifferenceCount = dayOneStatsLast.recovered - dayOneStatsSecondToLast.recovered
-            screenData.deathsTotalCount = totalLast.deaths
-            screenData.deathsDifferenceCount = dayOneStatsLast.deaths - dayOneStatsSecondToLast.deaths
-            screenData.details = createDetails(from: dayOneStats).reversed()
+            dayOneStats.count > 2 {
+            
+            let lastTwoTotalStats = totalStats.suffix(2) as Array
+            let totalStatsSecondToLast = lastTwoTotalStats[0]
+            let totalStatsLast = lastTwoTotalStats[1]
+            
+            screenData.title = totalStatsLast.country
+            screenData.confirmedTotalCount = totalStatsLast.confirmed
+            screenData.confirmedDifferenceCount = totalStatsLast.confirmed - totalStatsSecondToLast.confirmed
+            screenData.activeTotalCount = totalStatsLast.active
+            screenData.activeDifferenceCount = totalStatsLast.active - totalStatsSecondToLast.active
+            screenData.recoveredTotalCount = totalStatsLast.recovered
+            screenData.recoveredDifferenceCount = totalStatsLast.recovered - totalStatsSecondToLast.recovered
+            screenData.deathsTotalCount = totalStatsLast.deaths
+            screenData.deathsDifferenceCount = totalStatsLast.deaths - totalStatsSecondToLast.deaths
+            let countryOnlyDayOneData: [CountryResponseItem] = dayOneStats.filter({ $0.province == "" }).reversed()
+            screenData.details = createDetails(from: countryOnlyDayOneData )
+            screenData.details.remove(at: 0)
             screenData.lastUpdateDate = Date()
         }
         return screenData
@@ -189,8 +177,7 @@ extension HomeScreenViewModel {
     
     func createDetails(from responseItems: [CountryResponseItem]) -> [HomeScreenDomainItemDetail] {
         var newDetails = [HomeScreenDomainItemDetail]()
-        #warning("using less items from api! Optimisation needed.")
-        for (index, responseItem) in responseItems.suffix(1000).enumerated() {
+        for (index, responseItem) in responseItems.enumerated() {
             if index == 0 {
                 var item = HomeScreenDomainItemDetail()
                 item.title = DateUtils.getDomainDetailItemDate(from: responseItem.date) ?? ""
@@ -256,7 +243,7 @@ extension HomeScreenViewModel {
                 guard let country: String = placemarks?.first?.country,
                       error == nil else { return }
                 let slug = StringUtils.createSlug(from: country)
-                let item = UserDefaultsDomainItem(usecase: slug, details: .init())
+                let item = UserDefaultsDomainItem(usecase: slug)
                 UserDefaultsService.update(item)
                 shouldRemoveLoader = true
                 fetchScreenDataSubject.send()
