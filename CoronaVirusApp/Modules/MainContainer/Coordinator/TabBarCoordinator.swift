@@ -63,6 +63,7 @@ class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
         presenter.tabBarItem = UITabBarItem(title: nil, image: page.getIcon(), tag: page.rawValue)
         let coordinator = StatisticsScreenCoordinator(presenter: presenter)
         childCoordinators.append(coordinator)
+        coordinator.parent = self
         coordinator.start()
         return coordinator.presenter
     }

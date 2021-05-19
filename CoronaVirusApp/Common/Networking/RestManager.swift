@@ -6,8 +6,8 @@ import Combine
 public class RestManager {
     private static let manager: Alamofire.Session = {
         var configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 50
-        configuration.timeoutIntervalForResource = 50
+        configuration.timeoutIntervalForRequest = 30
+        configuration.timeoutIntervalForResource = 30
         let sessionManager = Session(configuration: configuration)
         
         return sessionManager
@@ -29,6 +29,7 @@ public class RestManager {
                         } else {
                             promise(.success(.failure(.general)))
                         }
+                        
                     case .failure(let error):
                         if let underlyingError = error.underlyingError {
                             if let urlError = underlyingError as? URLError {
@@ -42,7 +43,7 @@ public class RestManager {
                             }
                         }
                         if let responseCode = error.responseCode,
-                           responseCode == 408 {
+                           responseCode == 400 {
                             promise(.success(.failure(.empty)))
                         }
                     }

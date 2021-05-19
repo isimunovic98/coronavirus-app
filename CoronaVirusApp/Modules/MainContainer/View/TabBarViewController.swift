@@ -20,9 +20,9 @@ class TabBarViewController: UITabBarController {
         self.tabBar.backgroundColor = .backgroundColorSecond
     }
     
-    func setNavTitle(_ title: String?) {
+    func setNavTitle(_ title: String) {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: nil, action: nil)
-        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold)]
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .semibold)]
         navigationItem.backBarButtonItem?.setTitleTextAttributes(attributes, for: .normal)
     }
 }

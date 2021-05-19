@@ -194,5 +194,7 @@ extension StatistiscScreenViewController {
         viewModel.updateUsecase()
     }
     
-    func backToCountrySelection() { }
+    func backToCountrySelection() {
+        viewModel.openCountrySelection()
+    }
 }

@@ -105,6 +105,8 @@ extension StatisticsScreenViewModel {
         zoomToCountry = true
         fetchScreenDataSubject.send((.country(countryName), false))
     }
+    
+    func openCountrySelection() { coordinator?.openCountrySelection() }
 }
 
 //MARK: - Private Methods
@@ -204,17 +206,17 @@ private extension StatisticsScreenViewModel {
                             var country3 = [CountryResponseItem]()
                             switch response1 {
                             case .success(let data): country1 = data
-                            case .failure(let error): return self.createFailurePublisher(error)
+                            case .failure(let error): print(error.localizedDescription); return self.createFailurePublisher(error)
                             }
             
                             switch response2 {
                             case .success(let data): country2 = data
-                            case .failure(let error): return self.createFailurePublisher(error)
+                            case .failure(let error): print(error.localizedDescription); return self.createFailurePublisher(error)
                             }
             
                             switch response3 {
                             case .success(let data): country3 = data
-                            case .failure(let error): return self.createFailurePublisher(error)
+                            case .failure(let error): print(error.localizedDescription); return self.createFailurePublisher(error)
                             }
                             let screenData = self.createScreenData(from: [country1, country2, country3], and: worldwideResponse)
                             return self.createSuccessPublisher(screenData)

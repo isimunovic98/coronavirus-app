@@ -4,6 +4,7 @@ import MapKit
 
 class StatisticsScreenCoordinator: Coordinator {
     
+    weak var parent: (ParentCoordinatorDelegate & CountrySelectionHandler)?
     var childCoordinators: [Coordinator] = .init()
     var presenter: UINavigationController
     var controller: StatistiscScreenViewController
@@ -34,5 +35,7 @@ extension StatisticsScreenCoordinator: StatisticsScreenCoordinatorDelegate {
         mapItem.openInMaps(launchOptions: options)
     }
     
-
+    func openCountrySelection() {
+        parent?.openCountrySelection()
+    }
 }
