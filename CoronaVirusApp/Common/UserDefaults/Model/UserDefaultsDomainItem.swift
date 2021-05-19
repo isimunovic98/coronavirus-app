@@ -10,12 +10,8 @@ import Foundation
 struct UserDefaultsDomainItem: Codable {
     
     var usecase: String = ""
-    var details: [String] = .init()
     
-    init(usecase: String = "", details: [String] = .init()) {
+    init(usecase: String = "") {
         self.usecase = StringUtils.createSlug(from: usecase)
-        self.details = details.map({ StringUtils.createSlug(from: $0) })
     }
 }
-
-

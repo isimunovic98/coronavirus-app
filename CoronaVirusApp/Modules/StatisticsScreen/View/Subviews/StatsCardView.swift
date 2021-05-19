@@ -69,8 +69,7 @@ class StatsCardView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
-        stackView.spacing = 10
+        stackView.spacing = 8
         return stackView
     }()
     

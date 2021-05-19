@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		02436FF52645568D00C89A1B /* LatestNewsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02436FF42645568D00C89A1B /* LatestNewsViewModelTest.swift */; };
 		02437004264557E600C89A1B /* LatestNewsList.json in Resources */ = {isa = PBXBuildFile; fileRef = 02437003264557E600C89A1B /* LatestNewsList.json */; };
+		0255A0A726529F2800432775 /* StatisticsScreenCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0255A0A626529F2800432775 /* StatisticsScreenCoordinatorDelegate.swift */; };
 		025AF80026455EC9009081AD /* LatestNewsGeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025AF7FF26455EC9009081AD /* LatestNewsGeneratedMocks.swift */; };
 		0263E41926493C490048C2D6 /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263E41626493C490048C2D6 /* CountryTableViewCell.swift */; };
 		0263E41A26493C490048C2D6 /* EmptyStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263E41726493C490048C2D6 /* EmptyStateTableViewCell.swift */; };
@@ -135,6 +136,7 @@
 /* Begin PBXFileReference section */
 		02436FF42645568D00C89A1B /* LatestNewsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestNewsViewModelTest.swift; sourceTree = "<group>"; };
 		02437003264557E600C89A1B /* LatestNewsList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LatestNewsList.json; sourceTree = "<group>"; };
+		0255A0A626529F2800432775 /* StatisticsScreenCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsScreenCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		025AF7FF26455EC9009081AD /* LatestNewsGeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LatestNewsGeneratedMocks.swift; path = CoronaVirusAppTests/LatestNewsGeneratedMocks.swift; sourceTree = SOURCE_ROOT; };
 		0263E41626493C490048C2D6 /* CountryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		0263E41726493C490048C2D6 /* EmptyStateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateTableViewCell.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				02D5FB1D26492AFC004B6BA3 /* StatisticsScreenCoordinator.swift */,
+				0255A0A626529F2800432775 /* StatisticsScreenCoordinatorDelegate.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -1289,6 +1292,7 @@
 				60311C6326442B14006DD857 /* TabBarViewController.swift in Sources */,
 				60311C5A26442B14006DD857 /* CountrySelectionCoordinator.swift in Sources */,
 				60311BB2264428C5006DD857 /* ParentCoordinatorDelegate.swift in Sources */,
+				0255A0A726529F2800432775 /* StatisticsScreenCoordinatorDelegate.swift in Sources */,
 				02D5FB3426492B92004B6BA3 /* StatisticsScreenViewModel.swift in Sources */,
 				02D5FB2426492B2A004B6BA3 /* NavigationInformation.swift in Sources */,
 				60311C7026442B14006DD857 /* DummyViewController.swift in Sources */,

@@ -230,9 +230,9 @@ extension HomeScreenViewModel {
     func createUserDefaultsDomainItem(from value: HomeScreenDomainItem) -> UserDefaultsDomainItem {
         switch value.title {
         case "Worldwide":
-            return UserDefaultsDomainItem(usecase: value.title, details: value.details.map({ $0.title}))
+            return UserDefaultsDomainItem(usecase: value.title)
         default:
-            return UserDefaultsDomainItem(usecase: value.title, details: [value.title])
+            return UserDefaultsDomainItem(usecase: value.title)
         }
     }
     

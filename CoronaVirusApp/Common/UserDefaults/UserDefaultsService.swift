@@ -1,30 +1,25 @@
 
 import Foundation
 
-class UserDefaultsService {
-    
+struct UserDefaultsService {
+    private static let userDefaults = UserDefaults.standard
+
     static func update(_ item: UserDefaultsDomainItem) {
-        let userDefaults = UserDefaults.standard
         userDefaults.setValue(item.usecase, forKey: "usecase")
-        do { try userDefaults.setCustomObject(item.details, forKey: "usecaseDetails") }
-        catch (let error) { print(error.localizedDescription) }
     }
     
-    static func getSavedData() -> UserDefaultsDomainItem? {
+    static func getSavedData() -> UserDefaultsDomainItem {
         var result = UserDefaultsDomainItem()
-        let userDefaults = UserDefaults.standard
-        guard let savedUsecase = userDefaults.value(forKey: "usecase") as? String else { return nil }
+        let savedUsecase = userDefaults.string(forKey: "usecase") ?? "croatia"
         result.usecase = savedUsecase
-        do { result.details = try userDefaults.getCustomObject(forKey: "usecaseDetails") }
-        catch (_) { }
         return result
     }
     
-    static func getUsecase() -> UseCaseSelection? {
-        guard let data = UserDefaultsService.getSavedData() else { return nil }
-        switch data.usecase {
+    static func getUsecase() -> UseCaseSelection {
+        let savedData = UserDefaultsService.getSavedData()
+        switch savedData.usecase {
         case "worldwide": return .worldwide
-        default: return .country(data.usecase)
+        default: return .country(savedData.usecase)
         }
     }
 }

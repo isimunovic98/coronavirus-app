@@ -26,12 +26,14 @@ public enum RestEndpoints {
     
     public func endpoint() -> String {
         switch self {
-        case .countriesList: return RestEndpoints.ENDPOINT_COVID + "/countries"
+        case .countriesList:
+            return RestEndpoints.ENDPOINT_COVID + "/countries"
         case .countryStats(let countryName):
             return RestEndpoints.ENDPOINT_COVID + "/dayone/country/" + countryName
         case .countryStatsTotal(let countryName):
             return RestEndpoints.ENDPOINT_COVID + "/total/country/" + countryName
-        case .worldwideStats: return RestEndpoints.ENDPOINT_COVID + "/summary"
+        case .worldwideStats:
+            return RestEndpoints.ENDPOINT_COVID + "/summary"
         case .latestNews(let offset):
             return RestEndpoints.ENDPOINT_NEWS + "&keywords=corona&sort=published_desc&languages=en&limit=25&offset=" + String(offset)
         }
