@@ -47,6 +47,11 @@ class HomeScreenViewController: UIViewController, LoadableViewController {
         navigationController?.navigationBar.isHidden = false
         if isMovingFromParent { viewModel.coordinator?.viewControllerDidFinish() }
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        mainView.middleView.addShadows()
+    }
 }
 
 

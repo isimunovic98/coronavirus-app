@@ -83,12 +83,13 @@ extension HomeScreenMiddleView {
         secondHorizontalStackView.addArrangedSubviews([recoveredCaseView, deathsCaseView])
         verticalStackView.addArrangedSubviews([firstHorizontalStackView, secondHorizontalStackView])
         addSubview(verticalStackView)
-        addShadow(on: [confirmedCaseView, activeCaseView, recoveredCaseView, deathsCaseView], shadowColor: .black)
     }
     
-    func addShadow(on views: [UIView], shadowColor color: UIColor) {
-        for view in views { view.addShadow(color: color) }
-        layoutIfNeeded()
+    func addShadows() {
+        confirmedCaseView.addShadow(color: .black)
+        activeCaseView.addShadow(color: .black)
+        recoveredCaseView.addShadow(color: .black)
+        deathsCaseView.addShadow(color: .black)
     }
     
     func setConstraints() {

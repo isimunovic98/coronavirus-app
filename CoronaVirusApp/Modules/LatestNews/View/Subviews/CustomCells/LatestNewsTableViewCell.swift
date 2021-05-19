@@ -141,7 +141,7 @@ extension LatestNewsTableViewCell {
     }
     
     func setupLayout() {
-        articleTimeLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 249), for: .horizontal)
+        articleTimeLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
         
         contentContainer.snp.makeConstraints { (make) in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 30, bottom: 5, right: 30))

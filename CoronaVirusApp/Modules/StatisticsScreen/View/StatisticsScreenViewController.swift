@@ -27,7 +27,6 @@ class StatistiscScreenViewController: UIViewController, LoadableViewController, 
         let view = StatsCardView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .backgroundColorSecond
-        view.addShadow(color: .black)
         return view
     }()
     
@@ -59,6 +58,11 @@ class StatistiscScreenViewController: UIViewController, LoadableViewController, 
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         viewModel.updateUsecase()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        statsView.addShadow(color: .black)
     }
 }
 
