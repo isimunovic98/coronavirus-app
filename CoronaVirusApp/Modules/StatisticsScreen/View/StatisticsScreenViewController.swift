@@ -52,9 +52,6 @@ class StatistiscScreenViewController: UIViewController, LoadableViewController, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        #warning("mock")
-        //UserDefaultsService.update(UserDefaultsDomainItem(usecase: "worldwide", details: ["spain","portugal","croatia"]))
-        //UserDefaultsService.update(UserDefaultsDomainItem(usecase: "croatia", details: []))
         setupView()
     }
     
@@ -94,13 +91,13 @@ extension StatistiscScreenViewController {
         }
         
         mapView.snp.makeConstraints { (make) in
-            make.leading.trailing.equalToSuperview().inset(40)
+            make.leading.trailing.equalToSuperview()
             make.height.equalTo(mapView.snp.width)
         }
 
         statsView.snp.makeConstraints { (make) in
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(statsView.snp.width).dividedBy(2)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(statsView.snp.width).dividedBy(2.2)
         }
     }
 }
@@ -132,6 +129,15 @@ extension StatistiscScreenViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         viewModel.annotationSelected(view)
+        switch viewModel.usecase {
+        case .country:
+            guard let annotation = viewModel.screenData.annotations.first else {
+                break
+            }
+            mapView.deselectAnnotation(annotation, animated: false)
+        default:
+            break
+        }
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
@@ -181,8 +187,7 @@ extension StatistiscScreenViewController {
     }
     
     func tryAgainAfterError() {
-        guard let usecase = viewModel.usecase else { return }
-        viewModel.fetchScreenDataSubject.send(usecase)
+        viewModel.updateUsecase()
     }
     
     func backToCountrySelection() {

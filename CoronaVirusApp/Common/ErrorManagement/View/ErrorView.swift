@@ -60,14 +60,16 @@ class ErrorView: UIView, RemovableView {
         label.textColor = label.textColor.withAlphaComponent(0.4)
         return label
     }()
+    
     let tryAgainButtonContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemRed.withAlphaComponent(0.7)
+        view.backgroundColor = UIColor.systemRed.withAlphaComponent(0.7)
         view.layer.cornerRadius = 10
         view.layer.masksToBounds = true
         return view
     }()
+    
     let tryAgainButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false

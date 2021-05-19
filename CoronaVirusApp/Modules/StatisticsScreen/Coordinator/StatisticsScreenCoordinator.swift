@@ -1,5 +1,6 @@
 
 import UIKit
+import MapKit
 
 class StatisticsScreenCoordinator: Coordinator {
     
@@ -22,4 +23,16 @@ class StatisticsScreenCoordinator: Coordinator {
         let controller = StatistiscScreenViewController(viewModel: viewModel)
         return controller
     }
+}
+
+extension StatisticsScreenCoordinator: StatisticsScreenCoordinatorDelegate {
+    func openInAppleMaps(_ mapItem: MKMapItem, showing region: MKCoordinateRegion) {
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: region.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: region.span)
+        ]
+        mapItem.openInMaps(launchOptions: options)
+    }
+    
+
 }

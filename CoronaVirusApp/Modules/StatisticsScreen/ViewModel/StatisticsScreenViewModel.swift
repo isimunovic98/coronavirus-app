@@ -6,96 +6,48 @@ import MapKit
 class StatisticsScreenViewModel: LoaderViewModel, ErrorableViewModel {
     internal let singleLocationRadius: CLLocationDistance = 500000
     internal var zoomToCountry: Bool = false
-
-    var coordinator: StatisticsScreenCoordinator?
+    
+    var coordinator: StatisticsScreenCoordinatorDelegate?
     
     var repository: Covid19Repository
     
     var screenData = StatsDomainItem()
     
-    var usecase: UseCaseSelection?
+    var usecase: UseCaseSelection
     
     private var navigationInformation = NavigationInformation()
     var screenDataReady = PassthroughSubject<UseCaseSelection, Never>()
-    var fetchScreenDataSubject = PassthroughSubject<UseCaseSelection, Never>()
+    var fetchScreenDataSubject = CurrentValueSubject<(usecase: UseCaseSelection,shouldShowLoader: Bool), Never>((usecase: UserDefaultsService.getUsecase(),shouldShowLoader: true))
     var loaderPublisher = PassthroughSubject<Bool, Never>()
     var errorSubject = PassthroughSubject<ErrorType?, Never>()
     
     init(repository: Covid19Repository) {
         self.repository = repository
-        guard let usecase = UserDefaultsService.getUsecase() else {
-            self.usecase = .country("croatia")
-            return
-        }
-        self.usecase = usecase
+        self.usecase = UserDefaultsService.getUsecase()
     }
     
     deinit { print("StatsScreenViewModel deinit called.") }
 }
 
 extension StatisticsScreenViewModel {
-    func initializeFetchScreenDataSubject(_ subject: PassthroughSubject<UseCaseSelection, Never>) -> AnyCancellable {
-        return subject.flatMap { [unowned self] (usecase) -> AnyPublisher<Result<StatsDomainItem, ErrorType>, Never> in
-            loaderPublisher.send(true)
-            switch usecase {
-            case .country(let countryName):
-                return repository.getCountryStats(for: countryName)
-                    .flatMap { (totalResponse) -> AnyPublisher<Result<StatsDomainItem, ErrorType>, Never> in
-                        switch totalResponse {
-                        case .success(let data): return self.createSuccessPublisher(self.createScreenData(from: data))
-                        case .failure(let error): return self.createFailurePublisher(error)
-                        }
-                    }.eraseToAnyPublisher()
-            case .worldwide:
-                if let savedData = UserDefaultsService.getSavedData(),
-                   savedData.details.count == 3 {
-                    let p1 = repository.getCountryStats(for: savedData.details[0])
-                    let p2 = repository.getCountryStats(for: savedData.details[1])
-                    let p3 = repository.getCountryStats(for: savedData.details[2])
-                    let p4 = repository.getWorldwideData()
-                    return Publishers.Zip4(p1, p2, p3, p4)
-                        .flatMap { (totalResponse1,totalResponse2,totalResponse3,worldwideResponse) -> AnyPublisher<Result<StatsDomainItem, ErrorType>, Never> in
-                            var totalData1 = [CountryResponseItem]()
-                            var totalData2 = [CountryResponseItem]()
-                            var totalData3 = [CountryResponseItem]()
-                            var worldwideData: WorldwideResponseItem
-                            
-                            switch totalResponse1 {
-                            case .success(let data): totalData1 = data
-                            case .failure(let error): return self.createFailurePublisher(error)
-                            }
-                            
-                            switch totalResponse2 {
-                            case .success(let data): totalData2 = data
-                            case .failure(let error): return self.createFailurePublisher(error)
-                            }
-                            
-                            switch totalResponse3 {
-                            case .success(let data): totalData3 = data
-                            case .failure(let error): return self.createFailurePublisher(error)
-                            }
-                            
-                            switch worldwideResponse {
-                            case .success(let data): worldwideData = data
-                            case .failure(let error): return self.createFailurePublisher(error)
-                            }
-                            let newScreenData = self.createScreenData(from: [totalData1, totalData2, totalData3], and: worldwideData)
-                            return self.createSuccessPublisher(newScreenData)
-                        }.eraseToAnyPublisher()
-                    
+    func initializeFetchScreenDataSubject(_ subject: CurrentValueSubject<(usecase: UseCaseSelection,shouldShowLoader: Bool), Never>) -> AnyCancellable {
+         return subject
+            .flatMap { [unowned self] (usecase, shouldShowLoader) -> AnyPublisher<Result<StatsDomainItem, ErrorType>, Never> in
+                self.loaderPublisher.send(shouldShowLoader)
+                switch usecase {
+                case .country(let countryName):
+                    return self.getCountryStatsResponse(for: countryName)
+                case .worldwide:
+                    return self.getWorldwideStatsResponse()
                 }
-                else { return self.createFailurePublisher(.general) }
             }
-        }
         .subscribe(on: DispatchQueue.global(qos: .background))
         .receive(on: RunLoop.main)
         .sink { [unowned self] (response) in
             switch response {
             case .success(let newScreenData):
                 self.screenData = newScreenData
-                if let usecase = self.usecase {
-                    self.screenDataReady.send(usecase)
-                }
+                self.screenDataReady.send(usecase)
                 errorSubject.send(nil)
             case .failure(let error):
                 errorSubject.send(error)
@@ -108,14 +60,14 @@ extension StatisticsScreenViewModel {
 extension StatisticsScreenViewModel {
     func updateUsecase() {
         usecase = UserDefaultsService.getUsecase()
-        guard let updatedUsecase = usecase else { return }
-        fetchScreenDataSubject.send(updatedUsecase)
+        fetchScreenDataSubject.send((usecase, true))
     }
     
     func annotationSelected(_ view: MKAnnotationView) {
         guard let annotation = view.annotation as? MKPointAnnotation else {
             return
         }
+        
         switch usecase {
         case .country:
             openAppleMaps()
@@ -124,8 +76,16 @@ extension StatisticsScreenViewModel {
                 return
             }
             showCountryInformation(countryName)
+        }
+    }
+    
+    func annotationDeselected() {
+        zoomToCountry = false
+        switch usecase {
+        case .worldwide:
+            fetchScreenDataSubject.send((.worldwide, false))
         default:
-            break
+            return
         }
     }
     
@@ -134,29 +94,16 @@ extension StatisticsScreenViewModel {
         let longitude: CLLocationDegrees = navigationInformation.longitude
         let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
         let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: singleLocationRadius, longitudinalMeters: singleLocationRadius)
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-        ]
         let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = navigationInformation.country
-        mapItem.openInMaps(launchOptions: options)
+    
+        coordinator?.openInAppleMaps(mapItem, showing: regionSpan)
     }
     
     func showCountryInformation(_ countryName: String) {
         zoomToCountry = true
-        fetchScreenDataSubject.send(.country(countryName))
-    }
-    
-    func annotationDeselected() {
-        zoomToCountry = false
-        switch usecase {
-        case .worldwide:
-            fetchScreenDataSubject.send(.worldwide)
-        default:
-            return
-        }
+        fetchScreenDataSubject.send((.country(countryName), false))
     }
 }
 
@@ -180,16 +127,6 @@ private extension StatisticsScreenViewModel {
         return tempScreenData
     }
     
-    func createNavigationInfromation(from countryResponse: CountryResponseItem) {
-        guard let latitude = Double(countryResponse.lat),
-              let longitude = Double(countryResponse.lon) else {
-            return
-        }
-        navigationInformation.country = countryResponse.country
-        navigationInformation.latitude = latitude
-        navigationInformation.longitude = longitude
-    }
-    
     func createScreenData(from countries: [[CountryResponseItem]], and worldStats: WorldwideResponseItem) -> StatsDomainItem {
         var tempScreenData = StatsDomainItem()
         tempScreenData.screenTitle = "Statistics Worldwide"
@@ -208,6 +145,16 @@ private extension StatisticsScreenViewModel {
         return tempScreenData
     }
     
+    func createNavigationInfromation(from countryResponse: CountryResponseItem) {
+        guard let latitude = Double(countryResponse.lat),
+              let longitude = Double(countryResponse.lon) else {
+            return
+        }
+        navigationInformation.country = countryResponse.country
+        navigationInformation.latitude = latitude
+        navigationInformation.longitude = longitude
+    }
+    
     func createPointAnnotation(for country: CountryResponseItem) -> MKPointAnnotation {
         let annotation = MKPointAnnotation()
         annotation.title = country.country.lowercased()
@@ -223,5 +170,59 @@ private extension StatisticsScreenViewModel {
     
     func createFailurePublisher(_ error: ErrorType) -> AnyPublisher<Result<StatsDomainItem, ErrorType>, Never> {
         return Just<Result<StatsDomainItem, ErrorType>>(.failure(error)).eraseToAnyPublisher()
+    }
+    
+    func getCountryStatsResponse(for countryName: String) -> AnyPublisher<Result<StatsDomainItem, ErrorType>, Never> {
+        return repository.getCountryStats(for: countryName)
+            .flatMap { [unowned self] (countryStatsResponse) -> AnyPublisher<Result<StatsDomainItem, ErrorType>, Never> in
+                switch countryStatsResponse {
+                case .success(let data):
+                    return createSuccessPublisher(self.createScreenData(from: data))
+                case .failure(let error):
+                    return self.createFailurePublisher(error)
+                }
+            }.eraseToAnyPublisher()
+    }
+    
+    func getWorldwideStatsResponse() -> AnyPublisher<Result<StatsDomainItem, ErrorType>, Never> {
+        return repository.getWorldwideData()
+            .flatMap { [unowned self] (response) -> AnyPublisher<Result<StatsDomainItem, ErrorType>, Never> in
+                switch response {
+                case .success(let worldwideResponse):
+                   let topThreeWorstCountries = worldwideResponse.countries
+                    let worstCountry = repository.getCountryStats(for: topThreeWorstCountries[0].slug)
+                    let secondWorstCountry = repository.getCountryStats(for: topThreeWorstCountries[1].slug)
+                    let thirdWorstCountry = repository.getCountryStats(for: topThreeWorstCountries[2].slug)
+                    #warning("MOCK WORLDWIDE RESPONSE, comment previous 4 lines, select worldiwde in county selection")
+//                    let worstCountry = repository.getCountryStats(for: "spain")
+//                    let secondWorstCountry = repository.getCountryStats(for: "portugal")
+//                    let thirdWorstCountry = repository.getCountryStats(for: "croatia")
+                    return Publishers.Zip3(worstCountry, secondWorstCountry, thirdWorstCountry)
+                        .flatMap { (response1, response2, response3) -> AnyPublisher<Result<StatsDomainItem, ErrorType>, Never> in
+                            var country1 = [CountryResponseItem]()
+                            var country2 = [CountryResponseItem]()
+                            var country3 = [CountryResponseItem]()
+                            switch response1 {
+                            case .success(let data): country1 = data
+                            case .failure(let error): return self.createFailurePublisher(error)
+                            }
+            
+                            switch response2 {
+                            case .success(let data): country2 = data
+                            case .failure(let error): return self.createFailurePublisher(error)
+                            }
+            
+                            switch response3 {
+                            case .success(let data): country3 = data
+                            case .failure(let error): return self.createFailurePublisher(error)
+                            }
+                            let screenData = self.createScreenData(from: [country1, country2, country3], and: worldwideResponse)
+                            return self.createSuccessPublisher(screenData)
+                        }.eraseToAnyPublisher()
+                    
+                case .failure(let error):
+                    return self.createFailurePublisher(error)
+                }
+            }.eraseToAnyPublisher()
     }
 }
