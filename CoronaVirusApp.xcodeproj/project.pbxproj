@@ -489,6 +489,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		601C2F3026566E50000C9D42 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				6066CB86264C165000B01B0E /* Animations */,
+				6066CB84264C157800B01B0E /* Images.xcassets */,
+				60AEFFDC2644364E0074B2C3 /* Assets.xcassets */,
+				6066CB82264C155200B01B0E /* Colors.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		602A813B261779D000E3516A /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -600,14 +611,11 @@
 		602F4C9A2600CBD30034A798 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				6066CB86264C165000B01B0E /* Animations */,
+				601C2F3026566E50000C9D42 /* Assets */,
 				60ED183626473F60007FEBB7 /* LaunchScreen.storyboard */,
-				60AEFFDC2644364E0074B2C3 /* Assets.xcassets */,
 				60311BA5264428B1006DD857 /* AppCoordinator.swift */,
 				602F4C5E2600CB860034A798 /* AppDelegate.swift */,
 				602F4C6C2600CB870034A798 /* Info.plist */,
-				6066CB82264C155200B01B0E /* Colors.xcassets */,
-				6066CB84264C157800B01B0E /* Images.xcassets */,
 			);
 			path = Support;
 			sourceTree = "<group>";
