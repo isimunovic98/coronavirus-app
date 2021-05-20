@@ -97,8 +97,6 @@
 		60311C6D26442B14006DD857 /* StatusCaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60311C4D26442B14006DD857 /* StatusCaseView.swift */; };
 		60311C6E26442B14006DD857 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60311C4E26442B14006DD857 /* HomeScreenViewController.swift */; };
 		60311C6F26442B14006DD857 /* HomeScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60311C5026442B14006DD857 /* HomeScreenCoordinator.swift */; };
-		60311C7026442B14006DD857 /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60311C5226442B14006DD857 /* DummyViewController.swift */; };
-		60311C7126442B14006DD857 /* DummyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60311C5326442B14006DD857 /* DummyCoordinator.swift */; };
 		60311C7226442B14006DD857 /* PageComingSoonCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60311C5626442B14006DD857 /* PageComingSoonCoordinator.swift */; };
 		60311C7326442B14006DD857 /* PageComingSoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60311C5826442B14006DD857 /* PageComingSoonViewController.swift */; };
 		603F2A1B264F01DC00264779 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F2A1A264F01DC00264779 /* EmptyView.swift */; };
@@ -228,8 +226,6 @@
 		60311C4D26442B14006DD857 /* StatusCaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCaseView.swift; sourceTree = "<group>"; };
 		60311C4E26442B14006DD857 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		60311C5026442B14006DD857 /* HomeScreenCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenCoordinator.swift; sourceTree = "<group>"; };
-		60311C5226442B14006DD857 /* DummyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
-		60311C5326442B14006DD857 /* DummyCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyCoordinator.swift; sourceTree = "<group>"; };
 		60311C5626442B14006DD857 /* PageComingSoonCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageComingSoonCoordinator.swift; sourceTree = "<group>"; };
 		60311C5826442B14006DD857 /* PageComingSoonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageComingSoonViewController.swift; sourceTree = "<group>"; };
 		603F2A1A264F01DC00264779 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
@@ -855,15 +851,6 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		60311C5126442B14006DD857 /* DummyView */ = {
-			isa = PBXGroup;
-			children = (
-				60311C5226442B14006DD857 /* DummyViewController.swift */,
-				60311C5326442B14006DD857 /* DummyCoordinator.swift */,
-			);
-			path = DummyView;
-			sourceTree = "<group>";
-		};
 		60311C5426442B14006DD857 /* PageComingSoon */ = {
 			isa = PBXGroup;
 			children = (
@@ -956,7 +943,6 @@
 			children = (
 				02D5FB1826492AB8004B6BA3 /* StatisticsScreen */,
 				60311C2626442B14006DD857 /* CountrySelection */,
-				60311C5126442B14006DD857 /* DummyView */,
 				60311C3E26442B14006DD857 /* HomeScreen */,
 				60311C3726442B14006DD857 /* MainContainer */,
 				60311C5426442B14006DD857 /* PageComingSoon */,
@@ -1237,7 +1223,6 @@
 				02EA81222645D8DA0034A380 /* LatestNewsRepository.swift in Sources */,
 				02D5FB2F26492B4F004B6BA3 /* StatsDomainItemDetail.swift in Sources */,
 				60311C5926442B14006DD857 /* CountrySelectionViewModel.swift in Sources */,
-				60311C7126442B14006DD857 /* DummyCoordinator.swift in Sources */,
 				60311BBF264428D0006DD857 /* UIImageView+Extensions.swift in Sources */,
 				60311C6126442B14006DD857 /* TabBarCoordinator.swift in Sources */,
 				60311C6E26442B14006DD857 /* HomeScreenViewController.swift in Sources */,
@@ -1299,7 +1284,6 @@
 				0255A0A726529F2800432775 /* StatisticsScreenCoordinatorDelegate.swift in Sources */,
 				02D5FB3426492B92004B6BA3 /* StatisticsScreenViewModel.swift in Sources */,
 				02D5FB2426492B2A004B6BA3 /* NavigationInformation.swift in Sources */,
-				60311C7026442B14006DD857 /* DummyViewController.swift in Sources */,
 				60311C0C26442AF5006DD857 /* LoadableViewController.swift in Sources */,
 				60311C6A26442B14006DD857 /* HomeScreenMainView.swift in Sources */,
 				60311C7326442B14006DD857 /* PageComingSoonViewController.swift in Sources */,
