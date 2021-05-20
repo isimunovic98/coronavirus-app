@@ -12,7 +12,7 @@ class CountrySelectionViewModel: LoaderViewModel, ErrorableViewModel {
     
     var errorSubject = PassthroughSubject<ErrorType?, Never>()
     private let repository: Covid19Repository
-    var coordinatorDelegate: CoordinatorDelegate?
+    weak var coordinatorDelegate: CoordinatorDelegate?
     var screenData = [CountrySelectionModel]()
     private var countriesList = [CountryListResponseItem]()
     let loadData = CurrentValueSubject<Bool, Never>(true)
