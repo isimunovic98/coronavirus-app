@@ -3,74 +3,65 @@ import UIKit
 import Combine
 import CoreLocation
 
-class HomeScreenViewModel: ErrorableViewModel, LoaderViewModel {
+class HomeScreenViewModel: NSObject, ErrorableViewModel, LoaderViewModel {
     
     var coordinator: HomeScreenCoordinatorImpl?
-    weak var viewControllerDelegate: HomeScreenViewController?
     var repository: Covid19Repository
     var screenData = HomeScreenDomainItem()
     var loaderPublisher = PassthroughSubject<Bool, Never>()
     var errorSubject = PassthroughSubject<ErrorType?, Never>()
     var updateScreenSubject = PassthroughSubject<Bool, Never>()
-    var fetchScreenDataSubject = PassthroughSubject<Void, Never>()
-    var shouldRemoveLoader = false
+    var fetchScreenDataSubject = PassthroughSubject<LoadState, Never>()
+    var locationManager: CLLocationManager
     
     init(repository: Covid19Repository) {
         self.repository = repository
+        self.locationManager = CLLocationManager()
+        super.init()
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     deinit { print("HomeScreenViewModel deinit called.") }
 }
 
 extension HomeScreenViewModel {
     
-    func handleLocation(using locationManager: CLLocationManager) {
-        if CLLocationManager.locationServicesEnabled() {
-            switch  CLLocationManager.authorizationStatus() {
-            case .denied, .restricted:
-                shouldRemoveLoader = true
-                fetchScreenDataSubject.send()
-            case .notDetermined:
-                shouldRemoveLoader = false
-                locationManager.requestWhenInUseAuthorization()
-            default:
-                shouldRemoveLoader = false
-                locationManager.startUpdatingLocation()
-            }
-        }
-        else {
-            handleError(.noInternet)
-        }
-    }
-    
     func changeUsecaseSelection() { coordinator?.openCountrySelection() }
     
-    func initializeFetchScreenDataSubject(_ subject: AnyPublisher<Void, Never>) -> AnyCancellable {
+    func initializeFetchScreenDataSubject(_ subject: AnyPublisher<LoadState, Never>) -> AnyCancellable {
         subject
-            .flatMap { [unowned self] (_) -> AnyPublisher<Result<HomeScreenDomainItem, ErrorType>, Never> in
+            .flatMap { [unowned self] (state) -> AnyPublisher<Result<HomeScreenDomainItem, ErrorType>, Never> in
                 self.loaderPublisher.send(true)
-                return self.getData(UserDefaultsService.getUsecase())
-            }
+                switch state {
+                case .loadWithLocation (let countryName):
+                    let slug = StringUtils.createSlug(from: countryName)
+                    let item = UserDefaultsDomainItem(usecase: slug)
+                    UserDefaultsService.update(item)
+                    self.locationManager.stopUpdatingLocation()
+                    return self.getData(UserDefaultsService.getUsecase())
+                case .loadWithSavedUsecase:
+                    return self.getData(UserDefaultsService.getUsecase())
+                }
+            }            
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: RunLoop.main)
             .sink { [unowned self] (result) in
                 self.handleResult(result)
-                if shouldRemoveLoader {
-                    self.loaderPublisher.send(false)
-                }
             }
     }
     
-    func getData(_ usecase: UseCaseSelection?) -> AnyPublisher<Result<HomeScreenDomainItem, ErrorType>, Never> {
-        guard let usecase = usecase else { return createFailurePublisher(.general) }
+    func getData(_ usecase: UseCaseSelection) -> AnyPublisher<Result<HomeScreenDomainItem, ErrorType>, Never> {
         switch usecase {
-        case .country(let countryName): return getCountryData(name: countryName)
-        case .worldwide: return getWorldwideData()
+        case .country(let countryName):
+            return getCountryData(name: countryName)
+        case .worldwide:
+            return getWorldwideData()
         }
     }
     
     func getCountryData(name countryName: String) -> AnyPublisher<Result<HomeScreenDomainItem, ErrorType>, Never> {
-        return Publishers.Zip(getTotalCountryStatsPublisher(name: countryName),
-                              getDayOneCountryStatsPublisher(name: countryName))
+        return Publishers.Zip(repository.getCountryStats(for: countryName),
+                              repository.getCountryStatsTotal(for: countryName))
             .flatMap { (totalResponse, dayOneResponse ) -> AnyPublisher<Result<HomeScreenDomainItem, ErrorType>, Never> in
                 var totalData = [CountryResponseItem]()
                 var dayOneData = [CountryResponseItem]()
@@ -86,12 +77,7 @@ extension HomeScreenViewModel {
                 return self.createSuccessPublisher(newScreenData)
             }.eraseToAnyPublisher()
     }
-    func getDayOneCountryStatsPublisher(name: String) -> AnyPublisher<Result<[CountryResponseItem], ErrorType>, Never> {
-        return repository.getCountryStats(for: name)
-    }
-    func getTotalCountryStatsPublisher(name: String) -> AnyPublisher<Result<[CountryResponseItem], ErrorType>, Never> {
-        return repository.getCountryStatsTotal(for: name)
-    }
+    
     func getWorldwideData() -> AnyPublisher<Result<HomeScreenDomainItem, ErrorType>, Never> {
         return repository.getWorldwideData()
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -111,20 +97,12 @@ extension HomeScreenViewModel {
         switch result {
         case .success(let item):
             screenData = item
-            if screenData.title.isEmpty {
-                switch UserDefaultsService.getUsecase() {
-                case .country(let countryName): screenData.title = countryName
-                case .worldwide: screenData.title = "Worldwide"
-                }
-            }
-            else {
-                UserDefaultsService.update(createUserDefaultsDomainItem(from: item))
-                handleError(nil)
-            }
             updateScreenSubject.send(true)
+            handleError(nil)
         case .failure(let error):
             handleError(error)
         }
+        loaderPublisher.send(false)
     }
     
     
@@ -165,14 +143,9 @@ extension HomeScreenViewModel {
         screenData.deathsDifferenceCount = item.global.newDeaths
         screenData.activeTotalCount = screenData.confirmedTotalCount - screenData.recoveredTotalCount
         screenData.activeDifferenceCount = screenData.confirmedDifferenceCount - screenData.recoveredDifferenceCount
-        screenData.details = createDetailsTop3WithConfirmedCases(from: item.countries)
+        screenData.details = createDetails(from: item.countries)
         screenData.lastUpdateDate = Date()
         return screenData
-    }
-    
-    func createDetailsTop3WithConfirmedCases(from items: [CountryStatus]) -> [HomeScreenDomainItemDetail] {
-        let filteredItems = Array(items.sorted(by: { $0.totalConfirmed > $1.totalConfirmed }).prefix(3))
-        return createDetails(from: filteredItems)
     }
     
     func createDetails(from responseItems: [CountryResponseItem]) -> [HomeScreenDomainItemDetail] {
@@ -214,15 +187,6 @@ extension HomeScreenViewModel {
         return newDetails
     }
     
-    func createUserDefaultsDomainItem(from value: HomeScreenDomainItem) -> UserDefaultsDomainItem {
-        switch value.title {
-        case "Worldwide":
-            return UserDefaultsDomainItem(usecase: value.title)
-        default:
-            return UserDefaultsDomainItem(usecase: value.title)
-        }
-    }
-    
     func createSuccessPublisher(_ data: HomeScreenDomainItem) -> AnyPublisher<Result<HomeScreenDomainItem, ErrorType>, Never> {
         return Just<Result<HomeScreenDomainItem, ErrorType>>(.success(data)).eraseToAnyPublisher()
     }
@@ -236,28 +200,26 @@ extension HomeScreenViewModel: CountrySelectionHandler {
     func openCountrySelection() { coordinator?.openCountrySelection() }
 }
 
-extension HomeScreenViewModel {
-    func didUpdateLocations(_ locations: [CLLocation]) {
-        if let location = locations.last {
-            CLGeocoder().reverseGeocodeLocation(location) { [unowned self] placemarks, error in
-                guard let country: String = placemarks?.first?.country,
-                      error == nil else { return }
-                let slug = StringUtils.createSlug(from: country)
-                let item = UserDefaultsDomainItem(usecase: slug)
-                UserDefaultsService.update(item)
-                shouldRemoveLoader = true
-                fetchScreenDataSubject.send()
-            }
-        }
-    }
+extension HomeScreenViewModel: CLLocationManagerDelegate {
     
-    func didChangeAuthorization(_ status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
-            shouldRemoveLoader = true
-            viewControllerDelegate?.locationManager.startUpdatingLocation()
-        default:
-            fetchScreenDataSubject.send()
+            getCountryFromLocation(locationManager.location)
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .denied, .restricted:
+            fetchScreenDataSubject.send(.loadWithSavedUsecase)
+        default: break
+        }
+    }
+
+    func getCountryFromLocation(_ location: CLLocation?) {
+        guard let locationExists = location else { return }
+        CLGeocoder().reverseGeocodeLocation(locationExists) { [unowned self] placemarks, error in
+            guard let country: String = placemarks?.first?.country,
+                  error == nil else { return }
+            self.fetchScreenDataSubject.send(.loadWithLocation(country))
         }
     }
 }

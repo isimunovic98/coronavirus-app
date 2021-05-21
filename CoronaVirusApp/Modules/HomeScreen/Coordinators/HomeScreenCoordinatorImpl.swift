@@ -21,7 +21,6 @@ class HomeScreenCoordinatorImpl: HomeScreenCoordinator {
     static func createController() -> HomeScreenViewController {
         let vm = HomeScreenViewModel(repository: Covid19RepositoryImpl())
         let vc = HomeScreenViewController(viewModel: vm)
-        vm.viewControllerDelegate = vc
         return vc
     }
     

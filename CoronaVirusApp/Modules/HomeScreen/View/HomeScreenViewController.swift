@@ -1,13 +1,11 @@
 
 import UIKit
 import Combine
-import CoreLocation
 
 class HomeScreenViewController: UIViewController, LoadableViewController {
    
     var viewModel: HomeScreenViewModel
     var disposeBag = Set<AnyCancellable>()
-    var locationManager: CLLocationManager
     var loaderOverlay: LoaderOverlay
     
     let mainView: HomeScreenMainView = {
@@ -19,7 +17,6 @@ class HomeScreenViewController: UIViewController, LoadableViewController {
     
     init(viewModel: HomeScreenViewModel) {
         self.viewModel = viewModel
-        self.locationManager = CLLocationManager()
         self.loaderOverlay = .init()
         super.init(nibName: nil, bundle: nil)
     }
@@ -32,18 +29,16 @@ class HomeScreenViewController: UIViewController, LoadableViewController {
         setConstraintsMainView()
         loaderOverlay.showLoader(viewController: self)
         setViewModelSubscribers()
-        viewModel.handleLocation(using: locationManager)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        viewModel.fetchScreenDataSubject.send()        
+        viewModel.fetchScreenDataSubject.send(.loadWithSavedUsecase)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        locationManager.stopUpdatingLocation()
         navigationController?.navigationBar.isHidden = false
         if isMovingFromParent { viewModel.coordinator?.viewControllerDidFinish() }
     }
@@ -51,19 +46,6 @@ class HomeScreenViewController: UIViewController, LoadableViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         mainView.middleView.addShadows()
-    }
-}
-
-
-extension HomeScreenViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        viewModel.didChangeAuthorization(status)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        viewModel.didUpdateLocations(locations)
-        manager.stopUpdatingLocation()
     }
 }
 
@@ -88,7 +70,7 @@ extension HomeScreenViewController: UITableViewDataSource {
 }
 
 extension HomeScreenViewController: ErrorableViewController {
-    func tryAgainAfterError() { viewModel.fetchScreenDataSubject.send() }
+    func tryAgainAfterError() { viewModel.fetchScreenDataSubject.send(.loadWithSavedUsecase) }
     
     func backToCountrySelection() {
         viewModel.openCountrySelection()
@@ -126,8 +108,6 @@ extension HomeScreenViewController {
         view.addSubview(mainView)
         mainView.delegate = self
         mainView.tableView.dataSource = self
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
     func setConstraintsMainView() {

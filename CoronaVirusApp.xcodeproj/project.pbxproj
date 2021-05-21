@@ -39,6 +39,7 @@
 		6018001D2654FD1300CD7515 /* RemovableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6018001C2654FD1300CD7515 /* RemovableView.swift */; };
 		6018002026550EFD00CD7515 /* DarkModeEmptyStateAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 6018001E26550EFD00CD7515 /* DarkModeEmptyStateAnimation.json */; };
 		6018002126550EFD00CD7515 /* LightModeEmptyStateAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 6018001F26550EFD00CD7515 /* LightModeEmptyStateAnimation.json */; };
+		60180025265563B900CD7515 /* LoadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60180024265563B900CD7515 /* LoadState.swift */; };
 		602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C5E2600CB860034A798 /* AppDelegate.swift */; };
 		60311BA6264428B1006DD857 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60311BA5264428B1006DD857 /* AppCoordinator.swift */; };
 		60311BAE264428C5006DD857 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60311BA7264428C4006DD857 /* CoordinatorDelegate.swift */; };
@@ -164,6 +165,7 @@
 		6018001C2654FD1300CD7515 /* RemovableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovableView.swift; sourceTree = "<group>"; };
 		6018001E26550EFD00CD7515 /* DarkModeEmptyStateAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DarkModeEmptyStateAnimation.json; sourceTree = "<group>"; };
 		6018001F26550EFD00CD7515 /* LightModeEmptyStateAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LightModeEmptyStateAnimation.json; sourceTree = "<group>"; };
+		60180024265563B900CD7515 /* LoadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadState.swift; sourceTree = "<group>"; };
 		602F4C5B2600CB860034A798 /* CoronaVirusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaVirusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602F4C5E2600CB860034A798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		602F4C6C2600CB870034A798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -816,6 +818,7 @@
 			children = (
 				60311C4426442B14006DD857 /* HomeScreenDomainItemDetail.swift */,
 				60311C4526442B14006DD857 /* HomeScreenDomainItem.swift */,
+				60180024265563B900CD7515 /* LoadState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1221,6 +1224,7 @@
 				02EA81262645D8DA0034A380 /* PaginationInformation.swift in Sources */,
 				02EA81292645D8DA0034A380 /* LatestNewsViewController.swift in Sources */,
 				02EA81222645D8DA0034A380 /* LatestNewsRepository.swift in Sources */,
+				60180025265563B900CD7515 /* LoadState.swift in Sources */,
 				02D5FB2F26492B4F004B6BA3 /* StatsDomainItemDetail.swift in Sources */,
 				60311C5926442B14006DD857 /* CountrySelectionViewModel.swift in Sources */,
 				60311BBF264428D0006DD857 /* UIImageView+Extensions.swift in Sources */,
