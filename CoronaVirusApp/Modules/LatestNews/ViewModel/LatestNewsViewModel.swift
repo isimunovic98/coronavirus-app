@@ -17,7 +17,7 @@ class LatestNewsViewModel: LoaderViewModel, ErrorableViewModel {
     
     let loadData = CurrentValueSubject<Int, Never>(0)
     let dataReadyPublisher = PassthroughSubject<Void, Never>()
-    var loaderPublisher = PassthroughSubject<Bool, Never>()
+    var loaderPublisher = CurrentValueSubject<Bool, Never>(true)
     var errorSubject = PassthroughSubject<ErrorType?, Never>()
     
     

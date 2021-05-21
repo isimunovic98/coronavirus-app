@@ -27,79 +27,67 @@ class HomeScreenInitialization: QuickSpec {
         var disposeBag = Set<AnyCancellable>()
         let mock = MockCovid19RepositoryImpl()
         var sut: HomeScreenViewModel!
-        var alertCalled: Bool = false
+        var failurePathCalled: Bool = false
         
         describe("Request") {
-            context("country stats initialize success screen.") {
+            context("country usecase initialize success screen.") {
                 beforeEach {
-                    initialize()
                     stubCountryStats(withError: nil)
                     stubCountryStatsTotal(withError: nil)
-                    subscribeSUTSubjects()
+                    initialize()
                 }
                 it("Success screen initialized.") {
                     let expected = 19
-                    sut.usecase = .country("croatia")
-                    sut.fetchScreenDataSubject.send()
+                    sut.fetchScreenDataSubject.send(.country("croatia"))
                     expect(sut.screenData.details.count).toEventually(equal(expected))
                 }
             }
             
-            context("country stats initialize fail screen.") {
+            context("country usecase initialize fail screen.") {
                 beforeEach {
-                    initialize()
                     stubCountryStats(withError: .general)
                     stubCountryStatsTotal(withError: .noInternet)
-                    subscribeSUTSubjects()
+                    initialize()
                 }
                 it("Fail screen initialized.") {
                     let expected = true
-                    sut.fetchScreenDataSubject.send()
-                    expect(alertCalled).toEventually(equal(expected))
+                    sut.fetchScreenDataSubject.send(.country("croatia"))
+                    expect(failurePathCalled).toEventually(equal(expected))
                 }
             }
             
-            context("worldwide stats initialize success screen.") {
+            context("worldwide usecase initialize success screen.") {
                 beforeEach {
-                    initialize()
                     stubWorldwideStats(withError: nil)
-                    subscribeSUTSubjects()
+                    initialize()
                 }
                 it("Success screen initialized.") {
                     let expected = 3
-                    sut.usecase = .worldwide
-                    sut.fetchScreenDataSubject.send()
+                    sut.fetchScreenDataSubject.send(.worldwide)
                     expect(sut.screenData.details.count).toEventually(equal(expected))
                 }
             }
             
-            context("worldwide stats initialize fail screen.") {
+            context("worldwide usecase initialize fail screen.") {
                 beforeEach {
-                    initialize()
                     stubWorldwideStats(withError: .general)
-                    subscribeSUTSubjects()
+                    initialize()
                 }
                 it("Fail screen initialized.") {
                     let expected = true
-                    sut.fetchScreenDataSubject.send()
-                    expect(alertCalled).toEventually(equal(expected))
+                    sut.fetchScreenDataSubject.send(.worldwide)
+                    expect(failurePathCalled).toEventually(equal(expected))
                 }
             }
         }
-        
-        
         func initialize() {
             sut = HomeScreenViewModel(repository: mock)
-        }
-        
-        func subscribeSUTSubjects() {
-            sut.initializeFetchScreenDataSubject(sut.fetchScreenDataSubject.eraseToAnyPublisher())
+            sut.initializeFetchScreenDataSubject(sut.fetchScreenDataSubject)
                 .store(in: &disposeBag)
             sut.errorSubject
-                .sink { (_) in alertCalled = true }
+                .sink { (_) in failurePathCalled = true }
                 .store(in: &disposeBag)
         }
-        
         func stubCountryStats(withError error: ErrorType?) {
             if let error = error {
                 stub(mock) { stub in
@@ -115,7 +103,6 @@ class HomeScreenInitialization: QuickSpec {
                 }
             }
         }
-        
         func stubCountryStatsTotal(withError error: ErrorType?) {
             if let error = error {
                 stub(mock) { stub in

@@ -14,7 +14,7 @@ public protocol LoadableViewController {
 }
 
 public extension LoadableViewController where Self: UIViewController {
-    func initializeLoaderSubject(_ subject: PassthroughSubject<Bool, Never>) -> AnyCancellable {
+    func initializeLoaderSubject(_ subject: CurrentValueSubject<Bool, Never>) -> AnyCancellable {
         return subject
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: RunLoop.main)

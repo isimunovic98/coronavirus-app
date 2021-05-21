@@ -17,7 +17,7 @@ class HomeScreenTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
-        label.textColor = .invertedDarkGray
+        label.textColor = .darkGray
         label.textAlignment = .center
         label.font = label.font.withSize(14)
         label.backgroundColor = .backgroundColor_Cell
@@ -30,7 +30,7 @@ class HomeScreenTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
-        label.textColor = .invertedDarkGray
+        label.textColor = .darkGray
         label.textAlignment = .center
         label.font = label.font.withSize(14)
         label.backgroundColor = .backgroundColor_Cell
@@ -42,7 +42,7 @@ class HomeScreenTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
-        label.textColor = .invertedDarkGray
+        label.textColor = .darkGray
         label.textAlignment = .center
         label.font = label.font.withSize(14)
         label.backgroundColor = .backgroundColor_Cell
@@ -54,7 +54,7 @@ class HomeScreenTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
-        label.textColor = .invertedDarkGray
+        label.textColor = .darkGray
         label.textAlignment = .center
         label.font = label.font.withSize(14)
         label.backgroundColor = .backgroundColor_Cell
@@ -66,7 +66,7 @@ class HomeScreenTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 5
-        label.textColor = .invertedDarkGray
+        label.textColor = .darkGray
         label.textAlignment = .center
         label.font = label.font.withSize(14)
         label.backgroundColor = .backgroundColor_Cell

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02436FF52645568D00C89A1B /* LatestNewsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02436FF42645568D00C89A1B /* LatestNewsViewModelTest.swift */; };
-		02437004264557E600C89A1B /* LatestNewsList.json in Resources */ = {isa = PBXBuildFile; fileRef = 02437003264557E600C89A1B /* LatestNewsList.json */; };
 		0255A0A726529F2800432775 /* StatisticsScreenCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0255A0A626529F2800432775 /* StatisticsScreenCoordinatorDelegate.swift */; };
 		025AF80026455EC9009081AD /* LatestNewsGeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025AF7FF26455EC9009081AD /* LatestNewsGeneratedMocks.swift */; };
 		0263E41926493C490048C2D6 /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0263E41626493C490048C2D6 /* CountryTableViewCell.swift */; };
@@ -39,7 +37,7 @@
 		6018001D2654FD1300CD7515 /* RemovableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6018001C2654FD1300CD7515 /* RemovableView.swift */; };
 		6018002026550EFD00CD7515 /* DarkModeEmptyStateAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 6018001E26550EFD00CD7515 /* DarkModeEmptyStateAnimation.json */; };
 		6018002126550EFD00CD7515 /* LightModeEmptyStateAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 6018001F26550EFD00CD7515 /* LightModeEmptyStateAnimation.json */; };
-		60180025265563B900CD7515 /* LoadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60180024265563B900CD7515 /* LoadState.swift */; };
+		601C2F2F26565AAA000C9D42 /* StatisticsScreenInitialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601C2F2E26565AAA000C9D42 /* StatisticsScreenInitialization.swift */; };
 		602F4C5F2600CB860034A798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F4C5E2600CB860034A798 /* AppDelegate.swift */; };
 		60311BA6264428B1006DD857 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60311BA5264428B1006DD857 /* AppCoordinator.swift */; };
 		60311BAE264428C5006DD857 /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60311BA7264428C4006DD857 /* CoordinatorDelegate.swift */; };
@@ -103,6 +101,8 @@
 		603F2A1B264F01DC00264779 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F2A1A264F01DC00264779 /* EmptyView.swift */; };
 		60438DD4264E6D880064CC0B /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60438DD3264E6D880064CC0B /* UIColor+Extensions.swift */; };
 		60438DD6264E87180064CC0B /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60438DD5264E87180064CC0B /* UIImage+Extensions.swift */; };
+		6053656F2656508E0024FC91 /* LatestNewsList.json in Resources */ = {isa = PBXBuildFile; fileRef = 6053656C2656508E0024FC91 /* LatestNewsList.json */; };
+		60536578265652C80024FC91 /* LatestNewsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60536577265652C80024FC91 /* LatestNewsViewModelTest.swift */; };
 		6066CB7F264BD10800B01B0E /* HomeScreenTableViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066CB7E264BD10800B01B0E /* HomeScreenTableViewHeaderCell.swift */; };
 		6066CB83264C155200B01B0E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6066CB82264C155200B01B0E /* Colors.xcassets */; };
 		6066CB85264C157800B01B0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6066CB84264C157800B01B0E /* Images.xcassets */; };
@@ -165,7 +165,7 @@
 		6018001C2654FD1300CD7515 /* RemovableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovableView.swift; sourceTree = "<group>"; };
 		6018001E26550EFD00CD7515 /* DarkModeEmptyStateAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DarkModeEmptyStateAnimation.json; sourceTree = "<group>"; };
 		6018001F26550EFD00CD7515 /* LightModeEmptyStateAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LightModeEmptyStateAnimation.json; sourceTree = "<group>"; };
-		60180024265563B900CD7515 /* LoadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadState.swift; sourceTree = "<group>"; };
+		601C2F2E26565AAA000C9D42 /* StatisticsScreenInitialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsScreenInitialization.swift; sourceTree = "<group>"; };
 		602F4C5B2600CB860034A798 /* CoronaVirusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaVirusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602F4C5E2600CB860034A798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		602F4C6C2600CB870034A798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -233,6 +233,8 @@
 		603F2A1A264F01DC00264779 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		60438DD3264E6D880064CC0B /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		60438DD5264E87180064CC0B /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		6053656C2656508E0024FC91 /* LatestNewsList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LatestNewsList.json; sourceTree = "<group>"; };
+		60536577265652C80024FC91 /* LatestNewsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestNewsViewModelTest.swift; sourceTree = "<group>"; };
 		6066CB7E264BD10800B01B0E /* HomeScreenTableViewHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTableViewHeaderCell.swift; sourceTree = "<group>"; };
 		6066CB82264C155200B01B0E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		6066CB84264C157800B01B0E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -487,6 +489,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		601C2F2D26565A89000C9D42 /* StatsScreenUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				601C2F2E26565AAA000C9D42 /* StatisticsScreenInitialization.swift */,
+			);
+			path = StatsScreenUnitTests;
+			sourceTree = "<group>";
+		};
 		601C2F3026566E50000C9D42 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,7 +607,9 @@
 		602F4C742600CB870034A798 /* CoronaVirusAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				601C2F2D26565A89000C9D42 /* StatsScreenUnitTests */,
 				60ED182F26473E8E007FEBB7 /* GeneratedMocks.swift */,
+				60536576265652B40024FC91 /* LatestNewsUnitTests */,
 				60ED18382647403E007FEBB7 /* JSONMocks */,
 				60ED183026473E8E007FEBB7 /* CountrySelectionUnitTests */,
 				60ED182C26473E8E007FEBB7 /* HomeScreenUnitTests */,
@@ -889,6 +901,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		60536576265652B40024FC91 /* LatestNewsUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				60536577265652C80024FC91 /* LatestNewsViewModelTest.swift */,
+			);
+			path = LatestNewsUnitTests;
+			sourceTree = "<group>";
+		};
 		605811252643DE070086E00D /* Target Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -983,6 +1003,7 @@
 		60ED18382647403E007FEBB7 /* JSONMocks */ = {
 			isa = PBXGroup;
 			children = (
+				6053656C2656508E0024FC91 /* LatestNewsList.json */,
 				60ED18392647403E007FEBB7 /* Covid19CountryStats.json */,
 				60ED183A2647403E007FEBB7 /* Covid19WorldwideStats.json */,
 				60ED183B2647403E007FEBB7 /* Covid19CountryList.json */,
@@ -1095,7 +1116,7 @@
 				60ED183D2647403E007FEBB7 /* Covid19WorldwideStats.json in Resources */,
 				60ED183E2647403E007FEBB7 /* Covid19CountryList.json in Resources */,
 				60ED184026474061007FEBB7 /* Covid19CountryTotalStats.json in Resources */,
-				02437004264557E600C89A1B /* LatestNewsList.json in Resources */,
+				6053656F2656508E0024FC91 /* LatestNewsList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1152,6 +1173,8 @@
 				"${PROJECT_DIR}/${PROJECT_NAME}/Common/Networking/Repositories/Covid19RepositoryImpl.swift",
 				"${PROJECT_DIR}/${PROJECT_NAME}/Modules/HomeScreen/Coordinators/HomeScreenCoordinatorImpl.swift",
 				"${PROJECT_DIR}/${PROJECT_NAME}/Modules/CountrySelection/Coordinators/CountrySelectionCoordinator.swift",
+				"${PROJECT_DIR}/${PROJECT_NAME}/Modules/LatestNews/ViewModel/LatestNewsViewModel.swift",
+				"${PROJECT_DIR}/${PROJECT_NAME}/Modules/StatisticsScreen/Coordinator/StatisticsScreenCoordinator.swift",
 			);
 			outputFileListPaths = (
 			);
@@ -1160,7 +1183,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${PROJECT_DIR}/${PROJECT_NAME}/Common/Networking/Repositories/Covid19RepositoryImpl.swift\"\\\n\"${PROJECT_DIR}/${PROJECT_NAME}/Modules/HomeScreen/Coordinators/HomeScreenCoordinatorImpl.swift\"\\\n\"${PROJECT_DIR}/${PROJECT_NAME}/Modules/CountrySelection/Coordinators/CountrySelectionCoordinator.swift\"\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
+			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${PROJECT_DIR}/${PROJECT_NAME}/Common/Networking/Repositories/Covid19RepositoryImpl.swift\" \\\n\"${PROJECT_DIR}/${PROJECT_NAME}/Modules/HomeScreen/Coordinators/HomeScreenCoordinatorImpl.swift\" \\\n\"${PROJECT_DIR}/${PROJECT_NAME}/Modules/CountrySelection/Coordinators/CountrySelectionCoordinator.swift\" \\\n\"${PROJECT_DIR}/${PROJECT_NAME}/Modules/StatisticsScreen/Coordinator/StatisticsScreenCoordinator.swift\" \\\n\"${PROJECT_DIR}/${PROJECT_NAME}/Modules/LatestNews/ViewModel/LatestNewsViewModel.swift\"\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
 		};
 		D25F71D401592FA03A5559C2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1309,11 +1332,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				60ED183526473E8E007FEBB7 /* CountrySelectionViewModelTest.swift in Sources */,
+				60536578265652C80024FC91 /* LatestNewsViewModelTest.swift in Sources */,
+				601C2F2F26565AAA000C9D42 /* StatisticsScreenInitialization.swift in Sources */,
 				60ED183326473E8E007FEBB7 /* HomeScreenInitialization.swift in Sources */,
 				60ED183426473E8E007FEBB7 /* GeneratedMocks.swift in Sources */,
 				60ED183226473E8E007FEBB7 /* HomeScreenUserInteraction.swift in Sources */,
 				025AF80026455EC9009081AD /* LatestNewsGeneratedMocks.swift in Sources */,
-				02436FF52645568D00C89A1B /* LatestNewsViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

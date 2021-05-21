@@ -18,7 +18,7 @@ class StatisticsScreenViewModel: LoaderViewModel, ErrorableViewModel {
     private var navigationInformation = NavigationInformation()
     var screenDataReady = PassthroughSubject<UseCaseSelection, Never>()
     var fetchScreenDataSubject = CurrentValueSubject<(usecase: UseCaseSelection,shouldShowLoader: Bool), Never>((usecase: UserDefaultsService.getUsecase(),shouldShowLoader: true))
-    var loaderPublisher = PassthroughSubject<Bool, Never>()
+    var loaderPublisher = CurrentValueSubject<Bool, Never>(true)
     var errorSubject = PassthroughSubject<ErrorType?, Never>()
     
     init(repository: Covid19Repository) {
@@ -48,11 +48,11 @@ extension StatisticsScreenViewModel {
             case .success(let newScreenData):
                 self.screenData = newScreenData
                 self.screenDataReady.send(usecase)
-                errorSubject.send(nil)
+                self.errorSubject.send(nil)
             case .failure(let error):
-                errorSubject.send(error)
+                self.errorSubject.send(error)
             }
-            loaderPublisher.send(false)
+            self.loaderPublisher.send(false)
         }
     }
 }
