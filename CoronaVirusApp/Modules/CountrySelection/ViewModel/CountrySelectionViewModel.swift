@@ -18,7 +18,7 @@ class CountrySelectionViewModel: LoaderViewModel, ErrorableViewModel {
     let loadData = CurrentValueSubject<Bool, Never>(true)
     let dataReadyPublisher = PassthroughSubject<Void, Never>()
     let searchPublisher = PassthroughSubject<String, Never>()
-    var loaderPublisher = PassthroughSubject<Bool, Never>()
+    var loaderPublisher = CurrentValueSubject<Bool, Never>(true)
     
     init(repository: Covid19Repository) { self.repository = repository }
     deinit { print("CountrySelection VM deinit") }

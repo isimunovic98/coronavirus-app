@@ -2,7 +2,9 @@
 import Foundation
 
 struct UserDefaultsService {
+    
     private static let userDefaults = UserDefaults.standard
+    
 
     static func update(_ item: UserDefaultsDomainItem) {
         userDefaults.setValue(item.usecase, forKey: "usecase")

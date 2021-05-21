@@ -8,10 +8,10 @@ class HomeScreenViewModel: NSObject, ErrorableViewModel, LoaderViewModel {
     var coordinator: HomeScreenCoordinatorImpl?
     var repository: Covid19Repository
     var screenData = HomeScreenDomainItem()
-    var loaderPublisher = PassthroughSubject<Bool, Never>()
+    var loaderPublisher = CurrentValueSubject<Bool, Never>(true)
     var errorSubject = PassthroughSubject<ErrorType?, Never>()
     var updateScreenSubject = PassthroughSubject<Bool, Never>()
-    var fetchScreenDataSubject = PassthroughSubject<LoadState, Never>()
+    var fetchScreenDataSubject = PassthroughSubject<UseCaseSelection, Never>()
     var locationManager: CLLocationManager
     
     init(repository: Covid19Repository) {
@@ -28,20 +28,11 @@ extension HomeScreenViewModel {
     
     func changeUsecaseSelection() { coordinator?.openCountrySelection() }
     
-    func initializeFetchScreenDataSubject(_ subject: AnyPublisher<LoadState, Never>) -> AnyCancellable {
+    func initializeFetchScreenDataSubject(_ subject: PassthroughSubject<UseCaseSelection, Never>) -> AnyCancellable {
         subject
-            .flatMap { [unowned self] (state) -> AnyPublisher<Result<HomeScreenDomainItem, ErrorType>, Never> in
+            .flatMap { [unowned self] (usecase) -> AnyPublisher<Result<HomeScreenDomainItem, ErrorType>, Never> in
                 self.loaderPublisher.send(true)
-                switch state {
-                case .loadWithLocation (let countryName):
-                    let slug = StringUtils.createSlug(from: countryName)
-                    let item = UserDefaultsDomainItem(usecase: slug)
-                    UserDefaultsService.update(item)
-                    self.locationManager.stopUpdatingLocation()
-                    return self.getData(UserDefaultsService.getUsecase())
-                case .loadWithSavedUsecase:
-                    return self.getData(UserDefaultsService.getUsecase())
-                }
+                return self.getData(usecase)
             }            
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: RunLoop.main)
@@ -53,8 +44,10 @@ extension HomeScreenViewModel {
     func getData(_ usecase: UseCaseSelection) -> AnyPublisher<Result<HomeScreenDomainItem, ErrorType>, Never> {
         switch usecase {
         case .country(let countryName):
+            UserDefaultsService.update(.init(usecase: countryName))
             return getCountryData(name: countryName)
         case .worldwide:
+            UserDefaultsService.update(.init(usecase: "worldwide"))
             return getWorldwideData()
         }
     }
@@ -96,6 +89,7 @@ extension HomeScreenViewModel {
     func handleResult(_ result: Result<HomeScreenDomainItem, ErrorType>) {
         switch result {
         case .success(let item):
+            UserDefaultsService.update(.init(usecase: item.title))
             screenData = item
             updateScreenSubject.send(true)
             handleError(nil)
@@ -104,7 +98,6 @@ extension HomeScreenViewModel {
         }
         loaderPublisher.send(false)
     }
-    
     
     func createScreenData(from totalStats: [CountryResponseItem], and dayOneStats: [CountryResponseItem]) -> HomeScreenDomainItem {
         var screenData = HomeScreenDomainItem()
@@ -126,7 +119,6 @@ extension HomeScreenViewModel {
             screenData.deathsDifferenceCount = totalStatsLast.deaths - totalStatsSecondToLast.deaths
             let countryOnlyDayOneData: [CountryResponseItem] = dayOneStats.filter({ $0.province == "" }).reversed()
             screenData.details = createDetails(from: countryOnlyDayOneData )
-            screenData.details.remove(at: 0)
             screenData.lastUpdateDate = Date()
         }
         return screenData
@@ -205,21 +197,19 @@ extension HomeScreenViewModel: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
-            getCountryFromLocation(locationManager.location)
+            if let locationExists = locationManager.location {
+                CLGeocoder().reverseGeocodeLocation(locationExists) { [unowned self] placemarks, error in
+                    guard let countryName: String = placemarks?.first?.country,
+                          error == nil else { return }
+                    self.fetchScreenDataSubject.send(.country(StringUtils.createSlug(from: countryName)))
+                }
+            }
         case .notDetermined:
+            loaderPublisher.send(true)
             locationManager.requestWhenInUseAuthorization()
         case .denied, .restricted:
-            fetchScreenDataSubject.send(.loadWithSavedUsecase)
+            fetchScreenDataSubject.send(UserDefaultsService.getUsecase())
         default: break
-        }
-    }
-
-    func getCountryFromLocation(_ location: CLLocation?) {
-        guard let locationExists = location else { return }
-        CLGeocoder().reverseGeocodeLocation(locationExists) { [unowned self] placemarks, error in
-            guard let country: String = placemarks?.first?.country,
-                  error == nil else { return }
-            self.fetchScreenDataSubject.send(.loadWithLocation(country))
         }
     }
 }

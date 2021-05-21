@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol LoaderViewModel {
-    var loaderPublisher: PassthroughSubject<Bool, Never> { get }
+    var loaderPublisher: CurrentValueSubject<Bool, Never> { get }
 }

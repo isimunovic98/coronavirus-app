@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: CoronaVirusApp/Common/Networking/Repositories/Covid19RepositoryImpl.swift at 2021-05-09 13:07:46 +0000
+// MARK: - Mocks generated from file: CoronaVirusApp/Common/Networking/Repositories/Covid19RepositoryImpl.swift at 2021-05-20 14:51:00 +0000
 
 
 import Cuckoo
@@ -188,7 +188,7 @@ import Foundation
 }
 
 
-// MARK: - Mocks generated from file: CoronaVirusApp/Modules/HomeScreen/Coordinators/HomeScreenCoordinatorImpl.swift at 2021-05-09 13:07:46 +0000
+// MARK: - Mocks generated from file: CoronaVirusApp/Modules/HomeScreen/Coordinators/HomeScreenCoordinatorImpl.swift at 2021-05-20 14:51:00 +0000
 
 
 import Cuckoo
@@ -517,6 +517,622 @@ import UIKit
     }
     
      override func viewControllerDidFinish()   {
+        return DefaultValueRegistry.defaultValue(for: (Void).self)
+    }
+    
+}
+
+
+// MARK: - Mocks generated from file: CoronaVirusApp/Modules/LatestNews/ViewModel/LatestNewsViewModel.swift at 2021-05-20 14:51:00 +0000
+
+//
+//  LatestNewsViewModel.swift
+//  CoronaVirusApp
+//
+//  Created by Ivan Simunovic on 30.04.2021..
+//
+
+import Cuckoo
+@testable import CoronaVirusApp
+
+import Combine
+import Foundation
+
+
+ class MockLatestNewsViewModel: LatestNewsViewModel, Cuckoo.ClassMock {
+    
+     typealias MocksType = LatestNewsViewModel
+    
+     typealias Stubbing = __StubbingProxy_LatestNewsViewModel
+     typealias Verification = __VerificationProxy_LatestNewsViewModel
+
+     let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: true)
+
+    
+    private var __defaultImplStub: LatestNewsViewModel?
+
+     func enableDefaultImplementation(_ stub: LatestNewsViewModel) {
+        __defaultImplStub = stub
+        cuckoo_manager.enableDefaultStubImplementation()
+    }
+    
+
+    
+    
+    
+     override var loadingInProgress: Bool {
+        get {
+            return cuckoo_manager.getter("loadingInProgress",
+                superclassCall:
+                    
+                    super.loadingInProgress
+                    ,
+                defaultCall: __defaultImplStub!.loadingInProgress)
+        }
+        
+        set {
+            cuckoo_manager.setter("loadingInProgress",
+                value: newValue,
+                superclassCall:
+                    
+                    super.loadingInProgress = newValue
+                    ,
+                defaultCall: __defaultImplStub!.loadingInProgress = newValue)
+        }
+        
+    }
+    
+    
+    
+     override var pagesAvailable: Bool {
+        get {
+            return cuckoo_manager.getter("pagesAvailable",
+                superclassCall:
+                    
+                    super.pagesAvailable
+                    ,
+                defaultCall: __defaultImplStub!.pagesAvailable)
+        }
+        
+        set {
+            cuckoo_manager.setter("pagesAvailable",
+                value: newValue,
+                superclassCall:
+                    
+                    super.pagesAvailable = newValue
+                    ,
+                defaultCall: __defaultImplStub!.pagesAvailable = newValue)
+        }
+        
+    }
+    
+    
+    
+     override var screenData: [LatestNewsDomainItem] {
+        get {
+            return cuckoo_manager.getter("screenData",
+                superclassCall:
+                    
+                    super.screenData
+                    ,
+                defaultCall: __defaultImplStub!.screenData)
+        }
+        
+        set {
+            cuckoo_manager.setter("screenData",
+                value: newValue,
+                superclassCall:
+                    
+                    super.screenData = newValue
+                    ,
+                defaultCall: __defaultImplStub!.screenData = newValue)
+        }
+        
+    }
+    
+    
+    
+     override var coordinatorDelegate: LatestNewsCoordinatorDelegate? {
+        get {
+            return cuckoo_manager.getter("coordinatorDelegate",
+                superclassCall:
+                    
+                    super.coordinatorDelegate
+                    ,
+                defaultCall: __defaultImplStub!.coordinatorDelegate)
+        }
+        
+        set {
+            cuckoo_manager.setter("coordinatorDelegate",
+                value: newValue,
+                superclassCall:
+                    
+                    super.coordinatorDelegate = newValue
+                    ,
+                defaultCall: __defaultImplStub!.coordinatorDelegate = newValue)
+        }
+        
+    }
+    
+    
+    
+     override var loaderPublisher: CurrentValueSubject<Bool, Never> {
+        get {
+            return cuckoo_manager.getter("loaderPublisher",
+                superclassCall:
+                    
+                    super.loaderPublisher
+                    ,
+                defaultCall: __defaultImplStub!.loaderPublisher)
+        }
+        
+        set {
+            cuckoo_manager.setter("loaderPublisher",
+                value: newValue,
+                superclassCall:
+                    
+                    super.loaderPublisher = newValue
+                    ,
+                defaultCall: __defaultImplStub!.loaderPublisher = newValue)
+        }
+        
+    }
+    
+    
+    
+     override var errorSubject: PassthroughSubject<ErrorType?, Never> {
+        get {
+            return cuckoo_manager.getter("errorSubject",
+                superclassCall:
+                    
+                    super.errorSubject
+                    ,
+                defaultCall: __defaultImplStub!.errorSubject)
+        }
+        
+        set {
+            cuckoo_manager.setter("errorSubject",
+                value: newValue,
+                superclassCall:
+                    
+                    super.errorSubject = newValue
+                    ,
+                defaultCall: __defaultImplStub!.errorSubject = newValue)
+        }
+        
+    }
+    
+
+    
+
+    
+
+	 struct __StubbingProxy_LatestNewsViewModel: Cuckoo.StubbingProxy {
+	    private let cuckoo_manager: Cuckoo.MockManager
+	
+	     init(manager: Cuckoo.MockManager) {
+	        self.cuckoo_manager = manager
+	    }
+	    
+	    
+	    var loadingInProgress: Cuckoo.ClassToBeStubbedProperty<MockLatestNewsViewModel, Bool> {
+	        return .init(manager: cuckoo_manager, name: "loadingInProgress")
+	    }
+	    
+	    
+	    var pagesAvailable: Cuckoo.ClassToBeStubbedProperty<MockLatestNewsViewModel, Bool> {
+	        return .init(manager: cuckoo_manager, name: "pagesAvailable")
+	    }
+	    
+	    
+	    var screenData: Cuckoo.ClassToBeStubbedProperty<MockLatestNewsViewModel, [LatestNewsDomainItem]> {
+	        return .init(manager: cuckoo_manager, name: "screenData")
+	    }
+	    
+	    
+	    var coordinatorDelegate: Cuckoo.ClassToBeStubbedOptionalProperty<MockLatestNewsViewModel, LatestNewsCoordinatorDelegate> {
+	        return .init(manager: cuckoo_manager, name: "coordinatorDelegate")
+	    }
+	    
+	    
+	    var loaderPublisher: Cuckoo.ClassToBeStubbedProperty<MockLatestNewsViewModel, CurrentValueSubject<Bool, Never>> {
+	        return .init(manager: cuckoo_manager, name: "loaderPublisher")
+	    }
+	    
+	    
+	    var errorSubject: Cuckoo.ClassToBeStubbedProperty<MockLatestNewsViewModel, PassthroughSubject<ErrorType?, Never>> {
+	        return .init(manager: cuckoo_manager, name: "errorSubject")
+	    }
+	    
+	    
+	}
+
+	 struct __VerificationProxy_LatestNewsViewModel: Cuckoo.VerificationProxy {
+	    private let cuckoo_manager: Cuckoo.MockManager
+	    private let callMatcher: Cuckoo.CallMatcher
+	    private let sourceLocation: Cuckoo.SourceLocation
+	
+	     init(manager: Cuckoo.MockManager, callMatcher: Cuckoo.CallMatcher, sourceLocation: Cuckoo.SourceLocation) {
+	        self.cuckoo_manager = manager
+	        self.callMatcher = callMatcher
+	        self.sourceLocation = sourceLocation
+	    }
+	
+	    
+	    
+	    var loadingInProgress: Cuckoo.VerifyProperty<Bool> {
+	        return .init(manager: cuckoo_manager, name: "loadingInProgress", callMatcher: callMatcher, sourceLocation: sourceLocation)
+	    }
+	    
+	    
+	    var pagesAvailable: Cuckoo.VerifyProperty<Bool> {
+	        return .init(manager: cuckoo_manager, name: "pagesAvailable", callMatcher: callMatcher, sourceLocation: sourceLocation)
+	    }
+	    
+	    
+	    var screenData: Cuckoo.VerifyProperty<[LatestNewsDomainItem]> {
+	        return .init(manager: cuckoo_manager, name: "screenData", callMatcher: callMatcher, sourceLocation: sourceLocation)
+	    }
+	    
+	    
+	    var coordinatorDelegate: Cuckoo.VerifyOptionalProperty<LatestNewsCoordinatorDelegate> {
+	        return .init(manager: cuckoo_manager, name: "coordinatorDelegate", callMatcher: callMatcher, sourceLocation: sourceLocation)
+	    }
+	    
+	    
+	    var loaderPublisher: Cuckoo.VerifyProperty<CurrentValueSubject<Bool, Never>> {
+	        return .init(manager: cuckoo_manager, name: "loaderPublisher", callMatcher: callMatcher, sourceLocation: sourceLocation)
+	    }
+	    
+	    
+	    var errorSubject: Cuckoo.VerifyProperty<PassthroughSubject<ErrorType?, Never>> {
+	        return .init(manager: cuckoo_manager, name: "errorSubject", callMatcher: callMatcher, sourceLocation: sourceLocation)
+	    }
+	    
+	
+	    
+	}
+}
+
+ class LatestNewsViewModelStub: LatestNewsViewModel {
+    
+    
+     override var loadingInProgress: Bool {
+        get {
+            return DefaultValueRegistry.defaultValue(for: (Bool).self)
+        }
+        
+        set { }
+        
+    }
+    
+    
+     override var pagesAvailable: Bool {
+        get {
+            return DefaultValueRegistry.defaultValue(for: (Bool).self)
+        }
+        
+        set { }
+        
+    }
+    
+    
+     override var screenData: [LatestNewsDomainItem] {
+        get {
+            return DefaultValueRegistry.defaultValue(for: ([LatestNewsDomainItem]).self)
+        }
+        
+        set { }
+        
+    }
+    
+    
+     override var coordinatorDelegate: LatestNewsCoordinatorDelegate? {
+        get {
+            return DefaultValueRegistry.defaultValue(for: (LatestNewsCoordinatorDelegate?).self)
+        }
+        
+        set { }
+        
+    }
+    
+    
+     override var loaderPublisher: CurrentValueSubject<Bool, Never> {
+        get {
+            return DefaultValueRegistry.defaultValue(for: (CurrentValueSubject<Bool, Never>).self)
+        }
+        
+        set { }
+        
+    }
+    
+    
+     override var errorSubject: PassthroughSubject<ErrorType?, Never> {
+        get {
+            return DefaultValueRegistry.defaultValue(for: (PassthroughSubject<ErrorType?, Never>).self)
+        }
+        
+        set { }
+        
+    }
+    
+
+    
+
+    
+}
+
+
+// MARK: - Mocks generated from file: CoronaVirusApp/Modules/StatisticsScreen/Coordinator/StatisticsScreenCoordinator.swift at 2021-05-20 14:51:00 +0000
+
+
+import Cuckoo
+@testable import CoronaVirusApp
+
+import MapKit
+import UIKit
+
+
+ class MockStatisticsScreenCoordinator: StatisticsScreenCoordinator, Cuckoo.ClassMock {
+    
+     typealias MocksType = StatisticsScreenCoordinator
+    
+     typealias Stubbing = __StubbingProxy_StatisticsScreenCoordinator
+     typealias Verification = __VerificationProxy_StatisticsScreenCoordinator
+
+     let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: true)
+
+    
+    private var __defaultImplStub: StatisticsScreenCoordinator?
+
+     func enableDefaultImplementation(_ stub: StatisticsScreenCoordinator) {
+        __defaultImplStub = stub
+        cuckoo_manager.enableDefaultStubImplementation()
+    }
+    
+
+    
+    
+    
+     override var parent: (ParentCoordinatorDelegate & CountrySelectionHandler)? {
+        get {
+            return cuckoo_manager.getter("parent",
+                superclassCall:
+                    
+                    super.parent
+                    ,
+                defaultCall: __defaultImplStub!.parent)
+        }
+        
+        set {
+            cuckoo_manager.setter("parent",
+                value: newValue,
+                superclassCall:
+                    
+                    super.parent = newValue
+                    ,
+                defaultCall: __defaultImplStub!.parent = newValue)
+        }
+        
+    }
+    
+    
+    
+     override var childCoordinators: [Coordinator] {
+        get {
+            return cuckoo_manager.getter("childCoordinators",
+                superclassCall:
+                    
+                    super.childCoordinators
+                    ,
+                defaultCall: __defaultImplStub!.childCoordinators)
+        }
+        
+        set {
+            cuckoo_manager.setter("childCoordinators",
+                value: newValue,
+                superclassCall:
+                    
+                    super.childCoordinators = newValue
+                    ,
+                defaultCall: __defaultImplStub!.childCoordinators = newValue)
+        }
+        
+    }
+    
+    
+    
+     override var presenter: UINavigationController {
+        get {
+            return cuckoo_manager.getter("presenter",
+                superclassCall:
+                    
+                    super.presenter
+                    ,
+                defaultCall: __defaultImplStub!.presenter)
+        }
+        
+        set {
+            cuckoo_manager.setter("presenter",
+                value: newValue,
+                superclassCall:
+                    
+                    super.presenter = newValue
+                    ,
+                defaultCall: __defaultImplStub!.presenter = newValue)
+        }
+        
+    }
+    
+    
+    
+     override var controller: StatistiscScreenViewController {
+        get {
+            return cuckoo_manager.getter("controller",
+                superclassCall:
+                    
+                    super.controller
+                    ,
+                defaultCall: __defaultImplStub!.controller)
+        }
+        
+        set {
+            cuckoo_manager.setter("controller",
+                value: newValue,
+                superclassCall:
+                    
+                    super.controller = newValue
+                    ,
+                defaultCall: __defaultImplStub!.controller = newValue)
+        }
+        
+    }
+    
+
+    
+
+    
+    
+    
+     override func start()  {
+        
+    return cuckoo_manager.call("start()",
+            parameters: (),
+            escapingParameters: (),
+            superclassCall:
+                
+                super.start()
+                ,
+            defaultCall: __defaultImplStub!.start())
+        
+    }
+    
+
+	 struct __StubbingProxy_StatisticsScreenCoordinator: Cuckoo.StubbingProxy {
+	    private let cuckoo_manager: Cuckoo.MockManager
+	
+	     init(manager: Cuckoo.MockManager) {
+	        self.cuckoo_manager = manager
+	    }
+	    
+	    
+	    var parent: Cuckoo.ClassToBeStubbedOptionalProperty<MockStatisticsScreenCoordinator, (ParentCoordinatorDelegate & CountrySelectionHandler)> {
+	        return .init(manager: cuckoo_manager, name: "parent")
+	    }
+	    
+	    
+	    var childCoordinators: Cuckoo.ClassToBeStubbedProperty<MockStatisticsScreenCoordinator, [Coordinator]> {
+	        return .init(manager: cuckoo_manager, name: "childCoordinators")
+	    }
+	    
+	    
+	    var presenter: Cuckoo.ClassToBeStubbedProperty<MockStatisticsScreenCoordinator, UINavigationController> {
+	        return .init(manager: cuckoo_manager, name: "presenter")
+	    }
+	    
+	    
+	    var controller: Cuckoo.ClassToBeStubbedProperty<MockStatisticsScreenCoordinator, StatistiscScreenViewController> {
+	        return .init(manager: cuckoo_manager, name: "controller")
+	    }
+	    
+	    
+	    func start() -> Cuckoo.ClassStubNoReturnFunction<()> {
+	        let matchers: [Cuckoo.ParameterMatcher<Void>] = []
+	        return .init(stub: cuckoo_manager.createStub(for: MockStatisticsScreenCoordinator.self, method: "start()", parameterMatchers: matchers))
+	    }
+	    
+	}
+
+	 struct __VerificationProxy_StatisticsScreenCoordinator: Cuckoo.VerificationProxy {
+	    private let cuckoo_manager: Cuckoo.MockManager
+	    private let callMatcher: Cuckoo.CallMatcher
+	    private let sourceLocation: Cuckoo.SourceLocation
+	
+	     init(manager: Cuckoo.MockManager, callMatcher: Cuckoo.CallMatcher, sourceLocation: Cuckoo.SourceLocation) {
+	        self.cuckoo_manager = manager
+	        self.callMatcher = callMatcher
+	        self.sourceLocation = sourceLocation
+	    }
+	
+	    
+	    
+	    var parent: Cuckoo.VerifyOptionalProperty<(ParentCoordinatorDelegate & CountrySelectionHandler)> {
+	        return .init(manager: cuckoo_manager, name: "parent", callMatcher: callMatcher, sourceLocation: sourceLocation)
+	    }
+	    
+	    
+	    var childCoordinators: Cuckoo.VerifyProperty<[Coordinator]> {
+	        return .init(manager: cuckoo_manager, name: "childCoordinators", callMatcher: callMatcher, sourceLocation: sourceLocation)
+	    }
+	    
+	    
+	    var presenter: Cuckoo.VerifyProperty<UINavigationController> {
+	        return .init(manager: cuckoo_manager, name: "presenter", callMatcher: callMatcher, sourceLocation: sourceLocation)
+	    }
+	    
+	    
+	    var controller: Cuckoo.VerifyProperty<StatistiscScreenViewController> {
+	        return .init(manager: cuckoo_manager, name: "controller", callMatcher: callMatcher, sourceLocation: sourceLocation)
+	    }
+	    
+	
+	    
+	    @discardableResult
+	    func start() -> Cuckoo.__DoNotUse<(), Void> {
+	        let matchers: [Cuckoo.ParameterMatcher<Void>] = []
+	        return cuckoo_manager.verify("start()", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+	    }
+	    
+	}
+}
+
+ class StatisticsScreenCoordinatorStub: StatisticsScreenCoordinator {
+    
+    
+     override var parent: (ParentCoordinatorDelegate & CountrySelectionHandler)? {
+        get {
+            return DefaultValueRegistry.defaultValue(for: ((ParentCoordinatorDelegate & CountrySelectionHandler)?).self)
+        }
+        
+        set { }
+        
+    }
+    
+    
+     override var childCoordinators: [Coordinator] {
+        get {
+            return DefaultValueRegistry.defaultValue(for: ([Coordinator]).self)
+        }
+        
+        set { }
+        
+    }
+    
+    
+     override var presenter: UINavigationController {
+        get {
+            return DefaultValueRegistry.defaultValue(for: (UINavigationController).self)
+        }
+        
+        set { }
+        
+    }
+    
+    
+     override var controller: StatistiscScreenViewController {
+        get {
+            return DefaultValueRegistry.defaultValue(for: (StatistiscScreenViewController).self)
+        }
+        
+        set { }
+        
+    }
+    
+
+    
+
+    
+     override func start()   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     

@@ -27,14 +27,13 @@ class HomeScreenViewController: UIViewController, LoadableViewController {
         super.viewDidLoad()
         setup()
         setConstraintsMainView()
-        loaderOverlay.showLoader(viewController: self)
         setViewModelSubscribers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        viewModel.fetchScreenDataSubject.send(.loadWithSavedUsecase)
+        viewModel.fetchScreenDataSubject.send(UserDefaultsService.getUsecase())
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,11 +69,9 @@ extension HomeScreenViewController: UITableViewDataSource {
 }
 
 extension HomeScreenViewController: ErrorableViewController {
-    func tryAgainAfterError() { viewModel.fetchScreenDataSubject.send(.loadWithSavedUsecase) }
+    func tryAgainAfterError() { viewModel.fetchScreenDataSubject.send(UserDefaultsService.getUsecase()) }
     
-    func backToCountrySelection() {
-        viewModel.openCountrySelection()
-    }
+    func backToCountrySelection() { viewModel.openCountrySelection() }
 }
 
 extension HomeScreenViewController: CountrySelectionHandler {
@@ -84,7 +81,7 @@ extension HomeScreenViewController: CountrySelectionHandler {
 extension HomeScreenViewController {
     
     func setViewModelSubscribers() {
-        viewModel.initializeFetchScreenDataSubject(viewModel.fetchScreenDataSubject.eraseToAnyPublisher())
+        viewModel.initializeFetchScreenDataSubject(viewModel.fetchScreenDataSubject)
             .store(in: &disposeBag)
         viewModel.updateScreenSubject
             .subscribe(on: DispatchQueue.global(qos: .background))
