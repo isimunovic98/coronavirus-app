@@ -18,7 +18,8 @@ class StatusCaseView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.alignment = .center
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 10
         return stackView
     }()
 
@@ -98,9 +99,7 @@ class StatusCaseView: UIView {
     }
     
     func setConstraints() {
-        verticalStackView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(10)
-        }
+        verticalStackView.snp.makeConstraints { (make) in make.edges.equalToSuperview().inset(10) }
         titleLabel.snp.makeConstraints { make in make.height.equalTo(30)}
         totalCountLabel.snp.makeConstraints { make in make.height.equalTo(30) }
         differenceArrowImageView.snp.makeConstraints { make in
