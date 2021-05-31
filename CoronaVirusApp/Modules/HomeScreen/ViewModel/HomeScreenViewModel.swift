@@ -11,7 +11,7 @@ class HomeScreenViewModel: NSObject, ErrorableViewModel, LoaderViewModel {
     var loaderPublisher = CurrentValueSubject<Bool, Never>(true)
     var errorSubject = PassthroughSubject<ErrorType?, Never>()
     var updateScreenSubject = PassthroughSubject<Bool, Never>()
-    var fetchScreenDataSubject = PassthroughSubject<UseCaseSelection, Never>()
+    var fetchScreenDataSubject = CurrentValueSubject<UseCaseSelection, Never>(UserDefaultsService.getUsecase())
     var locationManager: CLLocationManager
     
     init(repository: Covid19Repository) {
@@ -28,7 +28,7 @@ extension HomeScreenViewModel {
     
     func changeUsecaseSelection() { coordinator?.openCountrySelection() }
     
-    func initializeFetchScreenDataSubject(_ subject: PassthroughSubject<UseCaseSelection, Never>) -> AnyCancellable {
+    func initializeFetchScreenDataSubject(_ subject: CurrentValueSubject<UseCaseSelection, Never>) -> AnyCancellable {
         subject
             .flatMap { [unowned self] (usecase) -> AnyPublisher<Result<HomeScreenDomainItem, ErrorType>, Never> in
                 self.loaderPublisher.send(true)
@@ -205,7 +205,6 @@ extension HomeScreenViewModel: CLLocationManagerDelegate {
                 }
             }
         case .notDetermined:
-            loaderPublisher.send(true)
             locationManager.requestWhenInUseAuthorization()
         case .denied, .restricted:
             fetchScreenDataSubject.send(UserDefaultsService.getUsecase())
