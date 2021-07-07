@@ -18,6 +18,7 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         self.tabBar.tintColor = .systemRed
         self.tabBar.backgroundColor = .backgroundColorSecond
+        
     }
     
     func setNavTitle(_ title: String) {
